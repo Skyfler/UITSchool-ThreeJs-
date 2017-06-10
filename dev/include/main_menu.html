@@ -1,0 +1,65 @@
+<!--<div class="main_menu container">-->
+	<div class="main_menu_container closed" id="main_menu">
+		<div class="top_panel">
+			<div class="container">
+				@@include('./header.html')
+				<div class="container_inner">
+					@@if (contacts === true) {
+						@@include('./main_menu_contacts.html')
+					}
+					<button class="dropdown_toggle" data-component="dropdown_toggle"></button>
+				</div>
+			</div>
+		</div>
+		<div class="main_menu_container_inner clr">
+			<nav class="dropdown_container flex flex-center-v">
+				<ul class="menu_bar flex">
+					<li>
+						<a href="/" data-target="main"><span>главная</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="courses"><span>онлайн курсы</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="feedback"><span>отзывы</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="works"><span>работы студентов</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="join_team"><span>присоединиться к команде</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="special_offers"><span>акции</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="blog"><span>Блог</span></a>
+					</li>
+					<li>
+						<a href="#" data-target="contacts"><span>контакты</span></a>
+					</li>
+				</ul>
+				<div class="main_menu_bottom">
+					<button class="choose_city">Выбрать город</button>
+				</div>
+				@@if (sideMenu) {
+					<div class="side_menu flex flex-center-v">
+						<div class="side_menu_container">
+							<ul class="side_menu_list flex">
+								@@foreach (sideMenu) {
+									<li class="side_menu_list_item flex flex-center-v" data-slide="@@slide">
+										<div class="side_menu_list_item_inner">
+											<span class="title">@@index</span>
+											<span class="number">@@number</span>
+										</div>
+									</li>
+								}
+							</ul>
+							<div class="slider_elem"></div>
+						</div>
+					</div>
+				}
+			</nav>
+		</div>
+	</div>
+<!--</div>-->

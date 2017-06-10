@@ -1,0 +1,69 @@
+<form action="php/send.php" class="contact_form clr content_inner flex" id="@@id">
+	<input type="hidden" value="info@uitschool.com" name="admin-email" data-component="form-input">
+	<input type="hidden" value="Ukrainian IT_School" name="admin-name" data-component="form-input">
+	<div class="waiting_block"></div>
+	<div class="block_main_title">@@title</div>
+	<div class="input_group input_tel custom_placeholder">
+		<div class="placeholder_elem">Номер телефона *</div>
+		<input type="text" placeholder="" class="required" name="Tel" data-component="form-input">
+	</div>
+	<div class="input_group input_email custom_placeholder">
+		<div class="placeholder_elem">Email *</div>
+		<input type="email" placeholder="" class="required" name="Email" data-component="form-input">
+	</div>
+	<div class="input_group input_direction custom_placeholder">
+		<div class="placeholder_elem">Выберите направление</div>
+		<div id="direction-select" class="customselect" name="Course" data-component="form-input">
+			<button class="title"></button>
+			<ul class="option_list">
+				<!-- значение хранится в свойстве data-value -->
+				<li class="option" data-value="option_1">Программирование для Android</li>
+				<li class="option" data-value="option_2">Тестирование ПО</li>
+				<li class="option" data-value="option_3">Автоматизация тестирования ПО</li>
+				<li class="option" data-value="option_4">Web design</li>
+				<li class="option" data-value="option_5">Основы информатизации: WEB + SQL + OOP</li>
+				<li class="option" data-value="option_6">Курс английского для IT специалистов</li>
+				<li class="option" data-value="option_7">Программирование Front-End: HTML+CSS+JAVASCRIPT</li>
+				<li class="option" data-value="option_8">Курсы программирования Java</li>
+				<li class="option" data-value="option_9">Курсы программирования PHP</li>
+				<li class="option" data-value="option_10">JavaScript</li>
+				<li class="option" data-value="option_11">SEO оптимизация</li>
+				<li class="option" data-value="option_12">Контекстная реклама</li>
+				<li class="option" data-value="option_13">SMM: Social Media Marketing</li>
+				<li class="option" data-value="option_14">IT Sales Management</li>
+				<li class="option" data-value="option_15">IT HR Management</li>
+			</ul>
+		</div>
+	</div>
+	<div class="input_group input_how_find custom_placeholder">
+		<div class="placeholder_elem">Откуда вы узнали о нас?</div>
+		<div id="how-find-select" class="customselect" name="How did you find us?" data-component="form-input">
+			<button class="title"></button>
+			<ul class="option_list">
+				<!-- значение хранится в свойстве data-value -->
+				<li class="option" data-value="option_1">Реклама в метрополитене</li>
+				<li class="option" data-value="option_2">Реклама в маршрутном такси</li>
+				<li class="option" data-value="option_3">Реклама в электротранспорте</li>
+				<li class="option" data-value="option_4">Полиграфическая реклама на улице</li>
+				<li class="option" data-value="option_5">Реклама в сети Интернет</li>
+				<li class="option" data-value="option_6">Поисковый движок Google</li>
+				<li class="option" data-value="option_7">Поисковый движок Yandex</li>
+				<li class="option" data-value="option_8">ВКонтакте</li>
+				<li class="option" data-value="option_9">Facebook</li>
+				<li class="option" data-value="option_10">Twitter</li>
+				<li class="option" data-value="option_11">Узнал от друга</li>
+			</ul>
+		</div>
+	</div>
+	<div class="input_group input_name custom_placeholder">
+		<div class="placeholder_elem">Фамилия Имя Отчество *</div>
+		<input type="text" placeholder="" class="required" name="Name" data-component="form-input">
+	</div>
+	<div class="input_group input_message custom_placeholder">
+		<div class="placeholder_elem">Сообщение</div>
+		<textarea placeholder="" name="Message" data-component="form-input"></textarea>
+	</div>
+	<div class="input_group input_submit">
+		<button type="submit" class="submit">Записаться</button>
+	</div>
+</form>

@@ -1,0 +1,115 @@
+.menu,
+.dropdown {
+	text-align: left;
+}
+
+.menu .navbar_header
+.checkbox_group_dropdown .navbar_header,
+.dropdown .navbar_header {
+	position: relative;
+}
+
+.menu .dropdown_container,
+.droppownGroupItem .dropdown_container,
+.checkbox_group_dropdown .dropdown_container,
+.dropdown .dropdown_container {
+	overflow: hidden;
+}
+
+.menu.closed .dropdown_container,
+.droppownGroupItem.closed .dropdown_container,
+.checkbox_group_dropdown.closed .dropdown_container,
+.dropdown.closed .dropdown_container {
+	display: none;
+}
+
+.menu[data-component="dropdown_toggle"],
+.droppownGroupItem [data-component="dropdown_toggle"],
+.checkbox_group_dropdown [data-component="dropdown_toggle"],
+.dropdown [data-component="dropdown_toggle"] {
+	cursor: pointer;
+}
+
+.menu .menu_bar,
+.dropdown .menu_bar {
+	position: relative;
+	display: block;
+}
+
+.menu li {
+	display: block;
+}
+
+.menu li a {
+	display: block;
+	line-height: normal;
+	transition-property: background-color, color, font-size, font-weight;
+	transition-timing-function: ease;
+	transition-duration: 1s;
+	transition-delay: 0s;
+}
+
+.menu .submenu_bar {
+	overflow-y: hidden;
+	transition: height ease 0.5s;
+}
+
+.menu [data-component="submenu_container"].closed .submenu_bar {
+	display: none;
+}
+
+.menu [data-component="submenu_container"].collapsed .submenu_bar {
+	height: 1px;
+}
+
+.menu .submenu {
+	display: block;
+}
+
+@media screen and (min-width: 768px) {
+
+	.menu.closed .dropdown_container {
+		display: block;
+		height: auto;
+	}
+
+	.menu .menu_bar {
+		text-align: center;
+		font-size: 1px;
+		line-height: 0;
+	}
+
+	.menu .dropdown_toggle {
+		display: none;
+	}
+
+	.menu .menu_bar:after {
+		width: 100%;
+		height: 0;
+		visibility: hidden;
+		overflow: hidden;
+		content: "";
+		display: inline-block;
+	}
+
+	.menu li {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.menu .submenu_bar {
+		display: none;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+	}
+
+	.menu [data-component="submenu_container"]:hover .submenu_bar,
+	.menu [data-component="submenu_container"].closed:hover .submenu_bar {
+		height: auto;
+		display: block;
+		opacity: 1;
+	}
+
+}

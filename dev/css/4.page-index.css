@@ -1,0 +1,40 @@
+html.page-index,
+.page-index body {
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+
+.page-index body {
+	background: #0b0b0b;
+}
+
+.page-index body:before {
+	content: "";
+	display: block;
+	padding-top: 90px;
+	width: 100%;
+}
+.page-index body:after {
+	content: "";
+	display: block;
+	padding-bottom: 90px;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+
+	.page-index body:after {
+		padding-bottom: 130px;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.page-index body:before {
+		padding-top: 130px;
+	}
+
+}
+

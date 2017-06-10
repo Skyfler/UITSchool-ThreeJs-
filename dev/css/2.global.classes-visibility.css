@@ -1,0 +1,116 @@
+.hidden,
+.sm-visible,
+.md-visible,
+.lg-visible {
+	display: none!important;
+}
+
+.xs-visible {
+	display: block !important;
+}
+
+@media screen and (min-width: 465px) {
+
+	.max-width-464 {
+		display: none!important;
+	}
+
+	.min-width-465 {
+		display: block!important;
+	}
+
+}
+
+@media screen and (min-width: 500px) {
+
+	.max-width-499 {
+		display: none!important;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.xs-visible,
+	.md-visible,
+	.lg-visible {
+		display: none!important;
+	}
+
+	.sm-visible {
+		display: block !important;
+	}
+
+	.max-width-767 {
+		display: none !important;
+	}
+
+	.min-width-768 {
+		display: block!important;
+	}
+
+}
+
+@media screen and (min-width: 900px) {
+
+	.max-width-899 {
+		display: none!important;
+	}
+
+	.min-width-900 {
+		display: block!important;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.xs-visible,
+	.sm-visible,
+	.lg-visible {
+		display: none!important;
+	}
+
+	.md-visible {
+		display: block !important;
+	}
+
+	.max-width-991 {
+		display: none!important;
+	}
+
+	.min-width-992 {
+		display: block!important;
+	}
+
+}
+
+@media screen and (min-width: 1040px) {
+
+	.max-width-1039 {
+		display: none!important;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.xs-visible,
+	.sm-visible,
+	.md-visible {
+		display: none!important;
+	}
+
+	.lg-visible {
+		display: block !important;
+	}
+
+	.max-width-1199 {
+		display: none!important;
+	}
+
+	.min-width-1200 {
+		display: block!important;
+	}
+
+}

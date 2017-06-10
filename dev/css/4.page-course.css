@@ -1,0 +1,89 @@
+html.page-course,
+.page-course body {
+	height: auto;
+	overflow-x: hidden;
+	transition: background ease 1s;
+}
+
+.page-course [data-active-slide="0"] {
+	background: #0d0d0d;
+}
+.page-course [data-active-slide="1"] {
+	background: #fff;
+}
+.page-course [data-active-slide="2"] {
+	background: #fff;
+}
+.page-course [data-active-slide="3"] {
+	background-color: #0d0d0d;
+}
+.page-course [data-active-slide="4"] {
+	background: #fff;
+}
+.page-course [data-active-slide="5"] {
+	background: #cdcdcd;
+}
+.page-course [data-active-slide="6"] {
+	background: #0d0d0d;
+}
+.page-course [data-active-slide="7"] {
+	background: #fff;
+}
+.page-course [data-active-slide="8"] {
+	background: #0d0d0d;
+}
+.page-course [data-active-slide="9"] {
+	background: #0d0d0d;
+}
+.page-course [data-active-slide="9"] {
+	background: #0d0d0d;
+}
+.page-course [data-active-slide="10"] {
+	background: #0d0d0d;
+}
+
+/*@media screen and (min-width: 768px) {*/
+@media screen and (min-width: 1200px) {
+
+	html.page-course,
+	.page-course body {
+		height: 100%;
+		overflow-y: hidden;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.page-course [data-active-slide="0"] {
+		background: #0d0d0d;
+	}
+	.page-course [data-active-slide="1"] {
+		background: #fff;
+	}
+	.page-course [data-active-slide="2"] {
+		background-color: #0d0d0d;
+	}
+	.page-course [data-active-slide="3"] {
+		background: #fff;
+	}
+	.page-course [data-active-slide="4"] {
+		background: #cdcdcd;
+	}
+	.page-course [data-active-slide="5"] {
+		background: #0d0d0d;
+	}
+	.page-course [data-active-slide="6"] {
+		background: #fff;
+	}
+	.page-course [data-active-slide="7"] {
+		background: #0d0d0d;
+	}
+	.page-course [data-active-slide="8"] {
+		background: #0d0d0d;
+	}
+	.page-course [data-active-slide="9"] {
+		background: #0d0d0d;
+	}
+
+}

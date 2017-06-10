@@ -1,0 +1,19 @@
+.custom_placeholder {
+	position: relative;
+}
+
+.custom_placeholder .placeholder_elem {
+	position: absolute;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	top: 0;
+	left: 0;
+	transform-origin: left top;
+	transition:
+		all ease 0.5s;
+}
+.custom_placeholder.placeholder_removed .placeholder_elem {
+	transform: scale(0.8125);
+}

@@ -1,0 +1,80 @@
+.course_map_block {
+	position: relative;
+	overflow-x: hidden;
+}
+
+.course_map_block .course_map_inner_container .course_map_content {
+	position: relative;
+	align-content: stretch;
+	align-items: stretch;
+	padding-top: 40px;
+	height: calc(100vh - 90px);
+	min-height: 400px;
+}
+
+@media screen and (max-width: 767px) {
+
+	.course_map_block .course_map_inner_container .course_map_content {
+		padding-bottom: 0;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.course_map_block .course_map_inner_container .course_map_content {
+		height: calc(100vh - 165px);
+		min-height: auto;
+		margin-bottom: 130px;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.course_map_block .course_map_inner_container .course_map_content {
+		height: calc(100vh - 130px);
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.course_map_block .course_map_inner_container .course_map_content {
+		height: calc(100% - 130px);
+	}
+
+}
+
+.course_map_block .map {
+	background: red;
+	width: 50%;
+/*	height: 100px;*/
+}
+
+.course_map_block .dropdown_group {
+	background: #fff;
+	width: 50%;
+	overflow: auto;
+	padding: 30px 25px;
+}
+
+.course_map_block .droppownGroupItem + .droppownGroupItem {
+	margin-top: -1px;
+}
+
+.course_map_block .droppownGroupItem .navbar_header span {
+	font-size: 14px;
+	color: #0d0d0d;
+	font-weight: 600;
+	display: block;
+	border: 1px solid #dadada;
+	padding: 8px 8px;
+}
+
+.course_map_block .droppownGroupItem .dropdown_bar {
+	font-size: 12px;
+	color: #727272;
+	line-height: 24px;
+	padding: 12px 8px;
+}

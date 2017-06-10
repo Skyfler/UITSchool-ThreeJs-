@@ -1,0 +1,50 @@
+.error_notification {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	background: #0b0b0b;
+	border: 3px solid #fffc00;
+	text-align: center;
+	padding: 20px 10px;
+	width: 100%;
+	max-width: 250px;
+	border-radius: 7px;
+	box-shadow: 3px 4px 6px 1px rgba(0,0,0,0.7);
+}
+
+.error_notification p {
+	font-size: 2.2em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #fffc00;
+}
+
+.error_notification p + p {
+	font-size: 1.6em;
+	font-weight: 300;
+	color: #fff;
+	margin-top: 10px;
+	text-transform: none;
+}
+
+.error_notification .btn {
+	padding: 10px 25px;
+	border: 2px solid #fffc00;
+	background: transparent;
+/*	border-radius: 5px;*/
+	color: #fff;
+	margin-top: 17px;
+	font-size: 1.4em;
+	transition:
+		color 0.5s ease 0s,
+		background-color 0.5s ease 0s;
+}
+.error_notification .btn:hover {
+	border-color: #fff;
+}
+.error_notification .btn:active {
+	background-color: rgba(142,142,142,.1);
+}

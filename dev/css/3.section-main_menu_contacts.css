@@ -1,0 +1,50 @@
+@media screen and (max-width: 767px) {
+
+	.main_menu_contacts {
+		display: none;
+	}
+
+}
+
+.main_menu_contacts {
+	position: absolute;
+	right: 88px;
+	width: 335px;
+	height: 68px;
+}
+
+.main_menu_contacts .phone {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	color: #fff;
+	font-size: 16px;
+	white-space: nowrap;
+	letter-spacing: 0.1em;
+}
+
+.main_menu_contacts .phone span {
+	color: #fffc00;
+}
+
+.main_menu_contacts .details_btn {
+	background: transparent;
+	border-radius: 0;
+	border: 2px solid #fffc00;
+	color: #fffc00;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 10px 0;
+	width: 100%;
+	max-width: 153px;
+	transition:
+		color ease 0.5s,
+		background-color ease 0.5s,
+		border-color ease 0.5s;
+}
+.main_menu_contacts .details_btn:hover {
+	border-color: #fff;
+}
+.main_menu_contacts .details_btn:active {
+	background-color: rgba(142, 142, 142, 0.1);
+}

@@ -1,0 +1,150 @@
+.course_statistic {
+
+}
+
+/*@media screen and (max-width: 767px) {*/
+@media screen and (max-width: 1199px) {
+
+	.course_statistic {
+		background: #cdcdcd;
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+
+}
+
+.course_statistic .page_slide_inner_container {
+	height: auto;
+}
+
+.course_statistic.slide_init .course_statistic_content {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.course_statistic .block_main_title {
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #000;
+	font-weight: 700;
+	margin-bottom: 48px;
+}
+
+.course_statistic .svg_graph_container {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.course_statistic .graph {
+	width: 100%;
+	min-height: 400px;
+	height: 65vh;
+	overflow: visible;
+	min-width: 650px;
+}
+
+@media screen and (min-width: 1200px) {
+
+	.course_statistic .graph {
+		min-height: auto;
+	}
+
+}
+
+.course_statistic path.senior {
+	fill: #151515;
+}
+.course_statistic path.middle {
+	fill: #222222;
+}
+.course_statistic path.junior {
+	fill: #303030;
+}
+
+.course_statistic .indicator {
+	display: none;
+}
+
+.course_statistic .indicator_dot {
+	stroke-width: 5px;
+	stroke: #000;
+	fill: #fff;
+}
+
+.course_statistic .indicator_line {
+	stroke: #f9f618;
+	stroke-width: 1px;
+}
+
+.course_statistic .indicator_label {
+	color: #000;
+}
+.course_statistic .indicator.senior .indicator_label {
+	fill: #000;
+}
+.course_statistic .indicator.middle .indicator_label {
+	fill: #fff;
+}
+.course_statistic .indicator.junior .indicator_label {
+	fill: #fff;
+}
+
+.course_statistic .indicator_label .first_line {
+	font-size: 26px;
+	font-weight: 700;
+}
+
+.course_statistic .indicator_label .second_line {
+	font-size: 11px;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.course_statistic .graph_label {
+	font-size: 16px;
+	fill: #000;
+	font-weight: 700;
+}
+.course_statistic .graph_label.title_label {
+	font-size: 20px;
+	fill: #686868;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+.course_statistic .graph_label.horizontal_label:nth-child(even) {
+	display: none;
+}
+
+.course_statistic .vertical_label_rect {
+/*	fill: rgba(255, 0, 0, 0.1);*/
+	fill: url(#linear-gradient);
+}
+
+@media screen and (min-width: 768px) {
+
+	.course_statistic .indicator_dot {
+		stroke-width: 6px;
+	}
+
+	.course_statistic .indicator_label .first_line {
+		font-size: 40px;
+		font-weight: 700;
+	}
+
+	.course_statistic .indicator_label .second_line {
+		font-size: 14px;
+		font-weight: 300;
+	}
+
+	.course_statistic .graph_label.horizontal_label:nth-child(even) {
+		display: block;
+	}
+
+}
+
+.course_statistic .vertical_label_line {
+	stroke-width: 2px;
+	stroke: rgba(255, 255, 255, 0.17);
+}
+
+

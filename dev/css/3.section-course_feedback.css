@@ -1,0 +1,198 @@
+.course_feedback {
+
+}
+
+/*@media screen and (max-width: 767px) {*/
+@media screen and (max-width: 1199px) {
+
+	.course_feedback {
+		background: #0d0d0d;
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+
+}
+
+.course_feedback .block_main_title {
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.course_feedback #main_slider {
+	margin: 60px auto 0;
+	overflow-x: hidden;
+/*	overflow: hidden;*/
+}
+
+.course_feedback #main_slider .slider_controlls {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	max-width: 750px;
+}
+
+.course_feedback #main_slider .arrow {
+	display: block;
+	width: 40px;
+	height: 40px;
+	transform: translateY(-50%);
+	top: 50%;
+	position: absolute;
+/*	border: 1px solid red;*/
+	transition:
+		background-color ease 0.5s,
+		box-shadow ease 0.5s;
+	backface-visibility: hidden;
+	filter: blur(0px);
+	-webkit-font-smoothing: antialiased;
+	transform-style: preserve-3d;
+/*	background-color: rgba(255, 0, 0, 0.1);*/
+}
+.course_feedback #main_slider .arrow:hover {
+/*	background-color: rgba(255, 0, 0, 0.1);*/
+}
+.course_feedback #main_slider .arrow.right_arrow {
+	right: 0px;
+}
+.course_feedback #main_slider .arrow.left_arrow {
+	left: 0px;
+}
+
+.course_feedback #main_slider .arrow:before,
+.course_feedback #main_slider .arrow:after {
+	content: "";
+	display: block;
+	height: 45px;
+	border-right: 2px solid #fff;
+	top: calc(50% - 45px);
+	left: calc(50% - 1px);
+	position: absolute;
+	transform-origin: bottom center;
+	transition:
+		transform ease 0.5s;
+}
+.course_feedback #main_slider .arrow:after {
+	top: 50%;
+	transform-origin: top center;
+}
+.course_feedback #main_slider .arrow.right_arrow:before,
+.course_feedback #main_slider .arrow.right_arrow:after {
+	transform: rotate(90deg);
+}
+.course_feedback #main_slider .arrow.left_arrow:before,
+.course_feedback #main_slider .arrow.left_arrow:after {
+	transform: rotate(-90deg);
+}
+
+.course_feedback #main_slider .arrow:hover:before {
+
+}
+.course_feedback #main_slider .arrow.right_arrow:hover:before {
+	transform: translateX(15px) rotate(-30deg);
+}
+.course_feedback #main_slider .arrow.right_arrow:hover:after {
+	transform: translateX(15px) rotate(30deg);
+}
+.course_feedback #main_slider .arrow.left_arrow:hover:before {
+	transform: translateX(-15px) rotate(30deg);
+}
+.course_feedback #main_slider .arrow.left_arrow:hover:after {
+	transform: translateX(-15px) rotate(-30deg);
+}
+
+.course_feedback #main_slider .slider_slide .container {
+
+}
+
+.course_feedback #main_slider .slider_slide .img_container {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.course_feedback #main_slider .slider_slide .text_block {
+	width: 100%;
+	text-align: left;
+	margin-top: 25px;
+	padding: 0 20px 0;
+}
+
+.course_feedback #main_slider .slider_slide .name {
+	font-weight: 600;
+	color: #fff;
+	font-size: 14px;
+}
+
+.course_feedback #main_slider .slider_slide .feedback_text {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	color: #fff;
+	margin-top: 12px;
+}
+
+.course_feedback #main_slider .slider_slide .link {
+	margin-top: 12px;
+}
+
+.course_feedback #main_slider .slider_slide .link a {
+	font-size: 14px;
+	font-weight: 300;
+	font-style: italic;
+	color: #fffc00;
+}
+
+@media screen and (max-width: 767px) {
+
+	.course_feedback #main_slider .overflow_block{
+		align-items: flex-start;
+	}
+
+	.course_feedback #main_slider .slider_controlls {
+		top: 75px;
+		   width: calc(100% - 100px);
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.course_feedback #main_slider {
+		overflow-x: visible;
+	}
+
+	.course_feedback #main_slider .slider_slide .container {
+		flex-wrap: nowrap;
+		max-width: 710px;
+	}
+
+	.course_feedback #main_slider .slider_slide .img_container {
+		min-width: 150px;
+		height: 150px;
+	}
+
+	.course_feedback #main_slider .slider_slide .text_block {
+		padding: 0 0 0 60px;
+		margin-top: 0;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.course_feedback #main_slider .slider_slide .container {
+		flex-wrap: nowrap;
+		max-width: 850px;
+	}
+
+	.course_feedback #main_slider .slider_controlls {
+		min-width: 850px;
+	}
+
+}
+

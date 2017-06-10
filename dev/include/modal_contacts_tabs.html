@@ -1,0 +1,63 @@
+<div class="modal_contacts_tabs">
+	<div class="tabs flex flex-center-v">
+		<div class="tab tab_1 flex flex-center-v flex-center-h call" data-tab-target="#modal_callback_form_tab">
+			<span>Callback</span>
+		</div>
+		<div class="tab tab_2 flex flex-center-v flex-center-h mail" data-tab-target="#modal_contact_form_tab">
+			<span>Email</span>
+		</div>
+		<div class="tab tab_3 flex flex-center-v flex-center-h message" data-tab-target="#modal_chat_tab">
+			<span>Чат</span>
+		</div>
+		<div class="tab tab_4 active-tab flex flex-center-v flex-center-h vk" data-tab-target="#modal_dialog_tab">
+			<span>Диалог</span>
+		</div>
+	</div>
+	<div class="close_container flex flex-center-v">
+		<button class="close" data-action="close_modal"></button>
+	</div>
+	<div class="tab_blocks">
+		<div class="tab_block tab_block_1 flex flex-center-v flex-center-h" id="modal_callback_form_tab">
+			<div class="tab_inner_container">
+				<form action="php/send.php" class="contact_form clr content_inner flex" id="modal_callback_form">
+					<input type="hidden" value="info@uitschool.com" name="admin-email" id="admin-email" data-component="form-input">
+					<input type="hidden" value="Ukrainian IT_School" name="admin-name" id="admin-name" data-component="form-input">
+					<div class="waiting_block"></div>
+					<div class="block_main_title">Оставьте номер, мы вам перезвоним</div>
+					<div class="input_group input_tel custom_placeholder">
+						<div class="placeholder_elem">Номер телефона *</div>
+						<input type="text" placeholder="" class="required" name="Tel" data-component="form-input">
+					</div>
+					<div class="input_group input_name custom_placeholder">
+						<div class="placeholder_elem">Имя *</div>
+						<input type="text" placeholder="" class="required" name="Name" data-component="form-input">
+					</div>
+					<div class="input_group info_text">
+						<div>Мы отправим ваш номер нашему менеджеру.</div>
+						<div>Конфиденциально. Без спама.</div>
+					</div>
+					<div class="input_group input_submit">
+						<button type="submit" class="submit">Жду звонка!</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="tab_block tab_block_2 flex flex-center-v flex-center-h" id="modal_contact_form_tab">
+			<div class="tab_inner_container">
+				@@include('./contact_form.html', { "title": "Отправить нам EMAIL", "id": "modal_contact_form" })
+			</div>
+		</div>
+		<div class="tab_block tab_block_3 flex flex-center-v flex-center-h" id="modal_chat_tab">
+			<div class="tab_inner_container">
+				<p class="block_main_title">Перейти к чату с Менеджером</p>
+				<button class="submit jivosite_open_btn">Перейти</button>
+			</div>
+		</div>
+		<div class="tab_block tab_block_4 flex flex-center-v flex-center-h active-tab-block fade" id="modal_dialog_tab">
+			<div class="tab_inner_container">
+				<p class="block_main_title">Перейти к диалогу с Менеджером</p>
+				<a href="https://vk.com/im?sel=93432183" target="_blank" class="submit">Перейти</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,310 @@
+.modal_contacts_tabs {
+	position: absolute;
+	left: 100%;
+	height: 100vh;
+	max-width: 540px;
+	width: 100%;
+	top: 0;
+	z-index: 2;
+	background: #000;
+	padding: 0 10px;
+	transition: transform ease 0.5s;
+	transform: translateX(0);
+	text-align: center;
+}
+.modal_contacts_tabs.open {
+	transform: translateX(-100%);
+}
+
+.modal_contacts_tabs .tabs {
+	z-index: 1;
+	position: relative;
+	height: 68px;
+	justify-content: flex-start;
+}
+
+.modal_contacts_tabs .tab {
+	max-height: 50px;
+	height: 16.12903225806452vw;
+	max-width: 50px;
+	width: 16.12903225806452vw;
+	text-transform: uppercase;
+	font-size: 0;
+	color: transparent;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: 1px solid #343434;
+}
+.modal_contacts_tabs .tab + .tab {
+	margin-left: 10px;
+}
+.modal_contacts_tabs .tab.vk {
+	background-image: url(../img/icon_vk_right_panel.png);
+}
+.modal_contacts_tabs .tab.message {
+	background-image: url(../img/icon_chat.png);
+}
+.modal_contacts_tabs .tab.mail {
+	background-image: url(../img/icon_mail.png);
+}
+.modal_contacts_tabs .tab.call {
+	background-image: url(../img/icon_phone.png);
+}
+.modal_contacts_tabs .tab.active-tab {
+	border-color: #fff606;
+}
+
+.modal_contacts_tabs .close_container {
+	position: absolute;
+	right: 10px;
+	width: 44px;
+	height: 44px;
+	top: 0;
+	height: 68px;
+}
+
+.modal_contacts_tabs .close {
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	background-image: url(../img/icon_menu_open.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: block;
+	z-index: 1;
+}
+
+.modal_contacts_tabs .tab_block {
+	display: none;
+	opacity: 0;
+	transition: opacity linear .15s;
+	position: relative;
+	width: 100%;
+	position: absolute;
+	top: 68px;
+	left: 0;
+	height: calc(100% - 68px);
+	overflow-y: auto;
+}
+.modal_contacts_tabs .tab_block.active-tab-block {
+	display: flex;
+}
+.modal_contacts_tabs .tab_block.fade {
+	opacity: 1;
+}
+
+.modal_contacts_tabs .tab_block .tab_inner_container {
+	max-width: 350px;
+	margin: 0 auto;
+	max-height: 100%;
+}
+
+.modal_contacts_tabs .contact_form .waiting_block {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background:
+		url(../img/spinner.gif) center center no-repeat,
+		rgba(13, 13, 13, 0.4);
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+.modal_contacts_tabs .contact_form.waiting_for_response .waiting_block {
+	display: block;
+}
+
+.modal_contacts_tabs .block_main_title {
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 20px;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.modal_contacts_tabs .input_group {
+	width: 100%;
+	padding: 0 12px;
+	float: left;
+	margin-bottom: 25px;
+}
+.modal_contacts_tabs .input_group:last-child {
+	margin-bottom: 0;
+}
+
+.modal_contacts_tabs .info_text {
+	font-weight: 300;
+	font-size: 12px;
+	color: #3a3a3a;
+	line-height: 25px;
+}
+
+.modal_contacts_tabs input[type="text"],
+.modal_contacts_tabs input[type="email"],
+.modal_contacts_tabs textarea {
+	width: 100%;
+	resize: none;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	border: none;
+	border-bottom: 1px solid #3d3d3d;
+	background: none;
+	color: #fff;
+	padding: 13px 0;
+	overflow: hidden;
+	position: relative;
+}
+.modal_contacts_tabs input:-webkit-autofill,
+.modal_contacts_tabs textarea:-webkit-autofill,
+.modal_contacts_tabs select:-webkit-autofill {
+	-webkit-animation-name: removing-webkit-autocomplete-style;
+	-webkit-animation-fill-mode: both;
+}
+
+.modal_contacts_tabs input[type="text"]:focus,
+.modal_contacts_tabs input[type="email"]:focus,
+.modal_contacts_tabs textarea:focus {
+	border-color: #fff;
+}
+
+.modal_contacts_tabs input::-webkit-input-placeholder  {opacity: 1;}
+.modal_contacts_tabs input::-moz-placeholder {opacity: 1;}
+.modal_contacts_tabs input:-moz-placeholder {opacity: 1;}
+.modal_contacts_tabs input:-ms-input-placeholder {opacity: 1;}
+.modal_contacts_tabs textarea::-webkit-input-placeholder {opacity: 1;}
+.modal_contacts_tabs textarea::-moz-placeholder {opacity: 1;}
+.modal_contacts_tabs textarea:-moz-placeholder {opacity: 1;}
+.modal_contacts_tabs textarea:-ms-input-placeholder {opacity: 1;}
+
+.modal_contacts_tabs textarea {
+	height: 120px;
+	line-height: normal;
+}
+
+.modal_contacts_tabs .customselect {
+	width: 100%;
+	position: relative;
+	display: block;
+}
+
+.modal_contacts_tabs .customselect .title {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #3d3d3d;
+	background: none;
+	color: #fff;
+	position: relative;
+	padding: 16px 0;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	display: block;
+}
+.modal_contacts_tabs .customselect.open .title {
+	border-color: #fff;
+}
+.modal_contacts_tabs .customselect.error .title {
+	border-color: #ff2121!important;
+}
+
+.modal_contacts_tabs .customselect .title:before {
+	content: "";
+	display: inline-block;
+}
+
+.modal_contacts_tabs .customselect .title:after {
+	content: "▼";
+	color: #fff;
+	position: absolute;
+	display: block;
+	top: 16px;
+	right: 5px;
+	font-size: 14px;
+}
+
+.modal_contacts_tabs .customselect ul {
+	width: 100%;
+	text-align: left;
+	background: #0d0d0d;
+	border-color: #ffffff;
+}
+
+.modal_contacts_tabs .customselect li {
+	padding: 5px 10px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.modal_contacts_tabs .customselect li:hover {
+	background-color: #fffc00;
+	color: #000;
+}
+
+.modal_contacts_tabs .submit {
+	display: inline-block;
+	background: transparent;
+	border-radius: 0;
+	border: 2px solid #fffc00;
+	color: #fffc00;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 16px;
+	padding: 10px 0;
+	width: 100%;
+	max-width: 210px;
+	transition:
+		color 0.5s ease 0s,
+		background-color 0.5s ease 0s;
+}
+.modal_contacts_tabs .submit:hover {
+	border-color: #fff;
+}
+.modal_contacts_tabs .submit:active {
+	background-color: rgba(142,142,142,.1);
+}
+
+.modal_contacts_tabs .custom_placeholder .placeholder_elem {
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	border: none;
+	background: none;
+	color: #fff;
+	text-align: left;
+	padding: 16px 0;
+	left: 12px;
+	width: calc(100% - 12px - 12px);
+}
+.modal_contacts_tabs .custom_placeholder.placeholder_removed .placeholder_elem {
+	color: #fffc00;
+	top: -12px;
+}
+
+@media screen and (min-width: 310px) {
+
+	.modal_contacts_tabs .tab {
+		height: 50px;
+		width: 50px;
+	}
+
+}
+
+@media screen and (min-width: 400px) {
+
+	.modal_contacts_tabs {
+		padding: 0 40px;
+	}
+
+	.modal_contacts_tabs .close_container {
+		right: 45px;
+	}
+
+}

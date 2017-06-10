@@ -1,0 +1,248 @@
+.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #000;
+}
+.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #000;
+}
+.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #000;
+}
+.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #000;
+}
+.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #000;
+}
+.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+.page-course [data-active-slide="10"] .side_menu .side_menu_list .side_menu_list_item .title {
+	color: #fff;
+}
+
+.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #000;
+}
+.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #000;
+}
+.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #000;
+}
+.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #000;
+}
+.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #000;
+}
+.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide="10"] .side_menu .side_menu_list .side_menu_list_item .number {
+	color: #fffc00;
+}
+.page-course [data-active-slide] .main_menu_container.open .side_menu .side_menu_list .side_menu_list_item:not(.active) .number {
+	color: #fffc00!important;
+}
+
+.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="0"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="1"] .side_menu .slider_elem {
+	background: #000;
+}
+.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="2"] .side_menu .slider_elem {
+	background: #000;
+}
+.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="3"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="4"] .side_menu .slider_elem {
+	background: #000;
+}
+.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="5"] .side_menu .slider_elem {
+	background: #000;
+}
+.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="6"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="7"] .side_menu .slider_elem {
+	background: #000;
+}
+.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="8"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="9"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide="10"] .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide="10"] .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide="10"] .side_menu .slider_elem {
+	background: #fffc00;
+}
+.page-course [data-active-slide] .main_menu_container.open .side_menu .side_menu_list .side_menu_list_item:before,
+.page-course [data-active-slide] .main_menu_container.open .side_menu .side_menu_list .side_menu_list_item:after,
+.page-course [data-active-slide] .main_menu_container.open .side_menu .slider_elem {
+	background: #fffc00!important;
+}
+
+@media screen and (min-width: 1200px) {
+
+	.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+	.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #000;
+	}
+	.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+	.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #000;
+	}
+	.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #000;
+	}
+	.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+	.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #000;
+	}
+	.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+	.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+	.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item .title {
+		color: #fff;
+	}
+
+	.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+	.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #000;
+	}
+	.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+	.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #000;
+	}
+	.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #000;
+	}
+	.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+	.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #000;
+	}
+	.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+	.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+	.page-course [data-active-slide="10"] .side_menu .side_menu_list .side_menu_list_item .number {
+		color: #fffc00;
+	}
+
+	.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="0"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="0"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+	.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="1"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="1"] .side_menu .slider_elem {
+		background: #000;
+	}
+	.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="2"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="2"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+	.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="3"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="3"] .side_menu .slider_elem {
+		background: #000;
+	}
+	.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="4"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="4"] .side_menu .slider_elem {
+		background: #000;
+	}
+	.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="5"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="5"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+	.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="6"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="6"] .side_menu .slider_elem {
+		background: #000;
+	}
+	.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="7"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="7"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+	.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="8"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="8"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+	.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item:before,
+	.page-course [data-active-slide="9"] .side_menu .side_menu_list .side_menu_list_item:after,
+	.page-course [data-active-slide="9"] .side_menu .slider_elem {
+		background: #fffc00;
+	}
+
+}

@@ -1,0 +1,45 @@
+.notification {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 3px solid #141558;
+    text-align: center;
+    padding: 30px 10px;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 7px;
+    box-shadow: 3px 4px 6px 1px rgba(0,0,0,0.7);
+}
+
+.notification p {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #141558;
+}
+
+.notification p + p {
+    font-size: 1.6em;
+    font-weight: 300;
+    color: #000000;
+    margin-top: 10px;
+    text-transform: none;
+}
+
+.notification .btn {
+    padding: 10px 25px;
+    border: 2px solid #141558;
+    background: #6a6c92;
+    border-radius: 5px;
+    color: #fff;
+    margin-top: 17px;
+    font-size: 1.4em;
+    transition: background 0.5s ease 0s;
+}
+
+.notification .btn:hover {
+    background: #141558;;
+}

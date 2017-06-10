@@ -1,0 +1,140 @@
+.course_description {
+
+}
+
+.course_description .course_description_inner_container {
+
+}
+
+/*@media screen and (max-width: 767px) {}*/
+@media screen and (max-width: 1199px) {
+
+	.course_description {
+		background: #0d0d0d;
+		padding-top: 83px;
+		padding-bottom: 70px;
+	}
+
+}
+
+.course_description .course_description_content {
+/*	max-width: 735px;*/
+	max-width: 900px;
+	text-align: left;
+/*	padding-top: 95px;*/
+}
+
+.course_description .block_main_title {
+	font-family: 'Ralaway', sans-serif;
+	font-weight: 300;
+	font-size: 28px;
+	color: #fffc00;
+	margin-bottom: 20px;
+}
+
+.course_description .text_block {
+
+}
+
+.course_description .text_block p {
+	font-weight: 400;
+	color: #c2c2c2;
+	font-size: 14px;
+}
+.course_description .text_block p + p,
+.course_description .text_block ul + p {
+	margin-top: 29px;
+}
+.course_description .text_block p.title {
+	color: #fff;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.course_description .text_block ul {
+
+}
+.course_description .text_block p + ul,
+.course_description .text_block ul + ul {
+	margin-top: 10px;
+}
+
+.course_description .text_block ul li {
+	font-weight: 400;
+	color: #c2c2c2;
+	font-size: 14px;
+	padding-left: 25px;
+	position: relative;
+}
+.course_description .text_block ul li+li {
+	margin-top: 8px;
+}
+
+.course_description .text_block ul li:before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	background: #fffc00;
+	left: 7px;
+	top: 6px;
+	border-radius: 50%
+}
+
+.course_description .details_btn {
+	background: transparent;
+	border-radius: 0;
+	border: 2px solid #fffc00;
+	color: #fffc00;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 16px;
+	padding: 10px 0;
+	width: 100%;
+	max-width: 210px;
+	display: block;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	transition:
+		color ease 0.5s,
+		background-color ease 0.5s,
+		border-color ease 0.5s;
+}
+.course_description .details_btn:hover {
+	border-color: #fff;
+}
+.course_description .details_btn:active {
+	background-color: rgba(142, 142, 142, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+
+	.course_description .block_main_title {
+		font-size: 38px;
+	}
+
+	.course_description .course_description_content {
+
+	}
+
+	.course_description .details_btn {
+		display: inline-block;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.course_description .block_main_title {
+		font-size: 48px;
+	}
+
+	.course_description .course_description_content {
+		margin: 0 auto;
+/*		padding-top: 0;*/
+	}
+
+}

@@ -1,0 +1,33 @@
+.slider_container {
+	display: none;
+}
+
+.slider {
+/*    overflow: hidden;*/
+	position: relative;
+}
+
+.slider .overflow_hidden_container {
+	overflow: hidden;
+}
+
+.slider .overflow_block {
+	position: relative;
+	transition: left ease 1s;
+}
+
+.slider .overflow_block .slider_slide {
+	position: relative;
+	float: left;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+
+	.slider_container {
+		display: block;
+		text-align: center;
+		position: relative;
+	}
+
+}

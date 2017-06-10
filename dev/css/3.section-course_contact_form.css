@@ -1,0 +1,249 @@
+.course_contact_form {
+	position: relative;
+}
+
+/*@media screen and (max-width: 767px) {}*/
+@media screen and (max-width: 1199px) {
+
+	.course_contact_form {
+		background: #0d0d0d;
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+
+}
+
+.course_contact_form .contact_form {
+	max-width: 750px;
+	padding: 0 10px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.course_contact_form .contact_form .waiting_block {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background:
+		url(../img/spinner.gif) center center no-repeat,
+		rgba(13, 13, 13, 0.4);
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+.course_contact_form .contact_form.waiting_for_response .waiting_block {
+	display: block;
+}
+
+.course_contact_form .block_main_title {
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 20px;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.course_contact_form .input_group {
+	width: 100%;
+	padding: 0 12px;
+	float: left;
+	margin-bottom: 25px;
+}
+.course_contact_form .input_group:last-child {
+	margin-bottom: 0;
+}
+
+.course_contact_form input[type="text"],
+.course_contact_form input[type="email"],
+.course_contact_form textarea {
+	width: 100%;
+	resize: none;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	border: none;
+	border-bottom: 1px solid #3d3d3d;
+	background: none;
+	color: #fff;
+	padding: 13px 0;
+	overflow: hidden;
+	position: relative;
+}
+.course_contact_form input:-webkit-autofill,
+.course_contact_form textarea:-webkit-autofill,
+.course_contact_form select:-webkit-autofill {
+	-webkit-animation-name: removing-webkit-autocomplete-style;
+	-webkit-animation-fill-mode: both;
+}
+
+.course_contact_form input[type="text"]:focus,
+.course_contact_form input[type="email"]:focus,
+.course_contact_form textarea:focus {
+	border-color: #fff;
+}
+
+.course_contact_form input::-webkit-input-placeholder  {opacity: 1; }
+.course_contact_form input::-moz-placeholder {opacity: 1; }
+.course_contact_form input:-moz-placeholder {opacity: 1; }
+.course_contact_form input:-ms-input-placeholder {opacity: 1; }
+.course_contact_form textarea::-webkit-input-placeholder {opacity: 1; }
+.course_contact_form textarea::-moz-placeholder {opacity: 1; }
+.course_contact_form textarea:-moz-placeholder {opacity: 1; }
+.course_contact_form textarea:-ms-input-placeholder {opacity: 1; }
+
+.course_contact_form textarea {
+	height: 120px;
+	line-height: normal;
+}
+
+.course_contact_form .customselect {
+	width: 100%;
+	position: relative;
+	display: block;
+}
+
+.course_contact_form .customselect .title {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #3d3d3d;
+	background: none;
+	color: #fff;
+	position: relative;
+	padding: 16px 0;
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	display: block;
+}
+.course_contact_form .customselect.open .title {
+	border-color: #fff;
+}
+.course_contact_form .customselect.error .title {
+	border-color: #ff2121!important;
+}
+
+.course_contact_form .customselect .title:before {
+	content: "";
+	display: inline-block;
+}
+
+.course_contact_form .customselect .title:after {
+	content: "▼";
+	color: #fff;
+	position: absolute;
+	display: block;
+	top: 16px;
+	right: 5px;
+	font-size: 14px;
+}
+
+.course_contact_form .customselect ul {
+	width: 100%;
+	text-align: left;
+	background: #0d0d0d;
+	border-color: #ffffff;
+}
+
+.course_contact_form .customselect li {
+	padding: 5px 10px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.course_contact_form .customselect li:hover {
+	background-color: #fffc00;
+	color: #000;
+}
+
+.course_contact_form .submit {
+	background: transparent;
+	border-radius: 0;
+	border: 2px solid #fffc00;
+	color: #fffc00;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 16px;
+	padding: 10px 0;
+	width: 100%;
+	max-width: 210px;
+	transition:
+		color ease 0.5s,
+		background-color ease 0.5s,
+		border-color ease 0.5s;
+}
+.course_contact_form .submit:hover {
+	border-color: #fff;
+}
+.course_contact_form .submit:active {
+	background-color: rgba(142, 142, 142, 0.1);
+}
+
+.course_contact_form .input_group.input_tel {
+	order: 1;
+}
+.course_contact_form .input_group.input_email {
+	order: 2;
+}
+.course_contact_form .input_group.input_direction {
+	order: 3;
+}
+.course_contact_form .input_group.input_how_find {
+	order: 4;
+}
+.course_contact_form .input_group.input_name {
+	order: 5;
+}
+.course_contact_form .input_group.input_message {
+	order: 6;
+}
+.course_contact_form .input_group.input_submit {
+	order: 7;
+}
+
+@media screen and (min-width: 768px) {
+
+	.course_contact_form .input_group.input_tel,
+	.course_contact_form .input_group.input_email,
+	.course_contact_form .input_group.input_direction,
+	.course_contact_form .input_group.input_how_find {
+		width: 50%;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.course_contact_form .input_group.input_tel,
+	.course_contact_form .input_group.input_email,
+	.course_contact_form .input_group.input_direction,
+	.course_contact_form .input_group.input_how_find {
+		width: 33.333333%;
+	}
+	.course_contact_form .input_group.input_how_find {
+		order: 5;
+	}
+	.course_contact_form .input_group.input_name {
+		width: 66.666666%;
+		order: 4;
+	}
+
+}
+
+.course_contact_form .custom_placeholder .placeholder_elem {
+	font-size: 16px;
+	line-height: 1;
+	font-weight: 300;
+	border: none;
+	background: none;
+	color: #fff;
+	text-align: left;
+	padding: 16px 0;
+	left: 12px;
+	width: calc(100% - 12px - 12px);
+}
+.course_contact_form .custom_placeholder.placeholder_removed .placeholder_elem {
+	color: #fffc00;
+	top: -12px;
+}

@@ -1,0 +1,20 @@
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    clear: both;
+    *zoom: 1;
+}
+
+.clr:after {
+    display: table;
+    content: " ";
+    clear: both;
+}

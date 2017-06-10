@@ -1,0 +1,750 @@
+@@include('./include/top1.html', { "pageClassesStr": "page-pm page-course" })
+<title>PM</title>
+<meta name="keywords" content="Курсы IT Project Management, обучение ПМ в Харькове, проджет менеджмент в Харькове, стать PM в Харькове, project manager специалист, курсы ПМ, работа в it, it образование, образование менеджер в IT, обучение PM, курсы управление проектами">
+<meta name="description" content="Ukrainian IT School - сделает Вас специалистом в сфере IT Project Management">
+<meta name="author" content="Ukrainian IT School">
+<script>
+var gMapLoaded = false;
+
+function gMapLoadingComplete() {
+	gMapLoaded = true;
+	var widgetEvent = new CustomEvent('gmaploaded', {
+		bubbles: true
+	});
+	document.dispatchEvent(widgetEvent);
+}
+</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd_snhGQX7cHByP0hssPXaIGyPRmuc4kU&callback=gMapLoadingComplete"></script>
+@@include('./include/top2.html')
+<canvas class="bg_canvas"></canvas>
+<div class="main_menu_block container">
+	@@include(
+		'./include/main_menu.html',
+		{ "sideMenu": {
+			"Описание": {"slide": "course_description", "number": "01"},
+			"Программа": {"slide": "course_info", "number": "02"},
+			"Ближайший старт": {"slide": "course_start_date", "number": "03"},
+			"Перподаватели": {"slide": "course_teacher_block", "number": "04"},
+			"Статистика": {"slide": "course_statistic", "number": "05"},
+			"Отзывы": {"slide": "course_feedback", "number": "06"},
+			"Партнеры": {"slide": "course_partners", "number": "07"},
+			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
+		}, "contacts": true }
+	)
+</div>
+@@include('./include/modal_contacts_tabs.html')
+<div id="page_scroller">
+	<div class="page_slide_container">
+		<div class="course_description page_slide" id="course_description" data-geometry-index="0" data-mesh-color="ffffff">
+			<div class="container page_slide_inner_container course_description_inner_container flex flex-center-v">
+				<div class="page_slide_content">
+					<section class="course_description_content">
+						<h2 class="block_main_title">Курсы РМ для эффективного управления проектами</h2>
+						<div class="text_block">
+							<p>Курсы «РМ» предоставляют возможность освоить престижную и ответственную специальность проектного менеджера в области информационных технологий.</p>
+							<p>Вы познакомитесь с окружающей средой, изучите ИТ-термины и понятия, получите представление о проекте, его структуре, видах. Поймете, как разрабатывать проект, управлять временем, расходами, стоимостью, человеческими ресурсами, как оценивать риски и возможности. Вы сможете разработать шаблоны для своего проекта, создать проектную документацию. Освоите методы управления проектами в IT, среди которых SCRUM, Agile, Kanban. Вас познакомят с электронными инструментами, предназначенными для управления проектами. Наиболее полезным и емким продуктом является MS Project. Вас научат составлять и проводить презентации, приоритизировать информацию, оценивать эффективность проекта. Вы станете лидером, который знает, как работать с командой, разрешать конфликты и мотивировать сотрудников на выполнение своих обязанностей.</p>
+							<p class="title">Практическая польза курсов</p>
+							<p>В ходе обучения вы узнаете, как:</p>
+							<ul>
+								<li>управлять проектом с максимальной эффективностью;</li>
+								<li>внедрять новые подходы к ведению ИТ-бизнеса;</li>
+								<li>презентовать свои идеи и разработки;</li>
+								<li>выстраивать конструктивные коммуникации со всеми участниками проекта. </li>
+							</ul>
+							<p>Эти навыки обеспечат успех вашему бизнесу и карьере!</p>
+						</div>
+						<button class="details_btn" data-slide="course_contact_form">Записаться</button>
+					</section>
+				</div>
+			</div>
+		</div>
+		<section class="course_info page_slide page_slide_split" id="course_info" data-geometry-index="1" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_info_inner_container flex flex-center-v">
+				<div class="course_info_content page_slide_content flex">
+					<div class="left_col page_slide_part" id="course_info_part_1" data-geometry-index="1" data-mesh-color="9fa2a7">
+						<div class="container page_slide_part_inner_container flex flex-center-v">
+							<div class="page_slide_part_content">
+								<h3 class="block_main_title">Программа</h3>
+								<div class="dropdown_group program_list">
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 1</span>
+												<span class="module_title">Ознакомительная</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Что такое «проект»: понятие и сущность.</p>
+												<p>Основные участники проекта и их роли.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 2</span>
+												<span class="module_title">Кто такой PM и какую основную задачу он выполняет</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Функции PMа (общий менеджмент, лидерство, общение, осмысление, решение проблем, коммуникация, влияние на организационную структуру) или «невозможно знать абсолютно все»</p>
+												<p>Понятие hard и soft skills. Каким лучше быть – умным или красивым?</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 3</span>
+												<span class="module_title">Техническая сторона медали (основные направления программирования, главное понятия и терминология)</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 4</span>
+												<span class="module_title">Работа с командой</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>роли, права, обязанности и ответственность</p>
+												<p>лидерство</p>
+												<p>делегирование</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 5</span>
+												<span class="module_title">Мотивация: материальная и нематериальная</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 6</span>
+												<span class="module_title">Жизненный цикл проекта. Основные стадии (инициация, планирование, исполнение, контроль, завершение)</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Развитие и оценка</p>
+												<p>Цель и стратегия</p>
+												<p>Структура</p>
+												<p>Критерии успеха и неудачи</p>
+												<p>Управление временем</p>
+												<p>Оценка выполнения проекта и его мониторинг</p>
+												<p>Работа с изменениями и рисками</p>
+												<p>Закрытие</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 7</span>
+												<span class="module_title">Инструменты ПМа на каждой стадии работы над проектом</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 8</span>
+												<span class="module_title">Мониторинг и анализ выполнения проекта. Управление качеством проекта</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 9</span>
+												<span class="module_title">Планирование: ключевые процессы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Сбор требований</p>
+												<p>Работа над составлением Устава проекта</p>
+												<p>Оценка главных составляющих проекта: время, бюджет и участники</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 10</span>
+												<span class="module_title">Workshop (работа с требованиями и планирование)</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 11</span>
+												<span class="module_title">Управление рисками.</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 12</span>
+												<span class="module_title">Работа с клиентом: и вашим и нашим – поиск золотой середины.</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Клиент всегда прав?</p>
+												<p>Понятие «клиент-ориентированности»</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 13</span>
+												<span class="module_title">Конфликт-менеджмент.</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Работа с негативом как в команде, так и при работе с клиентом"</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 14</span>
+												<span class="module_title">Workshop: конфликтные ситуации</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 15</span>
+												<span class="module_title">Методологии ведения проектов. Выбор методологии для проекта.</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Общая классификация</p>
+												<p>Гибкие методологии (AGILE).</p>
+												<p>Scrum</p>
+												<p>Kanban</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 15</span>
+												<span class="module_title">Workshop (scrum vs kanban)</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">Лекция 15</span>
+												<span class="module_title">Завершение проекта: оценка результата и работа над ошибками.</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="right_col page_slide_part flex" id="course_info_part_2" data-geometry-index="1" data-mesh-color="9fa2a7">
+						<div class="container page_slide_part_inner_container flex flex-center-v">
+							<div class="page_slide_part_content flex">
+								<div class="shedule_block_1">
+									<h3 class="block_main_title">Группа №1</h3>
+									<div class="shedule">
+										<div class="shedule_inner_block">
+											<div class="title">Расписание</div>
+											<div class="description">
+<!--
+												<div>Группа1: Среда&nbsp;16:00, Воскресенье&nbsp;12:00</div>
+												<div>Группа2: Среда&nbsp;16:00, Суббота&nbsp;12:00</div>
+-->
+												<div>Понедельник 19:00</div>
+												<div>Суббота 12:00</div>
+											</div>
+										</div>
+										<div class="shedule_inner_block">
+											<div class="title">Продолжительность курса</div>
+											<div class="length">
+												17&nbsp;занятий (42.5&nbsp;часов)
+											</div>
+										</div>
+									</div>
+								</div>
+<!--
+								<div class="shedule_block_2">
+									<h3 class="block_main_title">Утренняя группа</h3>
+									<div class="shedule">
+										<div class="shedule_inner_block">
+											<div class="title">Расписание</div>
+											<div class="description">
+												<div>Вторник 9:30</div>
+												<div>Воскресенье 9:30</div>
+											</div>
+										</div>
+										<div class="shedule_inner_block">
+											<div class="title">Продолжительность курса</div>
+											<div class="length">
+												27&nbsp;занятий, 2&nbsp;занятия в&nbsp;неделю, по&nbsp;2,5&nbsp;часа в&nbsp;будний день
+											</div>
+										</div>
+									</div>
+								</div>
+-->
+								<div class="price_block">
+									<div class="price_block_inner flex">
+										<div class="price flex">
+											<div class="price_full">4200</div>
+											<div class="price_discount">3700</div>
+											<div class="discount_description">*при полной оплате до начала курса</div>
+										</div>
+										<div class="register_container">
+											<button class="register" data-slide="course_contact_form">Записаться</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_start_date page_slide" id="course_start_date" data-geometry-index="2" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_start_date_inner_container flex flex-center-v">
+				<div class="course_start_date_content page_slide_content">
+					<div class="tabs_container">
+						<div class="tabs flex flex-center-h">
+							<div class="tab tab_1 active-tab flex flex-center-v flex-center-h" data-tab-target="#group_1">
+								<span>вечерняя группа</span>
+							</div>
+<!--
+							<div class="tab tab_2 flex flex-center-v flex-center-h" data-tab-target="#morning_group">
+								<span>утренняя группа</span>
+							</div>
+-->
+						</div>
+						<div class="tab_blocks">
+							<div class="tab_block tab_block_1 active-tab-block fade" id="group_1">
+								<p class="line1">Старт новой группы</p>
+								<p class="line2">Дни занятий: Понедельник, Суббота</p>
+								<p class="start_date">28.08.2017</p>
+								<p class="notice">в летний период старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Записаться</button>
+							</div>
+<!--
+							<div class="tab_block tab_block_2" id="morning_group">
+								<p class="line1">Старт новой группы</p>
+								<p class="line2">Дни занятий: Среда, Суббота</p>
+								<p class="start_date">16.01.2017</p>
+								<p class="notice">старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Записаться</button>
+							</div>
+-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_teacher_block page_slide" id="course_teacher_block" data-geometry-index="3" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_teacher_block_inner_container flex flex-center-v">
+				<div class="course_teacher_block_content page_slide_content">
+					<div class="main_title">Преподаватели курса</div>
+					<div class="course_teacher_block_content_inner">
+						<svg class="course_teacher_svg_bg"></svg>
+						<div class="teacher_img_outer_container flex flex-center-v flex-center-h">
+							<div class="teacher_img_inner_container">
+								<img src="img/teacher_img.png" alt="" class="teacher_img responsive_img" data-template-target=".temp_teacher_image">
+								<div class="name" data-template-target=".temp_teacher_name">Firtsname Secondname</div>
+							</div>
+						</div>
+						<div class="thumbnails"></div>
+						<div class="teacher_about">
+							<div class="title">About</div>
+							<div class="description" data-template-target=".temp_teacher_about">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							</div>
+						</div>
+						<div class="teacher_skills">
+							<div class="title">Software Skills</div>
+							<ul class="skill_list" data-template-target=".temp_teacher_skills">
+								<li>
+									<img src="img/icon_ps.png" alt="" class="skill_img responsive_img">
+								</li>
+								<li>
+									<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+								</li>
+							</ul>
+						</div>
+						<div class="teacher_expirience">
+							<div class="title">Experience</div>
+							<div class="description" data-template-target=".temp_teacher_expirience">
+								about <b>9</b> years in web&#8209;design development
+							</div>
+						</div>
+					</div>
+					<template class="temp_teacher_data">
+						<div class="temp_teacher_name">Сергей Ковалев</div>
+						<img src="img/teachers/14370029_10210514269559144645698_1648178690404657389_n.png" alt="" class="temp_teacher_image" data-thumbnail>
+						<div class="temp_teacher_about">
+							<p>Более 20-ти лет в IT сфере. Постоянно учится: ХНУРЭ - специалист и аспирант Компьютерной Инженерии, ХНАУ - специалист Управления проектами, множество профессиональных и треннинговых программ.</p>
+							<p>Целенаправленно получил опыт во всех видах проектов и компаний. До сего момента нанял около 2000 человек в рамках около 40 проектов.</p>
+							<p>В настоящее время работает в компании Mirantis​ на должности Senior Development Manager.</p>
+							<p>Является спикером по Project Management и техническим темам.</p>
+							<p>Увлекается путешествиями.</p>
+						</div>
+						<ul class="temp_teacher_skills">
+							<li>
+								<img src="img/icons_skills/people_managment.png" alt="People managment" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/project_managment.png" alt="Project managment" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/bigData.png" alt="bigData" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/cloudComputing.png" alt="cloudComputing" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/agile.png" alt="agile" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/scrum.png" alt="scrum" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/UML_1.png" alt="uml" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/design_patterns.png" alt="designPatterns" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/rdbms.png" alt="RDBMS" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/nosql.png" alt="NoSQL" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/mapreduce.png" alt="MapReduce" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/pmbok.png" alt="PMBOK" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/PRINCE2.png" alt="PRINCE2" class="skill_img responsive_img">
+							</li>
+						</ul>
+						<div class="temp_teacher_expirience">
+							Опыт работы в IT сфере более <b>20</b>&nbsp;лет.
+						</div>
+					</template>
+				</div>
+			</div>
+		</section>
+		<section class="course_statistic page_slide" id="course_statistic" data-geometry-index="4" data-mesh-color="ffffff">
+			<div class="container page_slide_inner_container course_statistic_inner_container flex flex-center-v">
+				<div class="course_statistic_content page_slide_content">
+					<h3 class="block_main_title">Немного статистики</h3>
+					<div class="svg_graph_container">
+						<svg class="graph">
+							<template class="graph_data" id="senior">[
+							{"x": 2014, "minY": 500, "maxY": 2500},
+							{"x": 2015, "minY": 500, "maxY": 1500},
+							{"x": 2016, "minY": 500, "maxY": 1500},
+							{"x": 2017, "minY": 500, "maxY": 1500}
+							]</template>
+							<template class="graph_data" id="middle">[
+							{"x": 2014, "minY": 500, "maxY": 1500},
+							{"x": 2015, "minY": 500, "maxY": 1000},
+							{"x": 2016, "minY": 500, "maxY": 1000},
+							{"x": 2017, "minY": 500, "maxY": 1000}
+							]</template>
+							<template class="graph_data" id="junior">[
+							{"x": 2014, "minY": 500, "maxY": 1000},
+							{"x": 2015, "minY": 500, "maxY": 1000},
+							{"x": 2016, "minY": 500, "maxY": 1000},
+							{"x": 2017, "minY": 500, "maxY": 1000}
+							]</template>
+							<defs>
+								<linearGradient id="linear-gradient" x1="0%" y1="0%" x2="30" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="repeat" gradientTransform="rotate(45)">
+									<stop offset="0%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="5%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="5%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="25%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="25%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="30%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="30%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="50%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="50%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="55%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="55%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="75%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="75%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="80%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="80%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="100%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+								</linearGradient>
+							</defs>
+							<g class="graph_container"></g>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_feedback page_slide" id="course_feedback" data-geometry-index="5" data-mesh-color="9fa2a7">
+			<div class="page_slide_inner_container course_feedback_inner_container flex flex-center-v">
+				<div class="course_feedback_content page_slide_content">
+					<div class="container">
+						<h3 class="block_main_title">Отзывы студентов</h3>
+					</div>
+					<div class="slider" id="main_slider">
+						<div class="slider_controlls">
+							<a class="arrow right_arrow" data-component="slider_control" data-action="forward"></a>
+							<a class="arrow left_arrow"  data-component="slider_control" data-action="back"></a>
+						</div>
+						<div class="overflow_hidden_container">
+							<div class="overflow_block clr flex flex-center-v">
+								<div class="slider_slide slide_1" data-component="slide">
+									<div class="container flex flex-center-v flex-center-h">
+										<div class="img_container">
+											<img src="img/feedback/viber_image.jpg" alt="" class="responsive_img">
+										</div>
+										<div class="text_block">
+											<div class="name">Жанна Тесленко</div>
+											<div class="feedback_text">
+												<p>&laquo;Прошла курс IT Project Management. Преподаватель Сергей Ковалев. Курс дает понимание базовых основ  IT и языков, суть самого программирования и как оно работает на практике, что является очень важным в работе PM. Также  курс подробно рассказывается о методологиях управления проектами, об управлении рисками, персоналом и др важных моментах, необходимых для качественного ведения проектов.</p>
+												<p>Знания, полученные на курсе помогли  пройти собеседование на позицию  PM в известную IT компанию. Спасибо UITSchool за качественный подбор персонала, информации и отличные условия!</p>
+												<p>Нереальное спасибо Сергею за супер-курс, профессионализм и менторство!</p>
+												<p>Так держать!</p>
+												<p>P.S.  Если Вы хотите быть хорошим РМ, Вам действительно необходимы базовые знания программирования и понимание написания кода - проверенно на практике!&raquo;</p>
+											</div>
+<!--											<div class="link"><a href="#">behance.com/firstname</a></div>-->
+										</div>
+									</div>
+								</div>
+								<div class="slider_slide slide_1" data-component="slide">
+									<div class="container flex flex-center-v flex-center-h">
+										<div class="img_container">
+											<img src="img/feedback/vPeKPWCdS30.png" alt="" class="responsive_img">
+										</div>
+										<div class="text_block">
+											<div class="name">Виктория Оспищева</div>
+											<div class="feedback_text">
+												<p>&laquo;Окончила курс IT Project Management. Программа понравилась. Условия обучения тоже. Преподаватель Сергей вообще впечатлил своим опытом, доступными примерами в подаче материала и мудрыми советами, - всегда давал быстрый feedback по домашним заданиям.</p>
+												<p>Не могу не отметить ""плюшечку""  - бесплатное занятие Speaking Club раз в неделю. Также порадовала встреча с HRом, из одной крупной IT компании, на которой прорабатывались вопросы к собеседованию в IT компаниях и помощь в составлении резюме. Спасибо! Приду на курс IT английского)))))&raquo;</p>
+											</div>
+<!--											<div class="link"><a href="#">behance.com/firstname</a></div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				   </div>
+				</div>
+			</div>
+		</section>
+<!--
+		<section class="course_works page_slide" id="course_works" data-geometry-index="6" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_works_inner_container flex flex-center-v">
+				<div class="course_works_content page_slide_content">
+					<h3 class="block_main_title">
+						Работы студентов
+					</h3>
+					<div class="flex works_image_container">
+						<div class="flex works_left_col">
+							<div class="image_block width_2 hidden min-width-1200">
+								<img src="img/img_works_5.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_1">
+								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_1">
+								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_2">
+								<img src="img/img_works_4.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex works_right_col">
+							<div class="image_block width_full">
+								<img src="img/img_works_1.jpg" alt="" class="responsive_img width_full">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+-->
+		@@include('./include/partners.html')
+<!--
+		<section class="course_partners page_slide" id="course_partners" data-geometry-index="7" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_partners_inner_container flex flex-center-v">
+				<div class="course_partners_content page_slide_content">
+					<h3 class="block_main_title">
+						Наши Партнеры
+					</h3>
+					<div class="partners_container">
+						<div class="first_row flex">
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+-->
+		@@include('./include/contact_form_section.html')
+<!--
+		<div class="course_map_block page_slide" id="course_map_block" data-geometry-index="9" data-mesh-color="9fa2a7">
+			<div class="page_slide_inner_container course_map_inner_container flex flex-center-v">
+				<section class="course_map_content page_slide_content flex">
+					<div class="map"></div>
+					<div class="dropdown_group">
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 2</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 3</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 4</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				include('./include/footer.html')
+			</div>
+		</div>
+-->
+	</div>
+</div>
+@@include('./include/bottom.html')

@@ -1,0 +1,37 @@
+.customselect {
+	display: inline-block;
+}
+
+.customselect .title {
+	border: 2px groove #000000;
+	box-sizing: border-box;
+	padding: 2px;
+	cursor: pointer;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.customselect li {
+	cursor: pointer;
+}
+
+.customselect ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	background: white;
+	border-bottom: 1px solid #add8e6;
+	border-left: 1px solid #add8e6;
+	border-right: 1px solid #add8e6;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+.customselect.open ul {
+	display: block;
+}

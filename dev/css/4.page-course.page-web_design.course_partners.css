@@ -1,0 +1,12 @@
+/*@media screen and (max-width: 767px) {*/
+@media screen and (max-width: 1199px) {
+
+	.course_partners {
+		background: #000;
+	}
+
+}
+
+.page-course.page-web_design .course_partners .block_main_title {
+	color: #fff;
+}

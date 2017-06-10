@@ -1,0 +1,937 @@
+@@include('./include/top1.html', { "pageClassesStr": "page-front_end page-course" })
+<title>Программирование&nbsp;Front-End</title>
+<meta name="keywords" content="Курсы HTML5 + CSS3 + JS (вёрстка), курсы верстка, курсы вёрстка, курсы HTML5 + CSS3 + JS, обучение HTML5 CSS3 JS, HTML5, CSS3, JS , Ukrainian IT School, Харьков, курсы вёрстки в Харькове, it специалист, it курсы, it сфера, работа it, it образование, обучение it, работа в it, обучение верстка для фронтенда,  Курсы HTML5 + CSS3 + JS (вёрстка) в Харькове, специалист по вёрстке,обучение на фронтенд-специалиста, курсы front-end developer ,front end специалист, Украина, курсы программирования">
+<meta name="description" content="Ukrainian IT School - сделает Вас специалистом по вёрстке HTML5 + CSS3 + JS">
+<meta name="author" content="Ukrainian IT School">
+
+<script>
+var gMapLoaded = false;
+
+function gMapLoadingComplete() {
+	gMapLoaded = true;
+	var widgetEvent = new CustomEvent('gmaploaded', {
+		bubbles: true
+	});
+	document.dispatchEvent(widgetEvent);
+}
+</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd_snhGQX7cHByP0hssPXaIGyPRmuc4kU&callback=gMapLoadingComplete"></script>
+@@include('./include/top2.html')
+<canvas class="bg_canvas"></canvas>
+<div class="main_menu_block container">
+	@@include(
+		'./include/main_menu.html',
+		{ "sideMenu": {
+			"Описание": {"slide": "course_description", "number": "01"},
+			"Программа": {"slide": "course_info", "number": "02"},
+			"Ближайший старт": {"slide": "course_start_date", "number": "03"},
+			"Перподаватели": {"slide": "course_teacher_block", "number": "04"},
+			"Статистика": {"slide": "course_statistic", "number": "05"},
+			"Отзывы": {"slide": "course_feedback", "number": "06"},
+			"Партнеры": {"slide": "course_partners", "number": "07"},
+			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
+		}, "contacts": true }
+	)
+</div>
+@@include('./include/modal_contacts_tabs.html')
+<div id="page_scroller">
+	<div class="page_slide_container">
+		<div class="course_description page_slide" id="course_description" data-geometry-index="0" data-mesh-color="ffffff">
+			<div class="container page_slide_inner_container course_description_inner_container flex flex-center-v">
+				<div class="page_slide_content">
+					<section class="course_description_content">
+						<h2 class="block_main_title">Программирование Front-End</h2>
+						<div class="text_block">
+							<p>Курс «Программирование Front-end» предусматривает изучение целого ряда языков и технологий, среди которых html5, css3, JavaScript (JQuery). С их помощью можно создавать пользовательский интерфейс, задавать параметры веб-страницы, которая при открывании в браузере будет реагировать на команды пользователя должным образом.</p>
+							<p>На курсе вы сможете быстро и основательно развить навыки верстальщика и программиста. Полученные знания позволят претендовать на позиции «верстальщик», «junior front-end developer», «junior javascript developer». Хорошее начало для успешной профессиональной деятельности! Чтобы стать разработчиком front-end, нужно быть мастером на все руки и развивать в себе способности к дизайну.</p>
+							<p class="title">Результат, на который учащийся может рассчитывать после обучения на курсе</p>
+							<p>На занятиях вы:</p>
+							<ul>
+								<li>уверенно освоите принципы разработки веб-сайтов с использованием HTML, CSS и JavaScript;</li>
+								<li>научитесь разрабатывать уникальные и живые дизайны сайтов;</li>
+								<li>освоите семантическую и адаптивную верстку;</li>
+								<li>сможете создавать собственные наработки и хранить их в виде framework.</li>
+							</ul>
+							<p>Программирование Front-End больше не будет для вас незнакомым полем деятельности!</p>
+						</div>
+						<button class="details_btn" data-slide="course_contact_form">Записаться</button>
+					</section>
+				</div>
+			</div>
+		</div>
+		<section class="course_info page_slide page_slide_split" id="course_info" data-geometry-index="1" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_info_inner_container flex flex-center-v">
+				<div class="course_info_content page_slide_content flex">
+					<div class="left_col page_slide_part" id="course_info_part_1" data-geometry-index="1" data-mesh-color="9fa2a7">
+						<div class="container page_slide_part_inner_container flex flex-center-v">
+							<div class="page_slide_part_content">
+								<h3 class="block_main_title">Программа</h3>
+								<div class="dropdown_group program_list">
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">1-й урок</span>
+												<span class="module_title">Основы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Знакомство. Преподаватель о себе.</p>
+												<p>HTML, CSS, JS. Объяснение каждого термина и их назначение в верстке.</p>
+												<p>На каком этапе веб-разработки используется верстка.</p>
+												<p>Понятие кроссбраузерности и валидности верстки.</p>
+												<p>Редакторы кода, короткий экскурс по ним: Notepad++, WebStorm, Sublime Text, Brackets, Atom,  Adobe Dreamweaver</p>
+												<p>Структура HTML-документа. Рендеринг страницы. DOCTYPE в html5, meta charset, title.</p>
+												<p>Что такое тег. Основные теги, их виды: парные, одиночные и синтаксис в HTML5.</p>
+												<p>Поведение элементов: строчные и блочные теги.</p>
+												<p>Создание первого HTML. Теги div, p, h1-h6, span.</p>
+												<p>Внутренние стили. CSS свойства: color, background, text-align, font-size, margin, padding, width, border.</p>
+												<p>Выравнивание блочного элемента по центру родителя.</p>
+												<p>Поведение padding`a. Box-sizing.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">2-й урок</span>
+												<span class="module_title">Селекторы. Плавающие блоки</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Ширина страницы. Статистика использования разрешений экранов.</p>
+												<p>Таблица глобальных стилей. Понятие селектора. Преимущества над внутренними стилями.</p>
+												<p>Классы и айди. Обращение к элементам: дочерние, вложенные, смежные.</p>
+												<p>Вес селектора.</p>
+												<p>Относительный и абсолютный пути.</p>
+												<p>Таблица связанных стилей. Создание и подключение.</p>
+												<p>Импорт css. Применение.</p>
+												<p>Встроенные стили браузеров. CSS reset.</p>
+												<p>Тег ‘img’. Вставляем в макет картинки.</p>
+												<p>Тег ‘а’. Ссылки, анкоры.</p>
+												<p>Якорные ссылки.</p>
+												<p>Плавающие элементы. Свойство float.</p>
+												<p>Отмена обтекания.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">3-й урок</span>
+												<span class="module_title">Позиционирование. Псевдо-эллементы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Установка и настройка Filezilla. ДЗ выгружаем на хостинг за сутки до урока.</p>
+												<p>Использование префиксов css свойств. Плагин avtoprefixer.</p>
+												<p>Позиционирование блоков. Свойство position.</p>
+												<p>z-index. Особенности наследования.</p>
+												<p>Сдвиг элементов, принципиальные отличия от margin. Позиционирование абсолюта.</p>
+												<p>Цвета и варианты их написания. Пипетка.</p>
+												<p>Использование Google Сhrome для преобразования вариантов написания цвета.</p>
+												<p>rgba и opacity. Отличия.</p>
+												<p>Псевдоэлементы before&amp;after.</p>
+												<p>Отмена обтекания с использованием after.</p>
+												<p>Футер, прижатый к низу страницы.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">4-й урок</span>
+												<span class="module_title">Display. Меню. Многоуровневое меню</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Абсолютный и относительные размеры.</p>
+												<p>Псевдоклассы. Основные псевдоклассы.</p>
+												<p>Свойство display. Блочное и строчное поведение тегов в HTML5.</p>
+												<p>Display: table-cell, table-row.</p>
+												<p>Выравнивание соседних блоков по высоте.</p>
+												<p>Блок с абсолютным позиционированием на всю высоту родителя.</p>
+												<p>Блок с абсолютным позиционированием по центру родителя.</p>
+												<p>Построение меню с использованием списков.</p>
+												<p>Построение горизонтального меню с использованием float и inline-block;</p>
+												<p>Горизонтальное многоуровневое меню.</p>
+												<p>Вертикальное меню. Меню-аккордеон.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">5-й урок</span>
+												<span class="module_title">Background. Спрайты</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Глобальные отличия background и image (индексирование, воздействие на родителя)</p>
+												<p>Свойства background: background-image, background-position, background-size, background-repeat.</p>
+												<p>Сведенное написание background.</p>
+												<p>Ограничение размеров элемента с фоном. Отображение не всего фона.</p>
+												<p>Понятие спрайтов. Назначение и преимущества.</p>
+												<p>Создание спрайтов в Photoshop.</p>
+												<p>Save image for web. PNG ws JPEG</p>
+												<p>Создание меню состоящего из спрайтов.</p>
+												<p>Горизонтальное меню из спрайтов и текста. Ограничение спрайта внутри ссылки.</p>
+												<p>Позиционирование эллемента со спрайтом.</p>
+												<p>Использование псевдоэллементов для спрайтов.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">6-й урок</span>
+												<span class="module_title">Трансформации и анимации</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Понятие трансформации элементов.</p>
+												<p>Матрица преобразований. Простые трансформации.</p>
+												<p>Размерности вращения.</p>
+												<p>3d-трансформации. Transform-origin.</p>
+												<p>Рендеринг трансформированных объектов.</p>
+												<p>Особенности анимаций.</p>
+												<p>Свойства transition:  transition-property, transition-duration, transition-timing-function, transition-delay.</p>
+												<p>Временные свойства, размерности.</p>
+												<p>Сведенное свойство transition.</p>
+												<p>Кривая Безье. Простые timing-function.</p>
+												<p>Использование Google Сhrome для потроения кривых Безье.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">7-й урок</span>
+												<span class="module_title">Градиенты и таблицы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Создание простых таблиц. Особенности поведения высоты ячеек и строк.</p>
+												<p>Объединение строк и ячеек таблицы.</p>
+												<p>Использование таблиц в контенте страницы. Индексация.</p>
+												<p>Понятие градиента. Отличие линейного и радиального.</p>
+												<p>Построение линейного градиента. Несколько цветов, автораспределение брейкпоинтов.</p>
+												<p>Переход между двумя цветами в одном пикселе.</p>
+												<p>Построение радиальных градиентов.</p>
+												<p>Геометрические центр элемента, центр градиента</p>
+												<p>Направление распространения градиента.</p>
+												<p>Градиентная мишень.</p>
+												<p>Тексты. Таблица безопасных шрифтов.</p>
+												<p>Подключение внешних шрифтов с помощью google fonts.</p>
+												<p>Использование сторонних шрифтов. Генераторы. Font-squirell и др.</p>
+												<p>Оформление шрифтов. Свойство text-shadow.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">8-й урок</span>
+												<span class="module_title">Геометрия и визуальные эффекты</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Геометрические фигуры: квадрат, прямоугольник, ромб.</p>
+												<p>Окружность, овал. Свойство border-radius.</p>
+												<p>Особенности пересечения границ эллемента. Построение трапеции.</p>
+												<p>Треугольники с помощью трех границ.</p>
+												<p>Треугольники с помощью двух границ.</p>
+												<p>Составные геометрические фигуры. Шестиугольник, овал, стрелки, указатели.</p>
+												<p>Пример сложной анимации. Дом, дым из трубы. Jsfiddle.</p>
+												<p>Визуальные эффекты страниц. Свойство box-shadow, его значения. inset.</p>
+												<p>Генераторы box-shadow, несколько границ с помощью box-shadow.</p>
+												<p>Использование псевдоэллементов. Реалистичные тени.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">9-й урок</span>
+												<span class="module_title">Формы и их оформление</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Тег form. Атрибут action.</p>
+												<p>Кнопка submit, reset. Выполнение скриптов из «action»</p>
+												<p>Основнsе эллементы форм. Атрибуты value, required, placeholder.</p>
+												<p>Ограничение размеров textarea.</p>
+												<p>Новые эллементы форм в HTML5. Их особенности при вводе с виртуальных клавиатур.</p>
+												<p>Математические поля. Отраибуты min, max, step. Поля ввода даты.</p>
+												<p>Обращение к псевдоєллементам форм.</p>
+												<p>Стилизация checkbox и radio.</p>
+												<p>Разбиение формы на группы. Теги fieldset, legend.</p>
+												<p>Верстка внутри формы.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">10-й урок</span>
+												<span class="module_title">Макеты</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Промежуточное тестирование. Вопросы по всем основам.</p>
+												<p>Раздаем макеты.</p>
+												<p>Основы работы в фотошопе. Понятие слоев, основные инструменты.</p>
+												<p>Нарезка макета, инструмент тримминг.</p>
+												<p>Сохранение изображений. Форматы изображений, удаляем метаданные.</p>
+												<p>Работа со шрифтами в фотошоп.</p>
+												<p>Эффекты слоя, градиенты, прозрачность.</p>
+												<p>Пошаговая работа с макетом, начинаем верстать.</p>
+												<p>Плагин emmet. Основные аббревиатуры.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">11-13й уроки</span>
+												<span class="module_title">Верстка макетов</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Работа над макетами. Индивидуальные консультации.</p>
+												<p>Верстка макетов на уроке.</p>
+												<p>Семантические теги HTML5. Назначение.</p>
+												<p>Условное комментирование для IE.</p>
+												<p>Подключение скриптов для старых версий IE.</p>
+												<p>Создание заглушки для IE 7.</p>
+												<p>Perfect Pixel верстка. Работа с плагином.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">14й урок</span>
+												<span class="module_title">Адаптивные сайты. Медиазапросы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Адаптивные, отзывчивые, резиновые сайты. Отличия.</p>
+												<p>Особенности поведения вложенных элементов в динамические блоки.</p>
+												<p>свойство word-wrap, img</p>
+												<p>Media queries. Синтаксис. Варианты подключения.</p>
+												<p>Поддержка медиазапросов старыми версиями IE</p>
+												<p>Порядок верстки адаптивных сайтов. Mobile-first, desktop-first.</p>
+												<p>Разрешения для охвата всех устройств. Breakpoint.</p>
+												<p>Breakpoints от bootstrap.</p>
+												<p>Понятие viewport&amp;device pixel ratio.</p>
+												<p>Атрибуты viewport.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">15й урок</span>
+												<span class="module_title">Bootstrap. Основы</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Назначение, история, применение фреймверка Bootstrap. Понятие фреймверков в целом.</p>
+												<p>Подключение bootstrap with CDN&amp;local. Преимущества/недостатки.</p>
+												<p>Обязательные теги.</p>
+												<p>Введение в систему колонок. Breakpoint. Наследование.</p>
+												<p>Отмена обтекания, офсет, пулл-пуш.</p>
+												<p>Отмена обтекания на конкретном разрешении.</p>
+												<p>Основные элементы фреймверка.</p>
+												<p>helper-classes.</p>
+												<p>Аббревиатуры BS для редакторов кода.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">16-17й уроки</span>
+												<span class="module_title">Bootstrap. Components</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>glythicons. Особенности поведения.</p>
+												<p>Подключение jQuery&amp;BsJs.</p>
+												<p>Использование и построение dropdown, nav.</p>
+												<p>Раздаем макеты. ТЗ к макетам.</p>
+												<p>Google Maps API.</p>
+												<p>SnazyMaps. Стилизация карт.</p>
+												<p>Индивидуальные консультации.</p>
+												<p>Верстка макетов на уроке.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">18й урок</span>
+												<span class="module_title">JS-JQ</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Сдача bootstrap макетов.</p>
+												<p>Основы JS. Фреймвёрки. Назначение.</p>
+												<p>Особенности загрузки и выполнения JS браузером.</p>
+												<p>Подключение jQuery. Способы, отличия.</p>
+												<p>Bootstrap JS. Использование встроенного функционала.</p>
+												<p>Обращение к элементам в jQuery. Базовый синтаксис.</p>
+												<p>jQuery API, jQuery plugins.</p>
+												<p>Подключение и кастомизация плагина jQuery.</p>
+												<p>Подключение и использование библиотеки jQuery UI.</p>
+												<p>Обзор и разбор библиотеки jQuery UI. Темы.</p>
+												<p>Учебники по JS&amp;jQuery (learn.js, Антон Шевчук).</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">19й урок</span>
+												<span class="module_title">JQ-manual</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Разработка фотогаллереи с эффектами карусели и бесконечной прокруткой.</p>
+												<p>Эффекты скроллинга на примере простого параллакс-эффекта.</p>
+												<p>Переменные, простой перенос контента по клику, принцип построения чатов.</p>
+												<p>Попап, скролл.</p>
+											</div>
+										</div>
+									</div>
+									<div class="closed droppownGroupItem">
+										<h4 class="navbar_header">
+											<span data-component="dropdown_toggle" class="flex-nowrap">
+												<span class="module_count">20й урок</span>
+												<span class="module_title">Как дальше жить?</span>
+											</span>
+										</h4>
+										<div class="dropdown_container">
+											<div class="dropdown_bar">
+												<p>Рекомендации по составлению резюме.</p>
+												<p>Фриланс биржи и особенности работы с ними.</p>
+												<p>СМS и основные ресурсы для их изучения.</p>
+												<p>В какую сторону дальше развиваться. Пути, основные направления.</p>
+												<p>Шампанское, фейерверк, массовые гуляния:)</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="right_col page_slide_part flex" id="course_info_part_2" data-geometry-index="1" data-mesh-color="9fa2a7">
+						<div class="container page_slide_part_inner_container flex flex-center-v">
+							<div class="page_slide_part_content flex">
+								<div class="shedule_block_1">
+									<h3 class="block_main_title">Группа №1</h3>
+									<div class="shedule">
+										<div class="shedule_inner_block">
+											<div class="title">Расписание</div>
+											<div class="description">
+<!--
+												<div>Группа1: Среда&nbsp;16:00, Воскресенье&nbsp;12:00</div>
+												<div>Группа2: Среда&nbsp;16:00, Суббота&nbsp;12:00</div>
+-->
+												<div>Среда 19:00</div>
+												<div>Суббота 9:00</div>
+											</div>
+										</div>
+										<div class="shedule_inner_block">
+											<div class="title">Продолжительность курса</div>
+											<div class="length">
+												20&nbsp;занятий (50&nbsp;часов)
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="shedule_block_2">
+									<h3 class="block_main_title">Группа №2</h3>
+									<div class="shedule">
+										<div class="shedule_inner_block">
+											<div class="title">Расписание</div>
+											<div class="description">
+												<div>Понедельник 16:15</div>
+												<div>Четверг 16:15</div>
+											</div>
+										</div>
+										<div class="shedule_inner_block">
+											<div class="title">Продолжительность курса</div>
+											<div class="length">
+												20&nbsp;занятий (50&nbsp;часов)
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="price_block">
+									<div class="price_block_inner flex">
+										<div class="price flex">
+											<div class="price_full">4300</div>
+											<div class="price_discount">3800</div>
+											<div class="discount_description">*при полной оплате до начала курса</div>
+										</div>
+										<div class="register_container">
+											<button class="register" data-slide="course_contact_form">Записаться</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_start_date page_slide" id="course_start_date" data-geometry-index="2" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_start_date_inner_container flex flex-center-v">
+				<div class="course_start_date_content page_slide_content">
+					<div class="tabs_container">
+						<div class="tabs flex flex-center-h">
+							<div class="tab tab_1 active-tab flex flex-center-v flex-center-h" data-tab-target="#group_1">
+								<span>Группа №1</span>
+							</div>
+							<div class="tab tab_2 flex flex-center-v flex-center-h" data-tab-target="#group_2">
+								<span>Группа №2</span>
+							</div>
+						</div>
+						<div class="tab_blocks">
+							<div class="tab_block tab_block_1 active-tab-block fade" id="group_1">
+								<p class="line1">Старт новой группы</p>
+								<p class="line2">Дни занятий: Среда, Суббота</p>
+								<p class="start_date">28.06.2017</p>
+								<p class="notice">в летний период старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Записаться</button>
+							</div>
+							<div class="tab_block tab_block_2" id="group_2">
+								<p class="line1">Старт новой группы</p>
+								<p class="line2">Дни занятий: Понедельник, Четверг</p>
+								<p class="start_date">10.07.2017</p>
+								<p class="notice">в летний период старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Записаться</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_teacher_block page_slide" id="course_teacher_block" data-geometry-index="3" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_teacher_block_inner_container flex flex-center-v">
+				<div class="course_teacher_block_content page_slide_content">
+					<div class="main_title">Преподаватели курса</div>
+					<div class="course_teacher_block_content_inner">
+						<svg class="course_teacher_svg_bg"></svg>
+						<div class="teacher_img_outer_container flex flex-center-v flex-center-h">
+							<div class="teacher_img_inner_container">
+								<img src="img/teacher_img.png" alt="" class="teacher_img responsive_img" data-template-target=".temp_teacher_image">
+								<div class="name" data-template-target=".temp_teacher_name">Firtsname Secondname</div>
+							</div>
+						</div>
+						<div class="thumbnails"></div>
+						<div class="teacher_about">
+							<div class="title">About</div>
+							<div class="description" data-template-target=".temp_teacher_about">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							</div>
+						</div>
+						<div class="teacher_skills">
+							<div class="title">Software Skills</div>
+							<ul class="skill_list" data-template-target=".temp_teacher_skills">
+								<li>
+									<img src="img/icon_ps.png" alt="" class="skill_img responsive_img">
+								</li>
+								<li>
+									<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+								</li>
+							</ul>
+						</div>
+						<div class="teacher_expirience">
+							<div class="title">Experience</div>
+							<div class="description" data-template-target=".temp_teacher_expirience">
+								about <b>9</b> years in web&#8209;design development
+							</div>
+						</div>
+					</div>
+					<template class="temp_teacher_data">
+						<div class="temp_teacher_name">Алексей Пузич</div>
+						<img src="img/teachers/x_fe08b83e.jpg" alt="" class="temp_teacher_image" data-thumbnail>
+						<div class="temp_teacher_about">
+							<p>Закончил Харьковский колледж строительства и архитектуры. Инженер-строитель. В Ай-Ти пришел как самоучка, работал на фрилансе около 4 лет, впоследствии открыл свою веб-студию. Суммарный стаж работы порядка 8 лет. Опыт преподавания - 3 года. Играю в минифутбол, катаюсь на лыжах, велосипеде. Бегаю по утрам, да и всячески стараюсь вести активный и здоровый ображ жизни.</p>
+						</div>
+						<ul class="temp_teacher_skills">
+							<li>
+								<img src="img/icons_skills/Photoshop.png" alt="Photoshop" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Illustrator.png" alt="Illustrator" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/CorelDraw.png" alt="CorelDraw" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/CSS3.png" alt="CSS3" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/HTML5.png" alt="HTML5" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Wordpress.png" alt="Wordpress" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Joomla.png" alt="Joomla" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Opencart.png" alt="Opencart" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/PHP.png" alt="PHP" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Jquery_1.png" alt="Jquery" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/GIT.png" alt="GIT" class="skill_img responsive_img">
+							</li>
+						</ul>
+						<div class="temp_teacher_expirience">
+							Суммарный стаж работы порядка <b>8</b>&nbsp;лет. Опыт преподавания - <b>3</b>&nbsp;года
+						</div>
+					</template>
+					<template class="temp_teacher_data">
+						<div class="temp_teacher_name">Константин Королев</div>
+						<img src="img/teacher_img.png" alt="" class="temp_teacher_image" data-thumbnail>
+						<div class="temp_teacher_about">
+
+						</div>
+						<ul class="temp_teacher_skills">
+							<li>
+								<img src="img/icons_skills/HTML5.png" alt="HTML5" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/CSS3.png" alt="CSS3" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/JavaScript.png" alt="JavaScript" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Jquery_1.png" alt="jQuery" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/AJAX.png" alt="AJAX" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/PHP.png" alt="PHP" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/MySQL_1.png" alt="MySQL" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Drupal.png" alt="Drupal" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/GIT.png" alt="GIT" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/SASS.png" alt="SASS" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/JSON.png" alt="JSON" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Photoshop.png" alt="Photoshop" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Illustrator.png" alt="Illustrator" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/CorelDraw.png" alt="CorelDraw" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Angular_1.png" alt="AngularJS" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Node_js.png" alt="Node.js" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/Underscore_js.png" alt="Underscore.js" class="skill_img responsive_img">
+							</li>
+							<li>
+								<img src="img/icons_skills/MongoDB.png" alt="MongoDB.js" class="skill_img responsive_img">
+							</li>
+						</ul>
+						<div class="temp_teacher_expirience">
+
+						</div>
+					</template>
+				</div>
+			</div>
+		</section>
+		<section class="course_statistic page_slide" id="course_statistic" data-geometry-index="4" data-mesh-color="ffffff">
+			<div class="container page_slide_inner_container course_statistic_inner_container flex flex-center-v">
+				<div class="course_statistic_content page_slide_content">
+					<h3 class="block_main_title">Немного статистики</h3>
+					<div class="svg_graph_container">
+						<svg class="graph">
+							<template class="graph_data" id="senior">[
+							{"x": 2014, "minY": 500, "maxY": 2500},
+							{"x": 2015, "minY": 500, "maxY": 2500},
+							{"x": 2016, "minY": 500, "maxY": 2000},
+							{"x": 2017, "minY": 500, "maxY": 2000}
+							]</template>
+							<template class="graph_data" id="middle">[
+							{"x": 2014, "minY": 500, "maxY": 1500},
+							{"x": 2015, "minY": 500, "maxY": 1000},
+							{"x": 2016, "minY": 500, "maxY": 1000},
+							{"x": 2017, "minY": 500, "maxY": 1000}
+							]</template>
+							<template class="graph_data" id="junior">[
+							{"x": 2014, "minY": 500, "maxY": 1000},
+							{"x": 2015, "minY": 500, "maxY": 1000},
+							{"x": 2016, "minY": 500, "maxY": 1000},
+							{"x": 2017, "minY": 500, "maxY": 1000}
+							]</template>
+							<defs>
+								<linearGradient id="linear-gradient" x1="0%" y1="0%" x2="30" y2="0" gradientUnits="userSpaceOnUse" spreadMethod="repeat" gradientTransform="rotate(45)">
+									<stop offset="0%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="5%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="5%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="25%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="25%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="30%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="30%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="50%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="50%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="55%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="55%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="75%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="75%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="80%" stop-color="rgb(255,255,255)" stop-opacity="0.5"/>
+									<stop offset="80%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+									<stop offset="100%" stop-color="rgb(0, 0, 0)" stop-opacity="0"/>
+								</linearGradient>
+							</defs>
+							<g class="graph_container"></g>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="course_feedback page_slide" id="course_feedback" data-geometry-index="5" data-mesh-color="9fa2a7">
+			<div class="page_slide_inner_container course_feedback_inner_container flex flex-center-v">
+				<div class="course_feedback_content page_slide_content">
+					<div class="container">
+						<h3 class="block_main_title">Отзывы студентов</h3>
+					</div>
+					<div class="slider" id="main_slider">
+						<div class="slider_controlls">
+							<a class="arrow right_arrow" data-component="slider_control" data-action="forward"></a>
+							<a class="arrow left_arrow"  data-component="slider_control" data-action="back"></a>
+						</div>
+						<div class="overflow_hidden_container">
+							<div class="overflow_block clr flex flex-center-v">
+								<div class="slider_slide slide_1" data-component="slide">
+									<div class="container flex flex-center-v flex-center-h">
+										<div class="img_container">
+											<img src="img/feedback/FqoCz4_F0CY.png" alt="" class="responsive_img">
+										</div>
+										<div class="text_block">
+											<div class="name">Андрей Бабарыка</div>
+											<div class="feedback_text">
+												<p>&laquo;Пришел на данный курс не имея базовых знаний в Front-End. Вышел с хорошим багажом знаний, достаточным для дальнейшего саморазвития в Front-End. Теперь о преподавателе, Паша дает материал грамотно, лаконично и структурированно, часто задает вопрос ""Понятно?"" если вдруг тишина в группе он повторяет ""Ну говорите если не понятно"", а затем приводит пример изложенного материала взаимодействуя с аудиторией. Даже если не понял после примера, можно пересмотреть видео в домашних условиях где тебя никто не отвлекает и разобраться в теме. Об аудитории: только после ремонта, первые пол месяца пахло краской, поэтому ходили заниматься в главный офис. Понравился куллер с постоянно подогретой водой для чая, кофе. Хорошие условия для обучения.</p>
+												<p>Плюсы:</p>
+												<ul>
+													<li>- Комфортные аудитории;</li>
+													<li>- Горячий кофе и глюкоза для мозга (конфеты);</li>
+													<li>- Цена;</li>
+													<li>- Преподаватель; </li>
+													<li>- Бесплатные уроки английского.&raquo;</li>
+												</ul>
+											</div>
+<!--											<div class="link"><a href="#">behance.com/firstname</a></div>-->
+										</div>
+									</div>
+								</div>
+								<div class="slider_slide slide_2" data-component="slide">
+									<div class="container flex flex-center-v flex-center-h">
+										<div class="img_container">
+											<img src="img/feedback/KY2ptK1-tFQ.png" alt="" class="responsive_img">
+										</div>
+										<div class="text_block">
+											<div class="name">Наталья Проценко</div>
+											<div class="feedback_text">
+												<p>&laquo;Очень насыщенный, интересный и дающий уверенность в своих силах курс. Огромнейший плюс  – это видеозапись каждого урока. Если бы их не было, я бы и половины материала не усвоила, потому что на каждом уроке дается очень много, и человеку неподготовленному сложно сразу въехать в суть. Ну или я просто часто отвлекалась на уроке )) Пока пытаешься осознать суть и смириться с отрицательным марджином,  преподаватель в объяснениях уже ушел вперед. А дома сел спокойненько, пересмотрел, написал конспект  и думаешь: «Ну все же ясно, как это можно было не понять сразу! )))</p>
+												<p>Хочется сказать большое человеческое спасибо Леше за открытость, желание и, что немаловажно, умение рассказать и объяснить материал так и столько раз, что это становится понятно даже если думал, что никогда этого не поймешь))) Спасибо за то количество и качество знаний, которое ты перегнал из своей головы в наши)) (а сколько еще мог бы на продвинутом курсе ;) Объем материала преподаваемого на курсе возрастал с каждым уроком. Если первую часть курса мы постепенно и методично разбирались в верстке, делали свои учебные макеты, то последние уроки были перенасыщены информацией о том, куда еще развиваться, что еще учить, в какую сторону смотреть, если планируешь преуспеть в этом направлении. JQuery, препроцессоры, микроразметка, CMS, SVG, Flexbox - все это хотелось бы тоже освоить в спокойном темпе, с домашними заданиями и еще парочкой макетов )) Я это к чему - это я обращаюсь к руководству школы все-таки запустить продвинутый курс, где можно было бы со всем этим спокойно разобраться - и процент устраиваемости ваших выпускников в крутые IT-компании существенно увеличился бы, как и рейтинг школы в целом! Особенно, если этот курс будет преподавать Леша ;)&raquo;</p>
+											</div>
+<!--											<div class="link"><a href="#">behance.com/firstname</a></div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				   </div>
+				</div>
+			</div>
+		</section>
+<!--
+		<section class="course_works page_slide" id="course_works" data-geometry-index="6" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_works_inner_container flex flex-center-v">
+				<div class="course_works_content page_slide_content">
+					<h3 class="block_main_title">
+						Работы студентов
+					</h3>
+					<div class="flex works_image_container">
+						<div class="flex works_left_col">
+							<div class="image_block width_2 hidden min-width-1200">
+								<img src="img/img_works_5.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_1">
+								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_1">
+								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+							<div class="image_block width_2">
+								<img src="img/img_works_4.jpg" alt="" class="responsive_img">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex works_right_col">
+							<div class="image_block width_full">
+								<img src="img/img_works_1.jpg" alt="" class="responsive_img width_full">
+								<div class="bottom_block">
+									<div class="name">Name of Student</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+-->
+		@@include('./include/partners.html')
+<!--
+		<section class="course_partners page_slide" id="course_partners" data-geometry-index="7" data-mesh-color="9fa2a7">
+			<div class="container page_slide_inner_container course_partners_inner_container flex flex-center-v">
+				<div class="course_partners_content page_slide_content">
+					<h3 class="block_main_title">
+						Наши Партнеры
+					</h3>
+					<div class="partners_container">
+						<div class="first_row flex">
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
+							</div>
+							<div class="image_container flex-nowrap flex-center-v flex-center-h">
+								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+-->
+		@@include('./include/contact_form_section.html')
+<!--
+		<div class="course_map_block page_slide" id="course_map_block" data-geometry-index="9" data-mesh-color="9fa2a7">
+			<div class="page_slide_inner_container course_map_inner_container flex flex-center-v">
+				<section class="course_map_content page_slide_content flex">
+					<div class="map"></div>
+					<div class="dropdown_group">
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 2</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 3</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+						<div class="closed droppownGroupItem">
+							<h4 class="navbar_header">
+								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 4</span>
+							</h4>
+							<div class="dropdown_container">
+								<div class="dropdown_bar">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				include('./include/footer.html')
+			</div>
+		</div>
+-->
+	</div>
+</div>
+@@include('./include/bottom.html')

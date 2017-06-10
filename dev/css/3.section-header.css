@@ -1,0 +1,93 @@
+header,
+header.container {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+header .header_container_inner {
+	position: relative;
+}
+
+header .hover_container {
+	position: absolute;
+	top: 16px;
+	left: 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 600;
+	color: #fffc00;
+	text-align: left;
+}
+
+header .navbar_header_main {
+/*	padding-bottom: 25px;*/
+}
+
+header .navbar_header_hover_block {
+/*	display: none;*/
+	height: 0;
+	overflow: hidden;
+	transition: height ease 0.5s;
+}
+
+header .hover_container:hover .navbar_header_hover_block {
+/*	display: block;*/
+	height: 49px;
+}
+
+header .navbar_header_end {
+/*	position: absolute;*/
+/*
+	top: calc(100% + -20px);
+	left: 0;
+*/
+	z-index: 1;
+	width: 100%;
+	margin-top: 3px;
+/*    top: 0;*/
+}
+
+header .navbar_header_text {
+	font-size: 19px;
+	text-transform: uppercase;
+	line-height: 19px;
+	transition: height ease 0.5s;
+	height: 19px;
+	overflow: hidden;
+}
+
+header .hover_container:hover .navbar_header_text {
+	height: 0;
+}
+
+header .navbar_header_hover_block {
+	font-size: 16px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	line-height: 16px;
+}
+
+header .navbar_header_hover_block .choose_city {
+	font-size: 16px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	line-height: 16px;
+	padding: 0;
+	background: none;
+	border: none;
+	display: block;
+	color: #fffc00;
+}
+
+header .navbar_header_hover_block:before {
+	content: "";
+	display: block;
+	border-left: 1px solid #fff;
+	height: 30px;
+	margin: 0 0 3px 0px;
+}
+
+header h1 {
+	height: 100%;
+}

@@ -1,0 +1,31 @@
+.success_notification {
+	text-align: center;
+	padding: 50px 0;
+}
+
+.success_notification p {
+	font-size: 2.4em;
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #e1de00;
+}
+
+.success_notification p + p {
+	font-size: 1.6em;
+	font-weight: 300;
+	color: #fff!important;
+	text-transform: none;
+	margin-top: 14px;
+}
+
+@media screen and (min-width: 768px) {
+
+	.success_notification p {
+		font-size: 3.4em;
+	}
+
+	.success_notification p + p {
+		font-size: 2.2em;
+	}
+
+}

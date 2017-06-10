@@ -1,0 +1,13 @@
+@media screen and (min-width: 768px) {
+
+	.page-index .main_menu_block .dropdown_toggle {
+		position: fixed;
+		left: auto;
+		right: 49px;
+	}
+
+	.page-index .main_menu_block .dropdown_container {
+		padding-top: 126px;
+	}
+
+}
