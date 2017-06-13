@@ -227,6 +227,12 @@ Slider.prototype._onMouseUp = function(e) {
 
 Slider.prototype._startDrag = function(e) {
 //	console.log(this.NAME + ': startDrag function');
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'startDrag</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
+
 	this._removeListener(this._elem, 'transitionend', this._onCornerTransitionEnd);
 	this._removeListener(this._elem, 'transitionend', this._onMiddleTransitionEnd);
 	this._removeListener(this._elem, 'mousedown', this._onMouseDown);
@@ -247,7 +253,17 @@ Slider.prototype._startDrag = function(e) {
 	this._startCursorYPosition = clientY + (window.pageYOffset || document.documentElement.scrollTop);
 
 //	this._startListContainerYPosition = this._overflowBlock.style;
-	this._overflowStartLeft = parseInt(getComputedStyle(this._overflowBlock).left);
+//	var overflowStartLeftCompStyle = getComputedStyle(this._overflowBlock).left;
+//	this._overflowStartLeft = parseInt(overflowStartLeftCompStyle);
+//	var offsetleft = this._overflowBlock.offsetLeft;
+	this._overflowStartLeft = this._overflowBlock.offsetLeft;
+
+//	if (test) {
+//		test.innerHTML += '   startCursorXPosition = ' + this._startCursorXPosition  + '</br>';
+//		test.innerHTML += '   startCursorYPosition = ' + this._startCursorYPosition  + '</br>';
+//		test.innerHTML += '   overflowStartLeft = ' + this._overflowStartLeft + 'px</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 
 	this._addListener(document, 'mousemove', this._onMouseMoveDrag);
 	this._addListener(document, 'touchmove', this._onMouseMoveDrag);
@@ -257,6 +273,12 @@ Slider.prototype._startDrag = function(e) {
 
 Slider.prototype._stopDrag = function(e) {
 //	console.log(this.NAME + ': stopDrag function');
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'stopDrag</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
+
 	this._removeListener(document, 'mousemove', this._onMouseMoveDrag);
 	this._removeListener(document, 'touchmove', this._onMouseMoveDrag);
 	this._removeListener(document, 'mouseup', this._onMouseUp);
@@ -273,6 +295,11 @@ Slider.prototype._stopDrag = function(e) {
 //		units: '%'
 //	});
 	this._overflowBlock.style.left = percentLeft + '%';
+//	if (test) {
+//		test.innerHTML += '   pxLeft = ' + pxLeft  + '</br>';
+//		test.innerHTML += '   percentLeft = ' + percentLeft  + '%</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 //	this._overflowBlock.style.transitionDuration = '';
 
 	var clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
@@ -347,6 +374,11 @@ Slider.prototype._pixelsToPercents = function(left) {
 };
 
 Slider.prototype._onMouseMoveDrag = function(e) {
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'onMouseMoveDrag</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 //	console.log(this.NAME + ': onMouseMoveDrag function.');
 	var clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
 
@@ -354,6 +386,11 @@ Slider.prototype._onMouseMoveDrag = function(e) {
 	var xPositionDeleta = currentcursorXPosition - this._startCursorXPosition;
 
 	var newLeft = this._overflowStartLeft + xPositionDeleta;
+
+//	if (test) {
+//		test.innerHTML += '   newLeft = ' + newLeft  + 'px</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 
 	this._overflowBlock.style.left = newLeft + 'px';
 //	console.log({
@@ -385,7 +422,18 @@ Slider.prototype._onMouseMoveDrag = function(e) {
 //				});
 
 				this._startCursorXPosition = currentcursorXPosition;
-				this._overflowStartLeft = parseInt(getComputedStyle(this._overflowBlock).left);
+//				this._overflowStartLeft = parseInt(getComputedStyle(this._overflowBlock).left);
+//				var overflowStartLeftCompStyle = getComputedStyle(this._overflowBlock).left;
+//				this._overflowStartLeft = parseInt(overflowStartLeftCompStyle);
+//				var offsetleft = this._overflowBlock.offsetLeft;
+				this._overflowStartLeft = this._overflowBlock.offsetLeft;
+
+//				if (test) {
+//					test.innerHTML += '   newLeft = ' + -newLeft  + '%</br>';
+//					test.innerHTML += '   startCursorXPosition = ' + currentcursorXPosition  + '</br>';
+//					test.innerHTML += '   overflowStartLeft = ' + this._overflowStartLeft  + 'px</br>';
+//					test.scrollTop = test.scrollHeight;
+//				}
 
 			} else if (newCenterSlideIndex === 0) {
 				var percentLeft = this._pixelsToPercents(newLeft);
@@ -400,7 +448,18 @@ Slider.prototype._onMouseMoveDrag = function(e) {
 //				});
 
 				this._startCursorXPosition = currentcursorXPosition;
-				this._overflowStartLeft = parseInt(getComputedStyle(this._overflowBlock).left);
+//				this._overflowStartLeft = parseInt(getComputedStyle(this._overflowBlock).left);
+//				var overflowStartLeftCompStyle = getComputedStyle(this._overflowBlock).left;
+//				this._overflowStartLeft = parseInt(overflowStartLeftCompStyle);
+//				var offsetleft = this._overflowBlock.offsetLeft;
+				this._overflowStartLeft = this._overflowBlock.offsetLeft;
+
+//				if (test) {
+//					test.innerHTML += '   newLeft = ' + -newLeft  + '%</br>';
+//					test.innerHTML += '   startCursorXPosition = ' + currentcursorXPosition  + '</br>';
+//					test.innerHTML += '   overflowStartLeft = ' + this._overflowStartLeft  + 'px</br>';
+//					test.scrollTop = test.scrollHeight;
+//				}
 			}
 //			var diff = newCenterSlideIndex - this._currSlide;
 

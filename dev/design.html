@@ -195,28 +195,6 @@ function gMapLoadingComplete() {
 										<div class="shedule_inner_block">
 											<div class="title">Расписание</div>
 											<div class="description">
-<!--
-												<div>Группа1: Среда&nbsp;16:00, Воскресенье&nbsp;12:00</div>
-												<div>Группа2: Среда&nbsp;16:00, Суббота&nbsp;12:00</div>
--->
-												<div>Среда 19:00</div>
-												<div>Суббота 12:00</div>
-											</div>
-										</div>
-										<div class="shedule_inner_block">
-											<div class="title">Продолжительность курса</div>
-											<div class="length">
-												18&nbsp;занятий (58.5&nbsp;часов)
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="shedule_block_2">
-									<h3 class="block_main_title">Группа №2</h3>
-									<div class="shedule">
-										<div class="shedule_inner_block">
-											<div class="title">Расписание</div>
-											<div class="description">
 												<div>Вторник 9:30</div>
 												<div>Четверг 9:30</div>
 											</div>
@@ -255,19 +233,9 @@ function gMapLoadingComplete() {
 							<div class="tab tab_1 active-tab flex flex-center-v flex-center-h" data-tab-target="#group_1">
 								<span>Группа №1</span>
 							</div>
-							<div class="tab tab_2 flex flex-center-v flex-center-h" data-tab-target="#group_2">
-								<span>Группа №2</span>
-							</div>
 						</div>
 						<div class="tab_blocks">
-							<div class="tab_block tab_block_1 active-tab-block fade" id="group_1">
-								<p class="line1">Старт новой группы</p>
-								<p class="line2">Дни занятий: Среда, Суббота</p>
-								<p class="start_date">07.06.2017</p>
-								<p class="notice">в летний период старт по мере комплектации</p>
-								<button class="quote" data-slide="course_contact_form">Записаться</button>
-							</div>
-							<div class="tab_block tab_block_2" id="group_2">
+							<div class="tab_block tab_block_2" id="group_1">
 								<p class="line1">Старт новой группы</p>
 								<p class="line2">Дни занятий: Втрник, Четверг</p>
 								<p class="start_date">27.06.2017</p>
@@ -362,6 +330,7 @@ function gMapLoadingComplete() {
 		<section class="course_statistic page_slide" id="course_statistic" data-geometry-index="4" data-mesh-color="ffffff">
 			<div class="container page_slide_inner_container course_statistic_inner_container flex flex-center-v">
 				<div class="course_statistic_content page_slide_content">
+					<img src="img/drag.svg" alt="" class="drag_icon responsive_img">
 					<h3 class="block_main_title">Немного статистики</h3>
 					<div class="svg_graph_container">
 						<svg class="graph">
@@ -492,7 +461,7 @@ function gMapLoadingComplete() {
 				</div>
 			</div>
 		</section>
-		@@include('./include/partners.html');
+		@@include('./include/partners_dark.html');
 <!--
 		<section class="course_partners page_slide" id="course_partners" data-geometry-index="7" data-mesh-color="9fa2a7">
 			<div class="container page_slide_inner_container course_partners_inner_container flex flex-center-v">

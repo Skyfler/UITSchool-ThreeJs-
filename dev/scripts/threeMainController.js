@@ -196,6 +196,7 @@ ThreeMainController.prototype._renderLoop = function(time) {
 
 ThreeMainController.prototype._startOnLoad = function(){
 	this._renderLoop();
+	this._updateMeshes();
 
 	this._addListener(document, 'customMeshVerticesUpdateStarted', this._onCustomMeshVerticesUpdateStarted);
 	this._addListener(document, 'customMeshVerticesUpdateComplete', this._onCustomMeshVerticesUpdateComplete);

@@ -27,12 +27,14 @@
 	text-transform: uppercase;
 	color: #000;
 	font-weight: 700;
-	margin-bottom: 48px;
+/*	margin-bottom: 48px;*/
 }
 
 .course_statistic .svg_graph_container {
 	width: 100%;
 	overflow-x: auto;
+	padding-top: 48px;
+	position: relative;
 }
 
 .course_statistic .graph {
@@ -118,6 +120,27 @@
 .course_statistic .vertical_label_rect {
 /*	fill: rgba(255, 0, 0, 0.1);*/
 	fill: url(#linear-gradient);
+}
+
+.course_statistic .drag_icon {
+	height: 30px;
+	position: absolute;
+	top: 65px;
+	left: 50%;
+	animation-direction: alternate;
+	animation-name: drag-icon;
+	animation-duration: 1.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	display: none;
+}
+
+@media screen and (max-width: 720px) {
+
+	.course_statistic .drag_icon {
+		display: block;
+	}
+
 }
 
 @media screen and (min-width: 768px) {

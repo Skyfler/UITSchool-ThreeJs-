@@ -57,7 +57,10 @@
 				quAutomation: ['img/main_center/QA_automation.svg'],
 				seo: ['img/main_center/SEO.svg'],
 				smm: ['img/main_center/SMM.svg'],
-				webDesign: ['img/main_center/web_design.svg']
+				webDesign: ['img/main_center/web_design.svg'],
+				sales: ['img/main_center/IT_Sales.svg'],
+				advertising: ['img/main_center/ADS.svg'],
+				javascript: ['img/main_center/JS.svg']
 			},
 			urlsToLoad_innerShape_A: [
 				'img/main_center/flourish.svg',

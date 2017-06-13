@@ -37,11 +37,14 @@
 .course_partners .partners_container .image_container:nth-child(1):after,
 .course_partners .partners_container .image_container:nth-child(2):after {
 */
+.course_partners .partners_container .image_container:before,
+.course_partners .partners_container .image_container:after {
+	width: 50px;
+	border-top: 2px solid #000;
+}
 .course_partners .partners_container .image_container:nth-child(odd):after {
 	content: "";
 	display: block;
-	width: 50px;
-	border-top: 2px solid #fffc00;
 	margin-left: 5px;
 }
 /*
@@ -51,8 +54,6 @@
 .course_partners .partners_container .image_container:nth-child(even):before {
 	content: "";
 	display: block;
-	width: 50px;
-	border-top: 2px solid #fffc00;
 	margin-right: 10px;
 }
 
@@ -111,8 +112,6 @@
 	.course_partners .partners_container .image_container:nth-child(5):before {
 		content: "";
 		display: block;
-		width: 50px;
-		border-top: 2px solid #fffc00;
 		margin-right: 10px;
 	}
 
@@ -121,8 +120,6 @@
 	.course_partners .partners_container .image_container:nth-child(3):after {
 		content: "";
 		display: block;
-		width: 50px;
-		border-top: 2px solid #fffc00;
 		margin-left: 5px;
 	}
 	.course_partners .partners_container .image_container:nth-child(4):after,

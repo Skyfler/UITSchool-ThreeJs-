@@ -1,7 +1,7 @@
 /*@media screen and (max-width: 767px) {*/
 @media screen and (max-width: 1199px) {
 
-	.course_partners {
+	.page-course.page-web_design .course_partners {
 		background: #000;
 	}
 
@@ -9,4 +9,9 @@
 
 .page-course.page-web_design .course_partners .block_main_title {
 	color: #fff;
+}
+
+.page-course.page-web_design .course_partners .partners_container .image_container:after,
+.page-course.page-web_design .course_partners .partners_container .image_container:before {
+	border-color: #fffc00;
 }
