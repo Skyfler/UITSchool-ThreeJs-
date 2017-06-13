@@ -1,0 +1,52 @@
+.inner_page_contact_button_container {
+	z-index: 2;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+}
+
+.inner_page_contact_button_container .inner_page_contact_button {
+	height: 68px;
+	width: 68px;
+	border-radius: 50%;
+	position: relative;
+	border: none;
+	background-color: #fffc00;
+	background-image: url(../img/sprites/sprite_inner_page_contact_button.png);
+	background-size: 300% 200%;
+	background-position: 0 100%;
+	animation-direction: alternate;
+	animation-name: inner_page_contact_button_background;
+	animation-duration: 10s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	padding: 0;
+	display: block;
+	transition: background-color ease 1s;
+}
+
+.inner_page_contact_button_container svg.svg_btn_border {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: visible;
+}
+
+.inner_page_contact_button_container svg.svg_btn_border .svg_border_circle {
+	cx: 50%;
+	cy: 50%;
+	r: 60%;
+	fill: transparent;
+	stroke-width: 2px;
+	stroke: #fffc00;
+	stroke-dasharray: 2,8;
+	transform-origin: center center;
+	transition:
+		transform ease 0.5s,
+		stroke ease 1s;
+}
+.inner_page_contact_button_container .inner_page_contact_button:hover svg.svg_btn_border .svg_border_circle {
+	transform: scale(1.1);
+}

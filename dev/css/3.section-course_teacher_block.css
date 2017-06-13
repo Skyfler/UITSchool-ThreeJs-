@@ -142,6 +142,14 @@
 .course_teacher_block .teacher_skills .skill_list li + li {
 /*	margin-left: 10px;*/
 }
+.course_teacher_block .teacher_skills .skill_list li.in_dev {
+	font-weight: 300;
+	color: #727272;
+	font-size: 14px;
+	line-height: 25px;
+	width: auto;
+	height: auto;
+}
 
 .course_teacher_block .teacher_skills .skill_list li .skill_img {
 	width: 100%;

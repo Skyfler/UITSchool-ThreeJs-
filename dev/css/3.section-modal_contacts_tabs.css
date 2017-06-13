@@ -1,5 +1,5 @@
 .modal_contacts_tabs {
-	position: absolute;
+	position: fixed;
 	left: 100%;
 	height: 100vh;
 	max-width: 540px;
@@ -249,7 +249,7 @@
 }
 
 .modal_contacts_tabs .submit {
-	display: inline-block;
+	display: inline-block !important;
 	background: transparent;
 	border-radius: 0;
 	border: 2px solid #fffc00;

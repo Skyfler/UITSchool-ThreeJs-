@@ -24,6 +24,7 @@
 	var FooterCirclesController = require('./footerCirclesController');
 	var CourseInfoHeight = require('./courseInfoHeight');
 	var ScrollToContact = require('./scrollToContact');
+	var PageSlideNumbering = require('./pageSlideNumbering');
 
 	_polyfills.init();
 	_extendStandartPrototypes.init();
@@ -143,6 +144,10 @@
 //            pageSlideHeightString: "window.innerHeight - (document.querySelector('header').offsetHeight + document.querySelector('footer').offsetHeight)",
 			animationDuration: 1000,
 			slidePartsBreakpoint: 1200
+		});
+
+		var pageSlideNumbering = new PageSlideNumbering({
+			elem: scrollScreenPageElem
 		});
 	}
 
@@ -406,7 +411,7 @@
 
 	var svgGraphElem = document.querySelector('.graph');
 	if (svgGraphElem) {
-		window.svgGraph = new SvgGraph({
+		var svgGraph = new SvgGraph({
 			elem: svgGraphElem,
 			container: document.querySelector('.svg_graph_container'),
 			yLabelsPrefix: '$'

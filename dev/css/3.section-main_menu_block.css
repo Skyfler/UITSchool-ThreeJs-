@@ -62,7 +62,8 @@
 	width: 100vw;
 	position: absolute;
 	top: 0;
-	right: 0;
+/*	right: 0;*/
+	right: -100000px;
 	transition: background ease 0.4s;
 	padding-top: 81px;
 /*	padding-top: 88px;*/

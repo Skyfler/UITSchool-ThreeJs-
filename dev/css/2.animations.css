@@ -24,3 +24,23 @@
 	}
 }
 
+@keyframes inner_page_contact_button_background {
+	0% {
+		background-position-x: 0%;
+	}
+	10% {
+		background-position-x: 0%;
+	}
+	40% {
+		background-position-x: 50%;
+	}
+	60% {
+		background-position-x: 50%;
+	}
+	90% {
+		background-position-x: 100%;
+	}
+	100% {
+		background-position-x: 100%;
+	}
+}
