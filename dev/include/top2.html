@@ -1,3 +1,17 @@
+@@if (gmap) {
+	<script>
+		var gMapLoaded = false;
+
+		function gMapLoadingComplete() {
+			gMapLoaded = true;
+			var widgetEvent = new CustomEvent('gmaploaded', {
+				bubbles: true
+			});
+			document.dispatchEvent(widgetEvent);
+		}
+	</script>
+	<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd_snhGQX7cHByP0hssPXaIGyPRmuc4kU&callback=gMapLoadingComplete"></script>
+}
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">

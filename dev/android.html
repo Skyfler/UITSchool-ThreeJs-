@@ -3,19 +3,7 @@
 <meta name="keywords" content="Курсы Java Android (Mobile) в Харькове, Курсы программирование на Java для Android , программирование для мобильных приложений, обучение Джава Андроид, повышение квалификации Java, курсы программирование на Java Android (Mobile), курсы Джава Андроид">
 <meta name="description" content="Ukrainian IT School - сделает Вас специалистом в сфере программирования на Java Android (Mobile)">
 <meta name="author" content="Ukrainian IT School">
-<script>
-var gMapLoaded = false;
-
-function gMapLoadingComplete() {
-	gMapLoaded = true;
-	var widgetEvent = new CustomEvent('gmaploaded', {
-		bubbles: true
-	});
-	document.dispatchEvent(widgetEvent);
-}
-</script>
-<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd_snhGQX7cHByP0hssPXaIGyPRmuc4kU&callback=gMapLoadingComplete"></script>
-@@include('./include/top2.html')
+@@include('./include/top2.html', { "gmap": true })
 <!--<div id="test" style="position:fixed; background: white; border: 1px solid black; padding: 10px; top: 0; right: 0; z-index: 10000; color: black; font-size: 16px; max-width: 100%; word-break: break-all; overflow-y: auto; max-height: 100%; white-space: pre;"></div>-->
 <canvas class="bg_canvas"></canvas>
 @@include('./include/inner_page_contact_button_container.html')
@@ -26,11 +14,14 @@ function gMapLoadingComplete() {
 			"Описание": {"slide": "course_description", "number": "01"},
 			"Программа": {"slide": "course_info", "number": "02"},
 			"Ближайший старт": {"slide": "course_start_date", "number": "03"},
-			"Перподаватели": {"slide": "course_teacher_block", "number": "04"},
+			"Преподаватели": {"slide": "course_teacher_block", "number": "04"},
 			"Статистика": {"slide": "course_statistic", "number": "05"},
 			"Отзывы": {"slide": "course_feedback", "number": "06"},
 			"Партнеры": {"slide": "course_partners", "number": "07"},
 			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
+		}, "mainMenuItems": {
+			"Главная": {"add_data_slide": false, "href": "/"},
+			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#"}
 		}, "contacts": true }
 	)
 </div>
@@ -66,7 +57,7 @@ function gMapLoadingComplete() {
 				<div class="course_info_content page_slide_content flex">
 					<div class="left_col page_slide_part" id="course_info_part_1" data-geometry-index="1" data-mesh-color="9fa2a7">
 						<div class="container page_slide_part_inner_container flex flex-center-v">
-							<div class="page_slide_part_content">
+							<div class="page_slide_part_content" data-no-page-scroll-area="true">
 								<h3 class="block_main_title">Программа</h3>
 								<div class="dropdown_group program_list">
 									<div class="closed droppownGroupItem">

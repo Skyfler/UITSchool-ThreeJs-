@@ -1,0 +1,17 @@
+User-agent: *
+Host: uitschool.com
+Sitemap: http://uitschool.com/sitemap.xml
+Disallow: /*?
+Disallow: /*&
+Disallow: /*=
+Disallow: /fe-02-15
+Disallow: /fe-03-15
+Disallow: /fe-06-15
+Disallow: /pages-404-error.html
+Disallow: /img
+Disallow: /cgi-bin
+Disallow: /js
+Disallow: /functions
+Disallow: /plugins
+Disallow: /webstat
+Disallow: /study.uitschool.com

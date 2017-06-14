@@ -3,10 +3,15 @@
 <meta name="keywords" content="Ukrainian IT School, it специалист, it курсы, it сфера, it образование, обучение it, работа в it, работа в it сфере, специалист по информационным технологиям, курсы для it специалистов, курсы it специалистов, курсы по, курсы по it, it специалист курсы, карьера в it,Харьков, курсы it, тренинги it, коучинг it, coaching it, teambuilding it, тимбилдинг it, тренинги для it команд, курсы по it рекрутингу, курсы тестировщиков, курсы qa, курсы java, курсы ява, курсы менеджеров по персоналу, курсы it рекрутинг Харьков, курсы qa Харьков, курсы java Харьков, it hr, hr it, IT HR Харьков,профессиональное, компьютерное, образование, образовательный, проект, сфере, профессиональные, курсы, наиболее, востребованным, рынке, курсы программисты, курсы программисты Харьков, компьютерные курсы в Харькове" />
 <meta name="description" content="Всеукраинский учебный центр IT-профессий Ukrainian IT School. Мы выпускаем квалифицированных специалистов, готовых к престижной, высокооплачиваемой и интересной работе в сфере IT.">
 <meta name="author" content="Ukrainian IT School">
-@@include('./include/top2.html')
+@@include('./include/top2.html', { "gmap": false })
 <canvas class="bg_canvas"></canvas>
 <div class="main_menu_block container">
-	@@include('./include/main_menu.html', { "sideMenu": false, "contacts": false })
+	@@include(
+		'./include/main_menu.html',
+		{ "sideMenu": false, "mainMenuItems": {
+			"главная": {"add_data_slide": false, "href": "/"}
+		}, "contacts": false }
+	)
 </div>
 @@include('./include/modal_contacts_tabs.html')
 <section class="main">

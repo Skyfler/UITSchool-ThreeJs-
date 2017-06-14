@@ -23,7 +23,7 @@
 	var ThreeInnerPageBG = require('./threeMainController-innerPageBG');
 	var FooterCirclesController = require('./footerCirclesController');
 	var CourseInfoHeight = require('./courseInfoHeight');
-	var ScrollToContact = require('./scrollToContact');
+	var ScrollToSlide = require('./scrollToSlide');
 	var PageSlideNumbering = require('./pageSlideNumbering');
 
 	_polyfills.init();
@@ -36,7 +36,7 @@
 		});
 	}
 
-	var scrollToContact = new ScrollToContact({
+	var scrollToSlide = new ScrollToSlide({
 		scrollDuration: 600
 	});
 

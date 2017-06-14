@@ -171,7 +171,8 @@
 		margin: 0;
 		width: 500px;
 /*		padding-left: 90px;*/
-		padding-top: 88px;
+/*		padding-top: 88px;*/
+		padding-top: 126px;
 	}
 
 	.main_menu_block .dropdown_container:after {

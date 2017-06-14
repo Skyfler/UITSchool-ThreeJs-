@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.uitschool\.com$ [NC]
+RewriteRule ^(.*)$ http://uitschool.com/$1 [R=301,L]
+
+ErrorDocument 404 /eror404.html

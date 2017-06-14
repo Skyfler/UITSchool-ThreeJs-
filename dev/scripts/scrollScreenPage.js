@@ -13,6 +13,7 @@ function ScrollScreenPage(options) {
 	this._slidePartsBreakpoint = options.slidePartsBreakpoint || 1200;
 
 	this._onMouseWheel = this._onMouseWheel.bind(this);
+	this._onMouseMove = this._onMouseMove.bind(this);
 	this._onResize = this._onResize.bind(this);
 	this._onClick = this._onClick.bind(this);
 	this._preventArrowsScroll = this._preventArrowsScroll.bind(this);
@@ -32,6 +33,7 @@ ScrollScreenPage.prototype._init = function() {
 	document.body.scrollTop = 0;
 
 	this._initialized = true;
+	this._preventScroll = false;
 
 	this._pageSlidesContainer = this._elem.querySelector('.page_slide_container');
 
@@ -57,6 +59,7 @@ ScrollScreenPage.prototype._init = function() {
 	});
 
 	this._addListener(window, 'wheel', this._onMouseWheel);
+	this._addListener(document, 'mousemove', this._onMouseMove);
 	this._addListener(document, 'click', this._onClick);
 	/*Preventing scroll with arrows in FF*/
 	this._addListener(window, 'scroll', this._preventArrowsScroll);
@@ -71,8 +74,10 @@ ScrollScreenPage.prototype._cancelScrollScreenPage = function() {
 	this._resetInit();
 
 	this._initialized = false;
+	this._preventScroll = false;
 
 	this._removeListener(window, 'wheel', this._onMouseWheel);
+	this._removeListener(document, 'mousemove', this._onMouseMove);
 //	this._removeListener(window, 'resize', this._onResize);
 	this._removeListener(document, 'click', this._onClick);
 	this._removeListener(window, 'scroll', this._preventArrowsScroll);
@@ -138,8 +143,22 @@ ScrollScreenPage.prototype._resetInit = function() {
 	}
 };
 
+ScrollScreenPage.prototype._onMouseMove = function(e) {
+	var target = e.target;
+	if (!target) return;
+
+	var noPageScrollArea = target.closest('[data-no-page-scroll-area="true"]');
+	if (noPageScrollArea && !this._preventScroll) {
+		this._preventScroll = true;
+	} else if (!noPageScrollArea && this._preventScroll) {
+		this._preventScroll = false;
+	}
+};
+
 ScrollScreenPage.prototype._onMouseWheel = function(e) {
 	if (!e.deltaY || this._scrollInProcess) return;
+
+	if (this._preventScroll) return;
 
 	if (e.deltaY > 0) {
 		this._scrollPageDown();

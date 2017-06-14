@@ -1,0 +1,17 @@
+@media screen and (min-width: 1200px) {
+
+	.page-course.page-php .course_description .block_main_title {
+		font-size: 38px;
+		margin-bottom: 15px;
+	}
+
+	.page-course.page-php .course_description .text_block p + p,
+	.page-course.page-php .course_description .text_block ul + p {
+		margin-top: 15px;
+	}
+
+	.page-course.page-php .course_description .details_btn {
+		margin-top: 25px;
+	}
+
+}
