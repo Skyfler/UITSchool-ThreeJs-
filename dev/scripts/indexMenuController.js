@@ -118,9 +118,11 @@ IndexMenuController.prototype._controllSwitchBreakpoint = function() {
 	} else if (window.innerWidth >= this._switchBreakpoint && this._mode === 'scrolling') {
 		if (this._carouselMenuLeft) {
 			this._carouselMenuLeft._switchMenuMode();
+			this._carouselMenuLeft.sendInfoOnSelectedSlideIcon();
 		}
 		if (this._carouselMenuRight) {
 			this._carouselMenuRight._switchMenuMode();
+			this._carouselMenuRight.sendInfoOnSelectedSlideIcon();
 		}
 		this._mode = 'collapsing';
 

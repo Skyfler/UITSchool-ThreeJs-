@@ -16,6 +16,8 @@ function ThreeMainController(options) {
 
 	this._rendererElem = options.renderElem;
 	this._idleAnimationDuration = options.idleAnimationDuration;
+	this._widthCancelModesArr = options.widthCancelModesArr || ['xs', 'sm'];
+	this._widthActiveModesArr = options.widthActiveModesArr || ['md', 'lg'];
 
 	this._startOnLoad = this._startOnLoad.bind(this);
 	this._renderLoop = this._renderLoop.bind(this);
@@ -89,13 +91,13 @@ ThreeMainController.prototype._loadersReady = function() {
 
 ThreeMainController.prototype._executeOnDesktop = function(callback, test) {
 	var widthMode = this._checkScreenWidth();
-	if (widthMode === 'lg') {
+	if (this._widthActiveModesArr.indexOf(widthMode) !== -1) {
 		callback();
 	} else {
 		var self = this;
 		this._addListener(window, 'resize', function checkForStart() {
 			var widthMode = self._checkScreenWidth();
-			if (widthMode === 'lg') {
+			if (self._widthActiveModesArr.indexOf(widthMode) !== -1) {
 				self._removeListener(window, 'resize', checkForStart);
 				callback();
 			}
@@ -210,7 +212,8 @@ ThreeMainController.prototype._startOnLoad = function(){
 };
 
 ThreeMainController.prototype._updateMeshes = function() {
-	if (this._checkScreenWidth() === 'xs' || this._checkScreenWidth() === 'sm' || this._checkScreenWidth() === 'md') return;
+//	if (this._checkScreenWidth() === 'xs' || this._checkScreenWidth() === 'sm' || this._checkScreenWidth() === 'md') return;
+	if (this._widthCancelModesArr.indexOf(this._checkScreenWidth()) !== -1) return;
 
 	var width = parseInt(window.innerWidth),
 		height = parseInt(window.innerHeight);
@@ -310,7 +313,9 @@ ThreeMainController.prototype._idleAnimation = function() {
 
 ThreeMainController.prototype._cancelOnMobile = function() {
 	var widthMode = this._checkScreenWidth();
-	if (widthMode === 'xs' || widthMode === 'sm' || widthMode === 'md') {
+
+//	if (widthMode === 'xs' || widthMode === 'sm' || widthMode === 'md') {
+	if (this._widthCancelModesArr.indexOf(widthMode) !== -1) {
 		if (this._renderRAFId) {
 			cancelAnimationFrame(this._renderRAFId);
 			delete this._renderRAFId;

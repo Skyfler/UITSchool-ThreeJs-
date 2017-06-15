@@ -47,7 +47,7 @@ Helper.prototype._removeListener = function(element, event, handler, phase) {
 
 	var index = this._returnListenerIndexInArr(element, event, handler, phase);
 
-	if (index !== -1) {
+	if (index >= 0) {
 		this._listenerArr[index].elem.removeEventListener(
 			this._listenerArr[index].event,
 			this._listenerArr[index].handler,

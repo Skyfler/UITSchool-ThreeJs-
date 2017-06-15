@@ -19,7 +19,6 @@ function VerticalCarouselMenu(options) {
 	this._mode = (options.mode === 'scrolling' || options.mode === 'collapsing') ? options.mode : 'collapsing';
 
 	this._stateBreakpoint = options.stateBreakpoint || 0;
-
 	this._onMouseDown = this._onMouseDown.bind(this);
 	this._onMouseUp = this._onMouseUp.bind(this);
 	this._onMouseMoveDrag = this._onMouseMoveDrag.bind(this);
@@ -162,6 +161,12 @@ VerticalCarouselMenu.prototype._initScrollingMenu = function() {
 };
 
 VerticalCarouselMenu.prototype._onDragStart = function(e) {
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'onDragStart</br>';
+////		test.innerHTML += '	preventDefault!</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 	e.preventDefault();
 };
 
@@ -186,6 +191,11 @@ VerticalCarouselMenu.prototype._setOverflowContainerHeight = function(unset) {
 };
 
 VerticalCarouselMenu.prototype._startDrag = function(e) {
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'startDrag[' + e.type + ']</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 	var clientX = e.clientX || e.touches[0].clientX;
 	var clientY = e.clientY || e.touches[0].clientY;
 
@@ -202,10 +212,28 @@ VerticalCarouselMenu.prototype._stopDrag = function(e) {
 	var clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
 	var clientY = (e.clientY === undefined) ? e.changedTouches[0].clientY : e.clientY;
 
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'stopDrag[' + e.type + ']</br>';
+////		test.innerHTML += '	startX = ' + this._startCursorXPosition +  '</br>';
+////		test.innerHTML += '	clientX = ' + clientX + '</br>';
+////		test.innerHTML += '	startY = ' + this._startCursorYPosition + '</br>';
+////		test.innerHTML += '	clientY = ' + clientY + '</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
+
 	this._controllSelectedListItemOnStopDrag();
 
-	if (this._startCursorXPosition !== clientX || this._startCursorYPosition !== clientY) {
+	var deltaX = Math.abs(this._startCursorXPosition - clientX);
+	var deltaY = Math.abs(this._startCursorYPosition - clientY);
+	if (deltaX > 10 || deltaY > 10) {
 		e.preventDefault();
+//		if (test) {
+//			test.innerHTML += '	deltaX = ' + deltaX +  '</br>';
+//			test.innerHTML += '	deltaY = ' + deltaY +  '</br>';
+//			test.innerHTML += '	preventDefault!</br>';
+//			test.scrollTop = test.scrollHeight;
+//		}
 	}
 
 	this._removeListener(document, 'mousemove', this._onMouseMoveDrag);
@@ -217,6 +245,11 @@ VerticalCarouselMenu.prototype._stopDrag = function(e) {
 };
 
 VerticalCarouselMenu.prototype._onMouseMoveDrag = function(e) {
+//	var test = document.querySelector('#test');
+//	if (test) {
+//		test.innerHTML += 'onMouseMoveDrag[' + e.type + ']</br>';
+//		test.scrollTop = test.scrollHeight;
+//	}
 	var clientY = e.clientY || e.touches[0].clientY;
 
 	var currentcursorYPosition = clientY + (window.pageYOffset || document.documentElement.scrollTop);
@@ -384,7 +417,7 @@ VerticalCarouselMenu.prototype._manageActiveLIClass = function(listItemNumber, n
 };
 
 VerticalCarouselMenu.prototype.sendInfoOnSelectedSlideIcon = function() {
-	var icon = this._activeSlide.dataset.icon || 'basic';
+	var icon = this._activeSlide ? this._activeSlide.dataset.icon : 'basic';
 
 	this._sendCustomEvent(document, 'indexMenuItemSelected', {bubbles: true, detail: {icon: icon}});
 };

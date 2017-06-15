@@ -1,5 +1,7 @@
 "use strict";
 
+try {
+
 (function ready() {
 
 	var _polyfills = require('./polyfills');
@@ -68,7 +70,9 @@
 			],
 			urlsToLoad_innerShape_B: [
 				'img/main_center/flourish_2.svg',
-			]
+			],
+			widthCancelModesArr: ['xs'],
+			widthActiveModesArr: ['sm', 'md', 'lg']
 		});
 	}
 
@@ -101,7 +105,9 @@
 				'img/uits_dots/8_partners_b.svg',
 				'img/uits_dots/9_Enroll_for_a_course_b.svg',
 				'img/uits_dots/10b.svg'
-			]
+			],
+			widthCancelModesArr: ['xs', 'sm', 'md'],
+			widthActiveModesArr: ['lg']
 		});
 	}
 
@@ -130,6 +136,46 @@
 
 	var indexMenuElem = document.querySelector('#index_menu');
 	if (indexMenuElem) {
+		/**/
+//		var escape = document.createElement('textarea');
+//		function escapeHTML(html) {
+//			escape.textContent = html;
+//			return escape.innerHTML;
+//		}
+//
+//		document.addEventListener('mousedown', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+//		document.addEventListener('touchstart', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+//
+//		document.addEventListener('mousemove', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+//		document.addEventListener('touchmove', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+//
+//		document.addEventListener('mouseup', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+//		document.addEventListener('touchtouchend', function(e){
+//			var test = document.querySelector('#test');
+//			test.innerHTML += e.type + '</br>';
+//			test.scrollTop = test.scrollHeight;
+//		});
+		/**/
 		var indexMenu = new IndexMenuController({
 			elem: indexMenuElem,
 			switchBreakpoint: 1200,
@@ -433,3 +479,11 @@
 	}
 
 })();
+
+} catch (err) {
+	var test = document.querySelector('#test');
+	if (test) {
+		test.innerHTML += err;
+		test.scrollTop = test.scrollHeight;
+	}
+}
