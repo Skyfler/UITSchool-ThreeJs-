@@ -1,7 +1,5 @@
 "use strict";
 
-try {
-
 (function ready() {
 
 	var _polyfills = require('./polyfills');
@@ -479,11 +477,3 @@ try {
 	}
 
 })();
-
-} catch (err) {
-	var test = document.querySelector('#test');
-	if (test) {
-		test.innerHTML += err;
-		test.scrollTop = test.scrollHeight;
-	}
-}

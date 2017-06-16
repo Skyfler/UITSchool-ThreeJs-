@@ -38,11 +38,19 @@
 	padding-top: 8px;
 }
 
-.course_info .program_list .block_main_title {
-	font-size: 20px;
-	text-transform: uppercase;
-	color: #000;
+.course_info .block_main_title {
 	font-weight: 700;
+	font-size: 20px;
+	color: #0d0d0d;
+	text-transform: uppercase;
+}
+
+.course_info .program_list .block_main_title {
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+.course_info .program_list .droppownGroupItem+.block_main_title {
+	margin-top: 15px;
 }
 
 .course_info .program_list {
@@ -92,13 +100,6 @@
 .course_info .program_list .module_title {
 	padding: 12px 0 5px 0;
 	display: block;
-}
-
-.course_info .block_main_title {
-	font-weight: 700;
-	font-size: 20px;
-	color: #0d0d0d;
-	text-transform: uppercase;
 }
 
 .course_info .shedule_block_1,

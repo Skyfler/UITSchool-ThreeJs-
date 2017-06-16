@@ -23,6 +23,8 @@ function VerticalCarouselMenu(options) {
 	this._onMouseUp = this._onMouseUp.bind(this);
 	this._onMouseMoveDrag = this._onMouseMoveDrag.bind(this);
 	this._onScrollingResize = this._onScrollingResize.bind(this);
+	this._getCurrentMouseCoords = this._getCurrentMouseCoords.bind(this);
+	this._stopRecordingSpeed = this._stopRecordingSpeed.bind(this);
 
 	this._onMouseOver = this._onMouseOver.bind(this);
 	this._onMouseOut = this._onMouseOut.bind(this);
@@ -146,8 +148,6 @@ VerticalCarouselMenu.prototype._initScrollingMenu = function() {
 	this._listItemContainerClone2 = this._listItemContainer.cloneNode(true);
 	this._listItemClones2 = this._listItemContainerClone2.querySelectorAll('.carousel_list_item');
 
-//    this._listItemContainer.style.outline = '1px solid red';
-
 	this._listContainer.insertBefore(this._listItemContainerClone1, this._listContainer.children[0]);
 	this._listContainer.appendChild(this._listItemContainerClone2);
 
@@ -172,10 +172,85 @@ VerticalCarouselMenu.prototype._onDragStart = function(e) {
 
 VerticalCarouselMenu.prototype._onMouseDown = function(e) {
 	this._startDrag(e);
+	this._startRecordingSpeed(e);
 };
 
 VerticalCarouselMenu.prototype._onMouseUp = function(e) {
 	this._stopDrag(e);
+};
+
+VerticalCarouselMenu.prototype._startRecordingSpeed = function(e) {
+	this._stopRecordingSpeed();
+
+//	this._clientX = e.clientX || e.touches[0].clientX;
+//	this._clientY = e.clientY || e.touches[0].clientY;
+
+	this._clientX = (e.clientX === undefined) ? e.touches[0].clientX : e.clientX;
+	this._clientY = (e.clientY === undefined) ? e.touches[0].clientY : e.clientY;
+
+//	this._lastTimePassed = performance.now();
+//	this._lastClientY = clientY;
+	this._timePointsArr = [{clientY: this._clientY, time: performance.now()}];
+
+	this._addListener(document, 'mousemove', this._getCurrentMouseCoords);
+	this._addListener(document, 'touchmove', this._getCurrentMouseCoords);
+	this._addListener(document, 'mouseup', this._stopRecordingSpeed);
+	this._addListener(document, 'touchend', this._stopRecordingSpeed);
+	this._recordSpeedRequestId = requestAnimationFrame(this._getScrollingYSpeed.bind(this));
+};
+
+VerticalCarouselMenu.prototype._getCurrentMouseCoords = function(e) {
+	this._clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
+	this._clientY = (e.clientY === undefined) ? e.changedTouches[0].clientY : e.clientY;
+};
+
+VerticalCarouselMenu.prototype._stopRecordingSpeed = function() {
+	this._removeListener(document, 'mousemove', this._getCurrentMouseCoords);
+	this._removeListener(document, 'touchmove', this._getCurrentMouseCoords);
+
+	if (this._recordSpeedRequestId) {
+		cancelAnimationFrame(this._recordSpeedRequestId);
+		//clearTimeout(requestId);
+	}
+
+	delete this._recordSpeedRequestId;
+};
+
+VerticalCarouselMenu.prototype._clearTimePointsArr = function(now) {
+	for (var i = 0; i < this._timePointsArr.length; i++) {
+		if (now - this._timePointsArr[i].time > 100 && this._timePointsArr.length > 1) {
+			this._timePointsArr.splice(i, 1);
+		}
+	}
+};
+
+VerticalCarouselMenu.prototype._getScrollingYSpeed = function(now) {
+	this._clearTimePointsArr(now);
+
+	//now = now || performance.now();
+//	var timePassedFromLastCall = now - this._lastTimePassed;
+//	var clientYDeltaFromLastCall = Math.abs(this._clientY - this._lastClientY);
+//	var secondsPassedFromLastCall = timePassedFromLastCall / 1000;
+//	var speedPerSecFromLastCall = clientYDeltaFromLastCall / secondsPassedFromLastCall;
+	this._timePointsArr.push({time: now, clientY: this._clientY});
+
+	var timePassedFromArray = now - this._timePointsArr[0].time,
+		clientYDeltaFromArray = 0;
+	for (var i = 0; i < this._timePointsArr.length - 1; i++) {
+		clientYDeltaFromArray += Math.abs(this._timePointsArr[i + 1].clientY - this._timePointsArr[i].clientY);
+	}
+//	var clientYDeltaFromArray = Math.abs(this._clientY - this._lastClientY) + clientYDeltaSumm;
+	var secondsPassedFromArray = timePassedFromArray / 1000;
+	var speedPerSecFromArray = clientYDeltaFromArray / secondsPassedFromArray;
+
+//	console.log({speed1: speedPerSecFromLastCall, speed2: speedPerSecFromArray});
+	console.log({speed: speedPerSecFromArray});
+
+//	this._lastTimePassed = now;
+//	this._lastClientY = this._clientY;
+
+	this._recordSpeedRequestId = requestAnimationFrame(this._getScrollingYSpeed.bind(this));
+	//requestId = setTimeout(getScrollingYSpeed, 500);
 };
 
 VerticalCarouselMenu.prototype._onScrollingResize = function(unset) {
@@ -196,8 +271,8 @@ VerticalCarouselMenu.prototype._startDrag = function(e) {
 //		test.innerHTML += 'startDrag[' + e.type + ']</br>';
 //		test.scrollTop = test.scrollHeight;
 //	}
-	var clientX = e.clientX || e.touches[0].clientX;
-	var clientY = e.clientY || e.touches[0].clientY;
+	var clientX = (e.clientX === undefined) ? e.touches[0].clientX : e.clientX;
+	var clientY = (e.clientY === undefined) ? e.touches[0].clientY : e.clientY;
 
 	this._startCursorXPosition = clientX + (window.pageXOffset || document.documentElement.scrollLeft);
 	this._startCursorYPosition = clientY + (window.pageYOffset || document.documentElement.scrollTop);

@@ -12,6 +12,19 @@
 	position: relative;
 	border: none;
 	background-color: #fffc00;
+	padding: 0;
+	display: block;
+	transition: background-color ease 1s;
+}
+
+.inner_page_contact_button_container .inner_page_contact_button:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
 	background-image: url(../img/sprites/sprite_inner_page_contact_button.png);
 	background-size: 300% 200%;
 	background-position: 0 100%;
@@ -20,9 +33,6 @@
 	animation-duration: 10s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;
-	padding: 0;
-	display: block;
-	transition: background-color ease 1s;
 }
 
 .inner_page_contact_button_container svg.svg_btn_border {
@@ -32,6 +42,10 @@
 	top: 0;
 	left: 0;
 	overflow: visible;
+	animation-name: inner_page_contact_circle_rotation;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
 }
 
 .inner_page_contact_button_container svg.svg_btn_border .svg_border_circle {
@@ -41,7 +55,7 @@
 	fill: transparent;
 	stroke-width: 2px;
 	stroke: #fffc00;
-	stroke-dasharray: 2,8;
+	stroke-dasharray: 2,6;
 	transform-origin: center center;
 	transition:
 		transform ease 0.5s,

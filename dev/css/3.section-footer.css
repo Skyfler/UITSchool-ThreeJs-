@@ -96,6 +96,7 @@ footer .footer_block.address_container:hover address .dots {
 	display: none;
 }
 
+/*
 footer .footer_block.phone_container .phone_number {
 	font-weight: 500;
 	font-size: 24px;
@@ -104,16 +105,49 @@ footer .footer_block.phone_container .phone_number {
 	line-height: 1;
 	font-family: 'Roboto', sans-serif;
 }
+*/
+
+footer .footer_block.phone_container {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	font-style: normal;
+	font-family: 'Roboto', sans-serif;
+}
+
+footer .footer_block.phone_container .phone_number {
+	font-weight: 500;
+	color: #fff;
+	transition: transform ease 0.5s;
+	transform: scale(0.8859649122807018);
+}
+footer .footer_block.phone_container:hover .phone_number {
+	transform: scale(1);
+}
+footer .footer_block.phone_container .hover {
+/*	font-weight: 400;*/
+/*	color: #bfbfbf;*/
+	height: 0;
+	overflow: hidden;
+	transition:
+		height ease 0.5s,
+		transform ease 0.5s;
+}
+footer .footer_block.phone_container:hover .hover {
+	height: 20px;
+}
 
 footer .footer_block.phone_container .phone_operators {
-	font-weight: 400;
+/*	font-weight: 400;*/
 	color: #fffc00;
+/*
 	font-size: 14px;
 	text-align: justify;
 	text-align-last: justify;
 	line-height: 1;
 	margin-top: 3px;
 	font-family: 'Roboto', sans-serif;
+*/
 }
 
 footer .footer_block.phone_container .icon {

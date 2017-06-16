@@ -1,4 +1,11 @@
 <?php
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+	//to prevent Empty Mails on GET Requests
+	http_response_code(405);
+	exit();
+}
+
 require($_SERVER['DOCUMENT_ROOT'].'/php/lib/PHPMailer/PHPMailerAutoload.php');
 
 $toMail = isset($_POST['admin-email']) ? $_POST['admin-email'] : "skyflerr@gmail.com";

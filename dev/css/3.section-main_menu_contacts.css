@@ -9,8 +9,10 @@
 .main_menu_contacts {
 	position: absolute;
 	right: 88px;
-	width: 335px;
+/*	width: 335px;*/
 	height: 68px;
+	width: calc(100% - 88px - 130px);
+	max-width: 630px;
 }
 
 .main_menu_contacts .phone {
@@ -19,7 +21,9 @@
 	color: #fff;
 	font-size: 16px;
 	white-space: nowrap;
-	letter-spacing: 0.1em;
+/*	letter-spacing: 0.1em;*/
+	letter-spacing: .05em;
+	margin-right: 10px;
 }
 
 .main_menu_contacts .phone span {
