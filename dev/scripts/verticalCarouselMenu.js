@@ -59,6 +59,13 @@ VerticalCarouselMenu.prototype._disableScrollingMenu = function() {
 	this._removeListener(window, 'resize', this._onScrollingResize);
 	this._removeListener(this._elem, 'dragstart', this._onDragStart);
 
+	if (this._currentTopAnimation) {
+		this._currentTopAnimation.stop();
+		delete this._currentTopAnimation;
+	}
+
+	this._cancelMovingOnMomentum();
+
 	if (this._listItemContainerClone1) {
 		this._listItemContainerClone1.parentElement.removeChild(this._listItemContainerClone1);
 		delete this._listItemContainerClone1;
@@ -94,6 +101,10 @@ VerticalCarouselMenu.prototype._disableCollapsingMenu = function() {
 	this._removeListener(this._elem, 'mouseout', this._onMouseOut);
 	this._removeListener(window, 'resize', this._onCollapsingResize);
 
+	if (this._currentHeightAnimation) {
+		this._currentHeightAnimation.stop();
+	}
+
 	for (var i = 0; i < this._listItemsCount; i++) {
 		this._listItems[i].style.height = '';
 	}
@@ -120,6 +131,10 @@ VerticalCarouselMenu.prototype._switchMenuMode = function() {
 		this._mode = 'scrolling';
 
 	}
+};
+
+VerticalCarouselMenu.prototype.setActive = function(bool) {
+	this._active = !!bool;
 };
 
 /*----------------------------SCROLLING MENU--------------------------------*/
@@ -151,6 +166,8 @@ VerticalCarouselMenu.prototype._initScrollingMenu = function() {
 	this._listContainer.insertBefore(this._listItemContainerClone1, this._listContainer.children[0]);
 	this._listContainer.appendChild(this._listItemContainerClone2);
 
+	this.setActive(false);
+
 	this._manageActiveLIClass(0, true);
 	this._centerSelectedListItem(0, true);
 
@@ -161,12 +178,6 @@ VerticalCarouselMenu.prototype._initScrollingMenu = function() {
 };
 
 VerticalCarouselMenu.prototype._onDragStart = function(e) {
-//	var test = document.querySelector('#test');
-//	if (test) {
-//		test.innerHTML += 'onDragStart</br>';
-////		test.innerHTML += '	preventDefault!</br>';
-//		test.scrollTop = test.scrollHeight;
-//	}
 	e.preventDefault();
 };
 
@@ -179,17 +190,32 @@ VerticalCarouselMenu.prototype._onMouseUp = function(e) {
 	this._stopDrag(e);
 };
 
-VerticalCarouselMenu.prototype._startRecordingSpeed = function(e) {
-	this._stopRecordingSpeed();
+VerticalCarouselMenu.prototype._cancelMovingOnMomentum = function() {
+	if (this._recordSpeedRequestId) {
+		cancelAnimationFrame(this._recordSpeedRequestId);
+		delete this._recordSpeedRequestId;
+	}
 
-//	this._clientX = e.clientX || e.touches[0].clientX;
-//	this._clientY = e.clientY || e.touches[0].clientY;
+	this._removeListener(document, 'mousemove', this._getCurrentMouseCoords);
+	this._removeListener(document, 'touchmove', this._getCurrentMouseCoords);
+	this._removeListener(document, 'mouseup', this._stopRecordingSpeed);
+	this._removeListener(document, 'touchend', this._stopRecordingSpeed);
+
+	delete this._currentTopAnimation;
+	delete this._currentScrollSpeed;
+	delete this._speedDirection;
+	delete this._timePointsArr;
+};
+
+VerticalCarouselMenu.prototype._startRecordingSpeed = function(e) {
+	if (this._recordSpeedRequestId) {
+		cancelAnimationFrame(this._recordSpeedRequestId);
+		delete this._recordSpeedRequestId;
+	}
 
 	this._clientX = (e.clientX === undefined) ? e.touches[0].clientX : e.clientX;
 	this._clientY = (e.clientY === undefined) ? e.touches[0].clientY : e.clientY;
 
-//	this._lastTimePassed = performance.now();
-//	this._lastClientY = clientY;
 	this._timePointsArr = [{clientY: this._clientY, time: performance.now()}];
 
 	this._addListener(document, 'mousemove', this._getCurrentMouseCoords);
@@ -204,16 +230,18 @@ VerticalCarouselMenu.prototype._getCurrentMouseCoords = function(e) {
 	this._clientY = (e.clientY === undefined) ? e.changedTouches[0].clientY : e.clientY;
 };
 
-VerticalCarouselMenu.prototype._stopRecordingSpeed = function() {
+VerticalCarouselMenu.prototype._stopRecordingSpeed = function(e) {
 	this._removeListener(document, 'mousemove', this._getCurrentMouseCoords);
 	this._removeListener(document, 'touchmove', this._getCurrentMouseCoords);
+	this._removeListener(document, 'mouseup', this._stopRecordingSpeed);
+	this._removeListener(document, 'touchend', this._stopRecordingSpeed);
 
 	if (this._recordSpeedRequestId) {
 		cancelAnimationFrame(this._recordSpeedRequestId);
-		//clearTimeout(requestId);
+		delete this._recordSpeedRequestId;
 	}
 
-	delete this._recordSpeedRequestId;
+	this._keepMovingOnMomentum();
 };
 
 VerticalCarouselMenu.prototype._clearTimePointsArr = function(now) {
@@ -227,11 +255,6 @@ VerticalCarouselMenu.prototype._clearTimePointsArr = function(now) {
 VerticalCarouselMenu.prototype._getScrollingYSpeed = function(now) {
 	this._clearTimePointsArr(now);
 
-	//now = now || performance.now();
-//	var timePassedFromLastCall = now - this._lastTimePassed;
-//	var clientYDeltaFromLastCall = Math.abs(this._clientY - this._lastClientY);
-//	var secondsPassedFromLastCall = timePassedFromLastCall / 1000;
-//	var speedPerSecFromLastCall = clientYDeltaFromLastCall / secondsPassedFromLastCall;
 	this._timePointsArr.push({time: now, clientY: this._clientY});
 
 	var timePassedFromArray = now - this._timePointsArr[0].time,
@@ -239,18 +262,68 @@ VerticalCarouselMenu.prototype._getScrollingYSpeed = function(now) {
 	for (var i = 0; i < this._timePointsArr.length - 1; i++) {
 		clientYDeltaFromArray += Math.abs(this._timePointsArr[i + 1].clientY - this._timePointsArr[i].clientY);
 	}
-//	var clientYDeltaFromArray = Math.abs(this._clientY - this._lastClientY) + clientYDeltaSumm;
 	var secondsPassedFromArray = timePassedFromArray / 1000;
 	var speedPerSecFromArray = clientYDeltaFromArray / secondsPassedFromArray;
 
-//	console.log({speed1: speedPerSecFromLastCall, speed2: speedPerSecFromArray});
-	console.log({speed: speedPerSecFromArray});
+	this._currentScrollSpeed = speedPerSecFromArray;
 
-//	this._lastTimePassed = now;
-//	this._lastClientY = this._clientY;
-
+	this._speedDirection = (this._timePointsArr[this._timePointsArr.length - 1].clientY - this._timePointsArr[this._timePointsArr.length - 2].clientY) >= 0 ? 1 : -1 ;
 	this._recordSpeedRequestId = requestAnimationFrame(this._getScrollingYSpeed.bind(this));
-	//requestId = setTimeout(getScrollingYSpeed, 500);
+};
+
+VerticalCarouselMenu.prototype._keepMovingOnMomentum = function() {
+	var self = this;
+	function onEndOfMomentum() {
+		self._movingOnMomentum = false;
+		delete self._currentTopAnimation;
+		delete self._currentScrollSpeed;
+		delete self._speedDirection;
+		self._controllSelectedListItemOnStopDrag();
+		self._centerSelectedListItem(self._activeMenuItemIndex);
+	}
+
+	if (!this._currentScrollSpeed || this._currentScrollSpeed <= 0) {
+		onEndOfMomentum();
+		return;
+	}
+
+	this._movingOnMomentum = true;
+
+	if (this._currentTopAnimation) {
+		this._currentTopAnimation.stop();
+		delete this._currentTopAnimation;
+	}
+
+	var speedDecreasePerSecond = 600;
+	var momentumDuration = this._currentScrollSpeed / speedDecreasePerSecond * 1000;
+
+	var V0 = this._currentScrollSpeed,
+		V = 0,
+		t0 = 0,
+		t = momentumDuration / 1000,
+		a = (V - V0) / (t - t0),
+		s = (V0 * t) - (a * t * t) / 2;
+
+	var prevS = 0;
+	var code = Math.random();
+
+	this._currentTopAnimation = new Animation(
+		function(timePassed) {
+			var startListContainerTop = this._listContainer.offsetTop;
+
+			var timeMultiplier = Animation.circEaseOut(momentumDuration, timePassed);
+			var currentS = s / 10 * timeMultiplier - prevS;
+			prevS += currentS;
+			var newTop = this._controllListContainerPosition(startListContainerTop + currentS * this._speedDirection);
+
+			this._listContainer.style.top = newTop + 'px';
+			if (currentS < 0.5 && timePassed > 1) {
+				this._currentTopAnimation.stop(true);
+			}
+		}.bind(this),
+		momentumDuration,
+		onEndOfMomentum
+	);
 };
 
 VerticalCarouselMenu.prototype._onScrollingResize = function(unset) {
@@ -266,11 +339,11 @@ VerticalCarouselMenu.prototype._setOverflowContainerHeight = function(unset) {
 };
 
 VerticalCarouselMenu.prototype._startDrag = function(e) {
-//	var test = document.querySelector('#test');
-//	if (test) {
-//		test.innerHTML += 'startDrag[' + e.type + ']</br>';
-//		test.scrollTop = test.scrollHeight;
-//	}
+	if (this._currentTopAnimation) {
+		this._currentTopAnimation.stop();
+		delete this._currentTopAnimation;
+	}
+
 	var clientX = (e.clientX === undefined) ? e.touches[0].clientX : e.clientX;
 	var clientY = (e.clientY === undefined) ? e.touches[0].clientY : e.clientY;
 
@@ -287,28 +360,10 @@ VerticalCarouselMenu.prototype._stopDrag = function(e) {
 	var clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
 	var clientY = (e.clientY === undefined) ? e.changedTouches[0].clientY : e.clientY;
 
-//	var test = document.querySelector('#test');
-//	if (test) {
-//		test.innerHTML += 'stopDrag[' + e.type + ']</br>';
-////		test.innerHTML += '	startX = ' + this._startCursorXPosition +  '</br>';
-////		test.innerHTML += '	clientX = ' + clientX + '</br>';
-////		test.innerHTML += '	startY = ' + this._startCursorYPosition + '</br>';
-////		test.innerHTML += '	clientY = ' + clientY + '</br>';
-//		test.scrollTop = test.scrollHeight;
-//	}
-
-	this._controllSelectedListItemOnStopDrag();
-
 	var deltaX = Math.abs(this._startCursorXPosition - clientX);
 	var deltaY = Math.abs(this._startCursorYPosition - clientY);
 	if (deltaX > 10 || deltaY > 10) {
 		e.preventDefault();
-//		if (test) {
-//			test.innerHTML += '	deltaX = ' + deltaX +  '</br>';
-//			test.innerHTML += '	deltaY = ' + deltaY +  '</br>';
-//			test.innerHTML += '	preventDefault!</br>';
-//			test.scrollTop = test.scrollHeight;
-//		}
 	}
 
 	this._removeListener(document, 'mousemove', this._onMouseMoveDrag);
@@ -316,34 +371,36 @@ VerticalCarouselMenu.prototype._stopDrag = function(e) {
 	this._removeListener(document, 'mouseup', this._onMouseUp);
 	this._removeListener(document, 'touchend', this._onMouseUp);
 
-	this._centerSelectedListItem(this._activeMenuItemIndex);
+//	this._centerSelectedListItem(this._activeMenuItemIndex);
 };
 
 VerticalCarouselMenu.prototype._onMouseMoveDrag = function(e) {
-//	var test = document.querySelector('#test');
-//	if (test) {
-//		test.innerHTML += 'onMouseMoveDrag[' + e.type + ']</br>';
-//		test.scrollTop = test.scrollHeight;
-//	}
 	var clientY = e.clientY || e.touches[0].clientY;
 
 	var currentcursorYPosition = clientY + (window.pageYOffset || document.documentElement.scrollTop);
 	var yPositionDeleta = this._startCursorYPosition - currentcursorYPosition;
 
 	var newtListContainerYPosition = this._startListContainerYPosition - yPositionDeleta;
+	newtListContainerYPosition = this._controllListContainerPosition(newtListContainerYPosition);
 
+	this._controllSelectedListItemOnDrag();
+	this._listContainer.style.top = newtListContainerYPosition + 'px';
+};
+
+VerticalCarouselMenu.prototype._controllListContainerPosition = function(newtListContainerYPosition) {
 	this._listOverflowContainerCenter = this._listOverflowContainerHeight / 2;
 
 	if (-1 * newtListContainerYPosition > this._listItemContainer.offsetHeight * 2 - this._listOverflowContainerHeight / 2) {
 		newtListContainerYPosition += this._listItemContainer.offsetHeight;
+		newtListContainerYPosition = this._controllListContainerPosition(newtListContainerYPosition);
 
 	} else if (-1 * newtListContainerYPosition < this._listItemContainer.offsetHeight - this._listOverflowContainerHeight / 2) {
 		newtListContainerYPosition -= this._listItemContainer.offsetHeight;
+		newtListContainerYPosition = this._controllListContainerPosition(newtListContainerYPosition);
 
 	}
 
-	this._controllSelectedListItemOnDrag();
-	this._listContainer.style.top = newtListContainerYPosition + 'px';
+	return newtListContainerYPosition;
 };
 
 VerticalCarouselMenu.prototype._controllSelectedListItemOnStopDrag = function() {
@@ -420,12 +477,15 @@ VerticalCarouselMenu.prototype._centerSelectedListItem = function(listItemNumber
 //    this._listContainer.style.top = listContainerTop + 'px';
 	if (this._currentTopAnimation) {
 		this._currentTopAnimation.stop();
+//		console.log(this.NAME + ': STOP animation!');
+		delete this._currentTopAnimation;
 	}
 
 	if (noTransition) {
 		this._listContainer.style.top = endListContainerTop + 'px';
 
 	} else {
+//		console.log(this.NAME + ': NEW animation!');
 		this._currentTopAnimation = new Animation(
 			function(timePassed) {
 				var top = startListContainerTop + (((endListContainerTop - startListContainerTop) / this._animationDuration) * timePassed);
@@ -433,6 +493,7 @@ VerticalCarouselMenu.prototype._centerSelectedListItem = function(listItemNumber
 			}.bind(this),
 			this._animationDuration,
 			function() {
+//				console.log(this.NAME + ': STOP animation!');
 				delete this._currentTopAnimation;
 			}.bind(this)
 		);
@@ -488,10 +549,18 @@ VerticalCarouselMenu.prototype._manageActiveLIClass = function(listItemNumber, n
 		);
 	}
 
+//	console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on SELF');
 	this.sendInfoOnSelectedSlideIcon();
 };
 
 VerticalCarouselMenu.prototype.sendInfoOnSelectedSlideIcon = function() {
+//	console.log({
+//		name: this.NAME,
+//		active: this._active,
+//		activeSlide: this._activeSlide,
+//		icon: this._activeSlide ? this._activeSlide.dataset.icon : 'basic'
+//	});
+	if (!this._active) return;
 	var icon = this._activeSlide ? this._activeSlide.dataset.icon : 'basic';
 
 	this._sendCustomEvent(document, 'indexMenuItemSelected', {bubbles: true, detail: {icon: icon}});
@@ -538,6 +607,8 @@ VerticalCarouselMenu.prototype._initCollapsingMenu = function() {
 		this._defaultMenuItemsHeightArr[i] = this._listItems[i].offsetHeight;
 //		this._listItems[i].style.height = this._listItems[i].offsetHeight + 'px';
 	}
+
+	this.setActive(true);
 
 	this._controllListItemsHeight();
 

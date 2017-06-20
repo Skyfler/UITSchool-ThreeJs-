@@ -104,6 +104,10 @@
 	max-height: 100%;
 }
 
+.modal_contacts_tabs .contact_form {
+	position: relative;
+}
+
 .modal_contacts_tabs .contact_form .waiting_block {
 	position: absolute;
 	width: 100%;
@@ -111,7 +115,7 @@
 	display: none;
 	background:
 		url(../img/spinner.gif) center center no-repeat,
-		rgba(13, 13, 13, 0.4);
+		rgba(0, 0, 0, 0.4);
 	z-index: 100;
 	top: 0;
 	left: 0;

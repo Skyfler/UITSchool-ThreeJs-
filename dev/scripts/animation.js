@@ -16,6 +16,7 @@ function Animation(draw, duration, callback) {
 	var pauseStartedAt;
 
 	this._state = 'playing';
+	this._callback = callback;
 
 	this._requestId = requestAnimationFrame(function animate(time) {
 		if (self._requestToPause) {
@@ -54,10 +55,19 @@ function Animation(draw, duration, callback) {
 		draw(timePassed);
 
 		// если время анимации не закончилось - запланировать ещё кадр
-		if (timePassed < duration) {
+		if (timePassed < duration && !self._requestToStop) {
 			self._requestId = requestAnimationFrame(animate);
-		} else if (callback) {
-			callback();
+		} else {
+			self._state = 'ended';
+			self._excuteCallback = (self._excuteCallback === undefined ? true : self._excuteCallback);
+		}
+
+		if (self._excuteCallback && self._callback) {
+			self._callback();
+		}
+
+		if (self._state === 'ended') {
+			Helper.prototype.remove.apply(self, arguments);
 		}
 	});
 }
@@ -65,10 +75,21 @@ function Animation(draw, duration, callback) {
 Animation.prototype = Object.create(Helper.prototype);
 Animation.prototype.constructor = Animation;
 
-Animation.prototype.stop = function() {
-	cancelAnimationFrame(this._requestId);
+//Animation.prototype.stop = function(executeCallback) {
+//	if (this._state !== 'ended') {
+//		cancelAnimationFrame(this._requestId);
+//
+//		if (executeCallback && this._callback) {
+//			this._callback();
+//		}
+//	}
+//
+//	Helper.prototype.remove.apply(this, arguments);
+//};
 
-	Helper.prototype.remove.apply(this, arguments);
+Animation.prototype.stop = function(executeCallback) {
+	this._requestToStop = true;
+	this._excuteCallback = !!executeCallback;
 };
 
 Animation.prototype.pause = function() {
