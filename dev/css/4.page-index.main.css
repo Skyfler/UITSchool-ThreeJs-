@@ -45,6 +45,43 @@
 /*	overflow: hidden;*/
 }
 
+.main .carousel_list_overflow_container:before {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 78px;
+	width: 100vw;
+	top: calc(50% - 39px);
+	border-top: 2px solid #555555;
+	border-bottom: 2px solid #555555;
+	transition: border-color ease 0.5s;
+}
+.main .active_menu .carousel_list_overflow_container:before {
+	border-color: #ffffff;
+}
+.main #carousel_menu_right .carousel_list_overflow_container:before {
+	left: 0;
+}
+.main #carousel_menu_left .carousel_list_overflow_container:before {
+	right: 0;
+}
+
+@media screen and (max-width: 991px) {
+
+	.main #carousel_menu_left .carousel_list_overflow_container:before {
+		display: none;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.main .carousel_list_overflow_container:before {
+		display: none;
+	}
+
+}
+
 .main .carousel_list_container {
 	width: 100%;
 }
@@ -84,8 +121,8 @@
 	position: absolute;
 	bottom: 0;
 	width: 100vw;
-	border-top: 2px solid transparent;
-	border-bottom: 2px solid transparent;
+/*	border-top: 2px solid transparent;*/
+/*	border-bottom: 2px solid transparent;*/
 	display: block;
 	height: 100%;
 	transition: border-color ease 0.5s;
@@ -97,12 +134,14 @@
 	right: 0;
 }
 /*.main .index_menu li a:hover:before,*/
+/*
 .main .index_menu li.active a:before {
 	border-color: #555555;
 }
 .main .active_menu .index_menu li.active a:before {
 	border-color: #ffffff;
 }
+*/
 
 .main .index_menu li a:after {
 	content: "";

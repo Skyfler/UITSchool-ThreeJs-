@@ -113,10 +113,19 @@ IndexMenuController.prototype._onResize = function() {
 
 IndexMenuController.prototype._controllSwitchBreakpoint = function() {
 	if (window.innerWidth < this._switchBreakpoint && this._mode === 'collapsing') {
+		if (this._carouselMenuLeftElem) {
+			this._carouselMenuLeftElem.classList.remove(this._activeClass);
+		}
+		if (this._carouselMenuRightElem) {
+			this._carouselMenuRightElem.classList.remove(this._activeClass);
+		}
+
 		if (this._carouselMenuLeft) {
 			this._carouselMenuLeft._switchMenuMode();
 //			console.log(this.NAME + ': Setting active _carouselMenuLeft');
 			this._carouselMenuLeft.setActive(true);
+			this._carouselMenuLeftElem.classList.add(this._activeClass);
+			this._activeMenu = this._carouselMenuLeftElem;
 //			console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuLeft');
 			this._carouselMenuLeft.sendInfoOnSelectedSlideIcon();
 		}
@@ -125,6 +134,8 @@ IndexMenuController.prototype._controllSwitchBreakpoint = function() {
 			if (!this._carouselMenuLeft) {
 //				console.log(this.NAME + ': Setting active _carouselMenuRight');
 				this._carouselMenuRight.setActive(true);
+				this._carouselMenuRightElem.classList.add(this._activeClass);
+				this._activeMenu = this._carouselMenuRightElem;
 //				console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuRight');
 				this._carouselMenuRight.sendInfoOnSelectedSlideIcon();
 			}
@@ -132,6 +143,13 @@ IndexMenuController.prototype._controllSwitchBreakpoint = function() {
 		this._mode = 'scrolling';
 
 	} else if (window.innerWidth >= this._switchBreakpoint && this._mode === 'scrolling') {
+		if (this._carouselMenuLeftElem) {
+			this._carouselMenuLeftElem.classList.remove(this._activeClass);
+		}
+		if (this._carouselMenuRightElem) {
+			this._carouselMenuRightElem.classList.remove(this._activeClass);
+		}
+
 		if (this._carouselMenuLeft) {
 			this._carouselMenuLeft._switchMenuMode();
 //			console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuLeft');
@@ -193,6 +211,7 @@ IndexMenuController.prototype._switchFromTwoColumnsToOne = function() {
 	});
 
 	this._carouselMenuRightElem.classList.add(this._activeClass);
+	this._activeMenu = this._carouselMenuRightElem;
 	this._carouselMenuRight.setActive(true);
 //	console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuRight');
 	this._carouselMenuRight.sendInfoOnSelectedSlideIcon();
@@ -233,6 +252,7 @@ IndexMenuController.prototype._switchFromOneColumnToTwo = function() {
 
 	this._carouselMenuRight.setActive(false);
 	this._carouselMenuLeftElem.classList.add(this._activeClass);
+	this._activeMenu = this._carouselMenuLeftElem;
 	this._carouselMenuLeft.setActive(true);
 //	console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuLeft');
 	this._carouselMenuLeft.sendInfoOnSelectedSlideIcon();
@@ -256,6 +276,7 @@ IndexMenuController.prototype._controllActiveClass = function(elem) {
 		}
 		this._carouselMenuRightElem.classList.add(this._activeClass);
 		this._carouselMenuRight.setActive(true);
+		this._activeMenu = this._carouselMenuRightElem;
 
 //		console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuRight');
 		this._carouselMenuRight.sendInfoOnSelectedSlideIcon();
@@ -266,6 +287,7 @@ IndexMenuController.prototype._controllActiveClass = function(elem) {
 		this._carouselMenuRight.setActive(false);
 		this._carouselMenuLeftElem.classList.add(this._activeClass);
 		this._carouselMenuLeft.setActive(true);
+		this._activeMenu = this._carouselMenuLeftElem;
 
 //		console.log(this.NAME + ': calling sendInfoOnSelectedSlideIcon on _carouselMenuLeft');
 		this._carouselMenuLeft.sendInfoOnSelectedSlideIcon();

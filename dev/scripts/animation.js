@@ -19,6 +19,8 @@ function Animation(draw, duration, callback) {
 	this._callback = callback;
 
 	this._requestId = requestAnimationFrame(function animate(time) {
+		delete self._requestId;
+
 		if (self._requestToPause) {
 			delete self._requestToPause;
 
@@ -75,21 +77,29 @@ function Animation(draw, duration, callback) {
 Animation.prototype = Object.create(Helper.prototype);
 Animation.prototype.constructor = Animation;
 
-//Animation.prototype.stop = function(executeCallback) {
-//	if (this._state !== 'ended') {
-//		cancelAnimationFrame(this._requestId);
-//
-//		if (executeCallback && this._callback) {
-//			this._callback();
-//		}
-//	}
-//
-//	Helper.prototype.remove.apply(this, arguments);
-//};
+Animation.prototype._stopBeforeAnimate = function() {
+	cancelAnimationFrame(this._requestId);
+	this._state = 'ended';
+
+	if (this._excuteCallback && this._callback) {
+		this._callback();
+	}
+
+	Helper.prototype.remove.apply(this, arguments);
+};
+
+Animation.prototype._stopWithinAnimate = function() {
+	this._requestToStop = true;
+};
 
 Animation.prototype.stop = function(executeCallback) {
-	this._requestToStop = true;
 	this._excuteCallback = !!executeCallback;
+
+	if (this._requestId !== undefined) {
+		this._stopBeforeAnimate();
+	} else {
+		this._stopWithinAnimate();
+	}
 };
 
 Animation.prototype.pause = function() {
