@@ -44,7 +44,7 @@ ModalWindow.prototype._showModalWindow = function() {
 
 	document.body.insertAdjacentElement('afterBegin', this._cover);
 	document.body.style.overflow = 'hidden';
-	this._addListener(this._cover.querySelector('.modalClass'), 'click', this._closeModalWindow);
+	this._addListener(this._cover, 'click', this._closeModalWindow);
 };
 
 ModalWindow.prototype._closeModalWindow = function(e) {
@@ -64,7 +64,7 @@ ModalWindow.prototype._closeModalWindow = function(e) {
 	document.body.removeChild(this._cover);
 	delete this._cover;
 	document.body.style.overflow = '';
-	this._removeListener(this._cover.querySelector('.modalClass'), 'click', this._closeModalWindow);
+	this._removeListener(this._cover, 'click', this._closeModalWindow);
 
 	if (this._callback) {
 		this._callback(userAction);
