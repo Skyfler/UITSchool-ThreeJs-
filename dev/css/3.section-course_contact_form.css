@@ -243,7 +243,9 @@
 	left: 12px;
 	width: calc(100% - 12px - 12px);
 }
-.course_contact_form .custom_placeholder.placeholder_removed .placeholder_elem {
+.course_contact_form .custom_placeholder.focus .placeholder_elem {
 	color: #fffc00;
+}
+.course_contact_form .custom_placeholder.placeholder_removed .placeholder_elem {
 	top: -12px;
 }

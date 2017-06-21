@@ -1,6 +1,10 @@
 "use strict";
 
-var Helper = require('./helper');
+try {
+	var Helper = require('./helper');
+} catch (err) {
+	console.warn(err);
+}
 
 function CustomSelect(options) {
 	options.name = options.name || 'CustomSelect';
@@ -169,4 +173,8 @@ CustomSelect.prototype.revealByDependency = function() {
 	}
 };
 
-module.exports = CustomSelect;
+try {
+	module.exports = CustomSelect;
+} catch (err) {
+	console.warn(err);
+}

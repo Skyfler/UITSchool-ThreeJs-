@@ -287,8 +287,10 @@
 	left: 12px;
 	width: calc(100% - 12px - 12px);
 }
-.modal_contacts_tabs .custom_placeholder.placeholder_removed .placeholder_elem {
+.modal_contacts_tabs .custom_placeholder.focus .placeholder_elem {
 	color: #fffc00;
+}
+.modal_contacts_tabs .custom_placeholder.placeholder_removed .placeholder_elem {
 	top: -12px;
 }
 

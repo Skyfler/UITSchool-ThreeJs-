@@ -5,16 +5,16 @@
 	<div class="block_main_title">@@title</div>
 	<div class="input_group input_tel custom_placeholder">
 		<div class="placeholder_elem">Номер телефона *</div>
-		<input type="text" placeholder="" class="required" name="Tel" data-component="form-input">
+		<input type="text" placeholder="" class="required placeholder_target" name="Tel" data-component="form-input">
 	</div>
 	<div class="input_group input_email custom_placeholder">
 		<div class="placeholder_elem">Email *</div>
-		<input type="email" placeholder="" class="required" name="Email" data-component="form-input">
+		<input type="email" placeholder="" class="required placeholder_target" name="Email" data-component="form-input">
 	</div>
 	<div class="input_group input_direction custom_placeholder">
 		<div class="placeholder_elem">Выберите направление</div>
-		<div id="direction-select" class="customselect" name="Course" data-component="form-input">
-			<button class="title"></button>
+		<div id="direction-select" class="customselect custom_form_elem" name="Course" data-component="form-input">
+			<button class="title placeholder_target"></button>
 			<ul class="option_list" data-no-page-scroll-area="true">
 				<!-- значение хранится в свойстве data-value -->
 				<li class="option" data-value="option_1">Программирование для Android</li>
@@ -37,8 +37,8 @@
 	</div>
 	<div class="input_group input_how_find custom_placeholder">
 		<div class="placeholder_elem">Откуда вы узнали о нас?</div>
-		<div id="how-find-select" class="customselect" name="How did you find us?" data-component="form-input">
-			<button class="title"></button>
+		<div id="how-find-select" class="customselect custom_form_elem" name="How did you find us?" data-component="form-input">
+			<button class="title placeholder_target"></button>
 			<ul class="option_list" data-no-page-scroll-area="true">
 				<!-- значение хранится в свойстве data-value -->
 				<li class="option" data-value="option_1">Реклама в метрополитене</li>
@@ -57,11 +57,11 @@
 	</div>
 	<div class="input_group input_name custom_placeholder">
 		<div class="placeholder_elem">Фамилия Имя Отчество *</div>
-		<input type="text" placeholder="" class="required" name="Name" data-component="form-input">
+		<input type="text" placeholder="" class="required placeholder_target" name="Name" data-component="form-input">
 	</div>
 	<div class="input_group input_message custom_placeholder">
 		<div class="placeholder_elem">Сообщение</div>
-		<textarea placeholder="" name="Message" data-component="form-input"></textarea>
+		<textarea placeholder="" class="placeholder_target" name="Message" data-component="form-input"></textarea>
 	</div>
 	<div class="input_group input_submit">
 		<button type="submit" class="submit">Записаться</button>
