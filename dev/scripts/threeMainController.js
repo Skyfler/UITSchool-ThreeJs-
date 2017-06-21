@@ -2,10 +2,12 @@
 
 try {
 	var THREE = require('three');
+//	var THREE = require("three-canvas-renderer");
 	window.THREE = THREE;
 
 	var Helper = require('./helper');
 	var SvgLoader = require('./threeMainController-svgLoader');
+	var ModalWindow = require('./modalWindow');
 } catch (err) {
 	console.warn(err);
 }
@@ -13,6 +15,18 @@ try {
 function ThreeMainController(options) {
 	options.name = options.name || 'ThreeMainController';
 	Helper.call(this, options);
+
+	if (!this._webglAvailable()) {
+		console.warn(this.NAME + ': WebGL is not supported!');
+		new ModalWindow({
+			modalClass: 'error_notification',
+			modalInnerHTML: '<p>WebGL detection failed!</p>' +
+			'<p>It seems that your browser doesn\'t support WebGL.</p>' +
+			'<p>You can check your browser WebGL support <a href="https://get.webgl.org/" target="_blank">here</a>.</p>'
+		});
+
+		return;
+	}
 
 	this._rendererElem = options.renderElem;
 	this._idleAnimationDuration = options.idleAnimationDuration;
@@ -31,6 +45,18 @@ function ThreeMainController(options) {
 
 ThreeMainController.prototype = Object.create(Helper.prototype);
 ThreeMainController.prototype.constructor = ThreeMainController;
+
+ThreeMainController.prototype._webglAvailable = function() {
+	try {
+		var canvas = document.createElement("canvas");
+		return !!
+			window.WebGLRenderingContext &&
+			(canvas.getContext("webgl") ||
+				canvas.getContext("experimental-webgl"));
+	} catch(e) {
+		return false;
+	}
+};
 
 ThreeMainController.prototype._init = function() {
 	var width = parseInt(window.innerWidth),
@@ -53,6 +79,13 @@ ThreeMainController.prototype._init = function() {
 	this._dotTexture = new THREE.Texture( this._generateDotTexture() );
 	this._dotTexture.needsUpdate = true; // important!
 
+//	this._renderer = this._webglAvailable() ? new THREE.WebGLRenderer({
+//		canvas: this._rendererElem,
+//		alpha: true
+//	}) : new THREE.CanvasRenderer({
+//		canvas: this._rendererElem,
+//		alpha: true
+//	});
 	this._renderer = new THREE.WebGLRenderer({
 		canvas: this._rendererElem,
 		alpha: true

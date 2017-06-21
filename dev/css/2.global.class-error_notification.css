@@ -30,6 +30,13 @@
 	text-transform: none;
 }
 
+.error_notification a {
+	color: #fffc00;
+}
+.error_notification a:hover {
+	text-decoration: underline;
+}
+
 .error_notification .btn {
 	padding: 10px 25px;
 	border: 2px solid #fffc00;

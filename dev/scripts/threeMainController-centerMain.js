@@ -2,6 +2,7 @@
 
 try {
 	var THREE = require('three');
+//	var THREE = require("three-canvas-renderer");
 
 	var ThreeMainController = require('./threeMainController');
 	var CustomLineMesh = require('./threeMainController-customLineMesh');
