@@ -60,7 +60,7 @@ AnimatedPlaceholder.prototype._onBlur = function(e) {
 	this._delay = setTimeout(function(){
 		delete this._delay;
 		this._onBlurAfterDelay(target);
-	}.bind(this), 0);
+	}.bind(this), 100);
 };
 
 AnimatedPlaceholder.prototype._onBlurAfterDelay = function(target) {
