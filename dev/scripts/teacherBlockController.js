@@ -357,7 +357,7 @@ TeacherBlockController.prototype._calculateStylesForFirstBlockElem = function() 
 
 		this._firstBlock.elem.style.width = this._firstBlock.width + 'px';
 
-		this._firstBlock.top = (this._svgElem.getBoundingClientRect().height - this._firstBlock.elem.offsetHeight) / 2;
+		this._firstBlock.top = (this._svgElem.getBoundingClientRect().height - this._firstBlock.elem.offsetHeight) / 2 - 20;
 		this._firstBlock.left = 0;
 
 	}
@@ -420,6 +420,16 @@ TeacherBlockController.prototype._setStylesForHtmlElems = function() {
 	this._setStylesForThumbnails();
 };
 
+TeacherBlockController.prototype._setPageScrollArea = function(elem) {
+	if (elem.scrollHeight > elem.offsetHeight && !elem.dataset.noPageScrollArea) {
+		elem.dataset.noPageScrollArea = true;
+	} else if (elem.scrollHeight === elem.offsetHeight && elem.dataset.noPageScrollArea === "true") {
+		elem.removeAttribute('data-no-page-scroll-area');
+	}
+
+	elem.scrollTop = 0;
+};
+
 TeacherBlockController.prototype._setStylesForCircleElem = function() {
 	if (!this._circleBlock.elem) return;
 
@@ -434,6 +444,8 @@ TeacherBlockController.prototype._setStylesForFirstElem = function() {
 	this._firstBlock.elem.style.width = this._firstBlock.width + 'px';
 	this._firstBlock.elem.style.top = this._firstBlock.top + 'px';
 	this._firstBlock.elem.style.left = this._firstBlock.left + 'px';
+
+	this._setPageScrollArea(this._firstBlock.elem.querySelector('.description'));
 };
 
 TeacherBlockController.prototype._setStylesForSecondElem = function() {
@@ -441,6 +453,8 @@ TeacherBlockController.prototype._setStylesForSecondElem = function() {
 
 	this._secondBlock.elem.style.top = this._secondBlock.top + 'px';
 	this._secondBlock.elem.style.left = this._secondBlock.left + 'px';
+
+	this._setPageScrollArea(this._secondBlock.elem.querySelector('.skill_list'));
 };
 
 TeacherBlockController.prototype._setStylesForThirdElem = function() {
@@ -448,6 +462,8 @@ TeacherBlockController.prototype._setStylesForThirdElem = function() {
 
 	this._thirdBlock.elem.style.top = this._thirdBlock.top + 'px';
 	this._thirdBlock.elem.style.left = this._thirdBlock.left + 'px';
+
+	this._setPageScrollArea(this._thirdBlock.elem.querySelector('.description'));
 };
 
 TeacherBlockController.prototype._setStylesForThumbnails = function() {

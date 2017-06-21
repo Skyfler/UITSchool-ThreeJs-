@@ -67,7 +67,7 @@ CourseInfoHeight.prototype._setPageScrollArea = function(elem) {
 		elem.removeAttribute('data-no-page-scroll-area');
 //		console.log(this.NAME + ': removing noPageScrollArea');
 	}
-}
+};
 
 try {
 	module.exports = CourseInfoHeight;

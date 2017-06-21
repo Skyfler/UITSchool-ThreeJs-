@@ -20,9 +20,12 @@ function ThreeMainController(options) {
 		console.warn(this.NAME + ': WebGL is not supported!');
 		new ModalWindow({
 			modalClass: 'error_notification',
-			modalInnerHTML: '<p>WebGL detection failed!</p>' +
-			'<p>It seems that your browser doesn\'t support WebGL.</p>' +
-			'<p>You can check your browser WebGL support <a href="https://get.webgl.org/" target="_blank">here</a>.</p>'
+//			modalInnerHTML: '<p>WebGL detection failed!</p>' +
+//			'<p>It seems that your browser doesn\'t support WebGL.</p>' +
+//			'<p>You can check your browser WebGL support <a href="https://get.webgl.org/" target="_blank">here</a>.</p>'
+			modalInnerHTML: '<p>Не удалось обнаружить WebGL!</p>' +
+			'<p>Похоже, что ваш браузер не поддерживает WebGL.</p>' +
+			'<p>Вы можете проверить браузер на поддержку WebGL <a href="https://get.webgl.org/" target="_blank">здесь</a>.</p>'
 		});
 
 		return;

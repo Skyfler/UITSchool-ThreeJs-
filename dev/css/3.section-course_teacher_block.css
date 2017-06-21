@@ -154,164 +154,6 @@
 .course_teacher_block .teacher_skills .skill_list li .skill_img {
 	width: 100%;
 }
-/*
-.course_teacher_block .teacher_skills .skill_list li.icon_acrobat {
-	background-image: url(../img/icons_skills/acrobat.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_angular {
-	background-image: url(../img/icons_skills/Angular_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_ant {
-	background-image: url(../img/icons_skills/Ant.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_apache {
-	background-image: url(../img/icons_skills/Apache_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_axure {
-	background-image: url(../img/icons_skills/Axure.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_backbone {
-	background-image: url(../img/icons_skills/Backbone.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_codeigniter {
-	background-image: url(../img/icons_skills/CodeIgniter.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_coreldraw {
-	background-image: url(../img/icons_skills/CorelDraw.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_css3{
-	background-image: url(../img/icons_skills/CSS3.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_express {
-	background-image: url(../img/icons_skills/Express.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_flash {
-	background-image: url(../img/icons_skills/flash.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_gearman {
-	background-image: url(../img/icons_skills/Gearman_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_git {
-	background-image: url(../img/icons_skills/GIT.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_glassfish {
-	background-image: url(../img/icons_skills/Glassfish.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_gradle {
-	background-image: url(../img/icons_skills/Gradle.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_grunt {
-	background-image: url(../img/icons_skills/GruntJS_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_gulp {
-	background-image: url(../img/icons_skills/Gulp_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_hibernate {
-	background-image: url(../img/icons_skills/Hibernate.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_html5 {
-	background-image: url(../img/icons_skills/HTML5.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_illustrator {
-	background-image: url(../img/icons_skills/Illustrator.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_indesign {
-	background-image: url(../img/icons_skills/InDesign.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_java {
-	background-image: url(../img/icons_skills/Java_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_javascript {
-	background-image: url(../img/icons_skills/JavaScript.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_jira {
-	background-image: url(../img/icons_skills/JIRA_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_joomla {
-	background-image: url(../img/icons_skills/Joomla.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_jquery {
-	background-image: url(../img/icons_skills/Jquery_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_json {
-	background-image: url(../img/icons_skills/JSON.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_less {
-	background-image: url(../img/icons_skills/LESS_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_log4j {
-	background-image: url(../img/icons_skills/Log4j.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_memcached {
-	background-image: url(../img/icons_skills/Memcached.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_mysql {
-	background-image: url(../img/icons_skills/MySQL_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_nginx {
-	background-image: url(../img/icons_skills/nginx.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_nodejs {
-	background-image: url(../img/icons_skills/Node_js.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_opencart {
-	background-image: url(../img/icons_skills/Opencart.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_photoshop {
-	background-image: url(../img/icons_skills/Photoshop.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_php {
-	background-image: url(../img/icons_skills/PHP.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_premiere {
-	background-image: url(../img/icons_skills/Premiere.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_prince2 {
-	background-image: url(../img/icons_skills/PRINCE2.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_redis {
-	background-image: url(../img/icons_skills/redis.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_sass {
-	background-image: url(../img/icons_skills/SASS.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_selenium {
-	background-image: url(../img/icons_skills/selenium.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_springcore {
-	background-image: url(../img/icons_skills/SpringCore.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_springmobile {
-	background-image: url(../img/icons_skills/SpringMobile.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_springsecurity {
-	background-image: url(../img/icons_skills/SpringSecurity.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_stylus {
-	background-image: url(../img/icons_skills/stylus.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_testcomplete {
-	background-image: url(../img/icons_skills/TestComplete.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_tomcat {
-	background-image: url(../img/icons_skills/Tomcat.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_uml1 {
-	background-image: url(../img/icons_skills/UML_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_vagrant {
-	background-image: url(../img/icons_skills/Vagrant.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_vuejs {
-	background-image: url(../img/icons_skills/Vue_js_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_webpack {
-	background-image: url(../img/icons_skills/Webpack_1.png);
-}
-.course_teacher_block .teacher_skills .skill_list li.icon_wordpress {
-	background-image: url(../img/icons_skills/Wordpress.png);
-}
-*/
 
 .course_teacher_block .teacher_expirience {
 	text-align: left;
@@ -322,6 +164,24 @@
 .course_teacher_block .teacher_expirience .description {
 	text-align: left;
 }
+
+.course_teacher_block *::-webkit-scrollbar-track {
+	-webkit-box-shadow: none;
+	border-radius: none;
+	background-color: transparent;
+}
+
+.course_teacher_block *::-webkit-scrollbar {
+	width: 10px;
+	background: linear-gradient(to right, transparent 40%, #e6e6e6 40%, #e6e6e6 60%, transparent 60%);
+}
+
+.course_teacher_block *::-webkit-scrollbar-thumb {
+	background-color: #e6e6e6;
+	-webkit-box-shadow: none;
+	border-radius: 0px;
+}
+
 
 @media screen and (min-width: 768px) {
 
@@ -341,7 +201,10 @@
 	}
 
 	.course_teacher_block .teacher_skills .skill_list {
-		max-width: 184px;
+/*		max-width: 184px;*/
+		max-width: 165px;
+		overflow-y: auto;
+		max-height: 287px;
 	}
 
 	.course_teacher_block .teacher_expirience {
@@ -389,7 +252,8 @@
 	}
 
 	.course_teacher_block .teacher_skills .skill_list {
-		max-width: 276px;
+/*		max-width: 276px;*/
+		max-width: 258px;
 	}
 
 	.course_teacher_block .teacher_expirience {
@@ -407,10 +271,16 @@
 
 	.course_teacher_block .teacher_about .description {
 		text-align-last: end;
+		padding-right: 20px;
+		margin-right: -20px;
+		overflow-y: auto;
+		max-height: calc(100vh - 68px - 34px - 230px);
 	}
 
 	.course_teacher_block .teacher_skills .skill_list {
-		max-width: 230px;
+/*		max-width: 230px;*/
+		max-width: 209px;
+		max-height: 164px;
 	}
 
 }
@@ -418,7 +288,8 @@
 @media screen and (min-width: 1500px) {
 
 	.course_teacher_block .teacher_skills .skill_list {
-		max-width: 368px;
+/*		max-width: 368px;*/
+		max-width: 346px;
 	}
 
 }
