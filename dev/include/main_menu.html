@@ -44,12 +44,12 @@
 						@@foreach (mainMenuItems) {
 							@@if (@@add_data_slide) {
 								<li>
-									<a href="@@href" data-slide="@@slide"><span>@@index</span></a>
+									<a href="@@href" data-slide="@@slide" @@customAttrStr><span>@@index</span></a>
 								</li>
 							}
 							@@if (!@@add_data_slide) {
 								<li>
-									<a href="@@href"><span>@@index</span></a>
+									<a href="@@href" @@customAttrStr><span>@@index</span></a>
 								</li>
 							}
 						}

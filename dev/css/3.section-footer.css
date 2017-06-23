@@ -120,6 +120,7 @@ footer .footer_block.phone_container .phone_number {
 	color: #fff;
 	transition: transform ease 0.5s;
 	transform: scale(0.8859649122807018);
+	display: block;
 }
 footer .footer_block.phone_container:hover .phone_number {
 	transform: scale(1);

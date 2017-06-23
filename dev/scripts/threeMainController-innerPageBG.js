@@ -14,6 +14,8 @@ function InnerPageBG(options) {
 	this._urlsToLoad_A = options.urlsToLoad_A;
 	this._urlsToLoad_B = options.urlsToLoad_B;
 	this._switchAnimationDuration = options.switchAnimationDuration;
+	this._initalGeometryIndex = options.initalGeometryIndex || 0;
+	this._initalMeshColor = options.initalMeshColor || 'ffffff';
 
 	this._onPageSlideChanged = this._onPageSlideChanged.bind(this);
 
@@ -38,8 +40,8 @@ InnerPageBG.prototype._init = function() {
 	}.bind(this));
 
 	this._updateParams = {
-		geometryIndex: 0,
-		color: 'ffffff'
+		geometryIndex: this._initalGeometryIndex || 0,
+		color: this._initalMeshColor || 'ffffff'
 	};
 
 	this._createSvgLoader(this._urlsToLoad_A);

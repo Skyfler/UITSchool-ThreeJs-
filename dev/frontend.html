@@ -3,7 +3,7 @@
 <meta name="keywords" content="Курсы HTML5 + CSS3 + JS (вёрстка), курсы верстка, курсы вёрстка, курсы HTML5 + CSS3 + JS, обучение HTML5 CSS3 JS, HTML5, CSS3, JS , Ukrainian IT School, Харьков, курсы вёрстки в Харькове, it специалист, it курсы, it сфера, работа it, it образование, обучение it, работа в it, обучение верстка для фронтенда,  Курсы HTML5 + CSS3 + JS (вёрстка) в Харькове, специалист по вёрстке,обучение на фронтенд-специалиста, курсы front-end developer ,front end специалист, Украина, курсы программирования">
 <meta name="description" content="Ukrainian IT School - сделает Вас специалистом по вёрстке HTML5 + CSS3 + JS">
 <meta name="author" content="Ukrainian IT School">
-@@include('./include/top2.html', { "gmap": true })
+@@include('./include/top2.html', { "gmap": false })
 <canvas class="bg_canvas"></canvas>
 @@include('./include/inner_page_contact_button_container.html')
 <div class="main_menu_block container">
@@ -19,8 +19,10 @@
 			"Партнеры": {"slide": "course_partners", "number": "07"},
 			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
 		}, "mainMenuItems": {
-			"Главная": {"add_data_slide": false, "href": "/"},
-			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#"}
+			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
+			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": true }
 	)
 </div>
@@ -509,7 +511,7 @@
 							<div class="tab_block tab_block_1 active-tab-block fade" id="group_1">
 								<p class="line1">Старт новой группы</p>
 								<p class="line2">Дни занятий: Среда, Суббота</p>
-								<p class="start_date">28.06.2017</p>
+								<p class="start_date">01.07.2017</p>
 								<p class="notice">в летний период старт по мере комплектации</p>
 								<button class="quote" data-slide="course_contact_form">Записаться</button>
 							</div>

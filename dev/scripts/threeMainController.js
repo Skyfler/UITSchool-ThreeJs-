@@ -3,7 +3,7 @@
 try {
 	var THREE = require('three');
 //	var THREE = require("three-canvas-renderer");
-	window.THREE = THREE;
+//	window.THREE = THREE;
 
 	var Helper = require('./helper');
 	var SvgLoader = require('./threeMainController-svgLoader');
@@ -77,7 +77,7 @@ ThreeMainController.prototype._init = function() {
 	this._camera.position.z = 400;
 	this._scene = new THREE.Scene();
 	this._scene.name = 'scene';
-	window.scene = this._scene;
+//	window.scene = this._scene;
 
 	this._dotTexture = new THREE.Texture( this._generateDotTexture() );
 	this._dotTexture.needsUpdate = true; // important!

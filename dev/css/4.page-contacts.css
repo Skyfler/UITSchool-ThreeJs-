@@ -1,0 +1,71 @@
+html.page-contacts,
+.page-contacts body {
+/*	overflow: hidden;*/
+	position: relative;
+	width: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.page-contacts body {
+	background: #0b0b0b;
+}
+
+.page-contacts body:before {
+	content: "";
+	display: block;
+	padding-top: 130px;
+	width: 100%;
+}
+.page-contacts body:after {
+	content: "";
+	display: block;
+/*	padding-bottom: 90px;*/
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+
+/*
+	.page-contacts body:after {
+		padding-bottom: 130px;
+	}
+*/
+
+}
+
+@media screen and (min-width: 992px) {
+
+	html.page-contacts,
+	.page-contacts body {
+		position: fixed;
+		overflow-y: hidden;
+	}
+
+	.page-contacts body:before {
+		padding-top: 90px;
+	}
+
+	.page-contacts body:after {
+		padding-bottom: 90px;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	html.page-contacts,
+	.page-contacts body {
+		position: fixed;
+		overflow-y: hidden;
+	}
+
+	.page-contacts body:before {
+		padding-top: 130px;
+	}
+
+	.page-contacts body:after {
+		padding-bottom: 130px;
+	}
+
+}

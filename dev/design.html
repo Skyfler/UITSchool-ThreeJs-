@@ -3,7 +3,7 @@
 <meta name="keywords" content="Курсы web design, изучить web design, стать дизайнером, обучение web-design в Харькове, обучение на дизайнера, web дизайн в Харькове, стать веб дизайнером в Харькове, курсы веб-дизайна, обучение основы дизайна">
 <meta name="description" content="Ukrainian IT School - сделает Вас специалистом в сфере Веб-дизайна">
 <meta name="author" content="Ukrainian IT School">
-@@include('./include/top2.html', { "gmap": true })
+@@include('./include/top2.html', { "gmap": false })
 <canvas class="bg_canvas"></canvas>
 @@include('./include/inner_page_contact_button_container.html')
 <div class="main_menu_block container">
@@ -20,9 +20,11 @@
 			"Партнеры": {"slide": "course_partners", "number": "08"},
 			"Обратная свзяь": {"slide": "course_contact_form", "number": "09"}
 		}, "mainMenuItems": {
-			"Главная": {"add_data_slide": false, "href": "/"},
-			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#"},
-			"Работы студентов": {"add_data_slide": true, "slide": "course_works", "href": "#"}
+			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
+			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#", "customAttrStr": ""},
+			"Работы студентов": {"add_data_slide": true, "slide": "course_works", "href": "#", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": true }
 	)
 </div>

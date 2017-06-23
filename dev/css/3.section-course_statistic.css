@@ -37,6 +37,24 @@
 	position: relative;
 }
 
+.course_statistic .svg_graph_container::-webkit-scrollbar-track {
+	-webkit-box-shadow: none;
+	border-radius: none;
+	background-color: transparent;
+}
+
+.course_statistic .svg_graph_container::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background: linear-gradient(to bottom, transparent 40%, #e6e6e6 40%, #e6e6e6 60%, transparent 60%);
+}
+
+.course_statistic .svg_graph_container::-webkit-scrollbar-thumb {
+	background-color: #e6e6e6;
+	-webkit-box-shadow: none;
+	border-radius: 0px;
+}
+
 .course_statistic .graph {
 	width: 100%;
 	min-height: 400px;

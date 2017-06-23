@@ -1,0 +1,184 @@
+.page-contacts .main {
+	width: 100%;
+	position: relative;
+	z-index: 2;
+}
+
+.page-contacts .main .main_inner {
+/*	height: calc(100vh - 90px - 90px);*/
+}
+
+.page-contacts .main .col {
+	width: 100%;
+}
+.page-contacts .main .col+.col {
+	height: 600px;
+	margin-top: 80px;
+}
+
+.page-contacts .main .map {
+	height: 100%;
+/*	box-shadow: 10px 10px 0 #fffc00;*/
+	box-shadow: none;
+	margin: 0 -30px 0px;
+	border-bottom: 10px solid #fffc00;
+}
+
+.page-contacts .main .contacts_container {
+	text-align: left;
+	display: inline-block;
+	max-width: 100%;
+}
+
+.page-contacts .main .title {
+	font-family: 'Roboto', sans-serif;
+	color: #fffc00;
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 15px;
+	line-height: initial;
+	letter-spacing: 0.05em;
+}
+
+.page-contacts .main .address_container {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	font-style: normal;
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 34px;
+	letter-spacing: 0.05em;
+}
+
+.page-contacts .main .address_container div:nth-child(even) {
+	font-weight: 500;
+	color: #fff;
+}
+.page-contacts .main .address_container div:nth-child(odd) {
+	color: #bfbfbf;
+}
+
+.page-contacts .main .phone_container {
+	margin-bottom: 34px;
+}
+
+.page-contacts .main .phone_container .phone_number {
+	font-size: 14px;
+	font-style: normal;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	color: #fff;
+	display: block;
+	letter-spacing: 0.09em;
+}
+.page-contacts .main .phone_container .phone_number+.phone_number {
+	margin-top: 7px;
+}
+
+.page-contacts .main .phone_container .phone_operators {
+	color: #fffc00;
+}
+
+.page-contacts .main .socials {
+	width: 100%;
+	max-width: 210px;
+}
+
+.page-contacts .main .socials li {
+	width: 100%;
+	max-width: 44px;
+}
+.page-contacts .main .socials li + li {
+	margin-left: 5px;
+}
+
+.page-contacts .main .socials li a {
+	display: block;
+/*	width: 44px;*/
+	width: 100%;
+/*	height: 44px;*/
+	border-radius: 50%;
+	overflow: hidden;
+	color: transparent;
+	font-size: 0;
+	background-size: 100% 100%;
+}
+.page-contacts .main .socials li.vk a {
+	background-image: url(../img/icon_vk_yellow.png);
+}
+.page-contacts .main .socials li.instagram a {
+	background-image: url(../img/icon_instagram_yellow.png);
+}
+.page-contacts .main .socials li.facebook a {
+	background-image: url(../img/icon_facebook_yellow.png);
+}
+.page-contacts .main .socials li.behance a {
+	background-image: url(../img/icon_behence_yellow.png);
+}
+
+.page-contacts .main .socials li a:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+	.page-contacts .main .contacts_container {
+		display: inline-flex;
+	}
+
+	.page-contacts .main .phone_container {
+		margin-left: 40px;
+	}
+
+	.page-contacts .main .socials_container {
+		width: 100%;
+		margin-top: 25px;
+	}
+
+	.page-contacts .main .socials {
+		margin: 0 auto;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.page-contacts .main .main_inner {
+		height: calc(100vh - 90px - 90px);
+		flex-wrap: nowrap;
+	}
+
+	.page-contacts .main .contacts_container {
+		padding: 0 0 0 30px;
+	}
+
+	.page-contacts .main .col {
+		order: 2;
+		width: 60%;
+		max-width: 600px;
+	}
+	.page-contacts .main .col+.col {
+		width: 100%;
+		height: 100%;
+		order: 1;
+		max-width: none;
+		margin-top: 0;
+	}
+
+	.page-contacts .main .map {
+		box-shadow: 10px 10px 0 #fffc00;
+		margin: 0;
+		border-bottom: none;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.page-contacts .main .main_inner {
+		height: calc(100vh - 130px - 130px);
+	}
+
+}

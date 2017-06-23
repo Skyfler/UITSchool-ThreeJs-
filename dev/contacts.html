@@ -1,0 +1,51 @@
+@@include('./include/top1.html', { "pageClassesStr": "page-contacts" })
+<title>Контакты</title>
+<meta name="author" content="Ukrainian IT School">
+@@include('./include/top2.html', { "gmap": true })
+<!--<div id="test" style="position:fixed; background: white; border: 1px solid black; padding: 10px; top: 0; right: 0; z-index: 10000; color: black; font-size: 16px; max-width: 75%; word-break: break-all; overflow-y: auto; max-height: 100%; white-space: pre-wrap;"></div>-->
+<canvas class="bg_canvas"></canvas>
+<div class="main_menu_block container">
+	@@include(
+		'./include/main_menu.html',
+		{ "sideMenu": false, "mainMenuItems": {
+			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
+		}, "contacts": false }
+	)
+</div>
+@@include('./include/modal_contacts_tabs.html')
+<section class="main" data-geometry-index="0" data-mesh-color="ffffff">
+	<div class="container flex main_inner flex-center-v">
+		<div class="col">
+			<div class="contacts_container flex">
+				<address class="address_container">
+					<h4 class="title">Где нас найти?</h4>
+					<div>г. Харьков, ул. Сумская, 2,</div>
+					<div>("Пузата Хата"),</div>
+					<div>1 подъезд, 3 этаж, офис 3</div>
+					<div>ст. метро "Исторический музей".</div>
+				</address>
+				<div class="phone_container">
+					<h4 class="title">Как с нами связаться?</h4>
+					<a href="tel:+380939681066" class="phone_number"><span class="phone_operators">093</span> 968 10 66</a>
+					<a href="tel:+380671237776" class="phone_number"><span class="phone_operators">067</span> 123 777 6</a>
+					<a href="tel:+380665890155" class="phone_number"><span class="phone_operators">066</span> 589 01 55</a>
+				</div>
+				<div class="socials_container">
+					<ul class="socials flex-nowrap">
+						<li class="socials_item vk"><a href="https://vk.com/uitschool" target="_blank">Vkontakte</a></li>
+						<li class="socials_item instagram"><a href="https://www.instagram.com/uitschool/" target="_blank">instagram</a></li>
+						<li class="socials_item facebook"><a href="https://www.facebook.com/uitschool/" target="_blank">facebook</a></li>
+						<li class="socials_item behance"><a href="#" target="_blank">behance</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="map"></div>
+		</div>
+	</div>
+</section>
+@@include('./include/footer.html', { "leftPanel": false, "rightPanel": true })
+@@include('./include/bottom.html')

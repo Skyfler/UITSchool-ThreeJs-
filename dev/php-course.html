@@ -3,7 +3,7 @@
 <meta name="keywords" content="PHP, Курсы PHP, Программирование PHP, Обучение PHP, учить PHP, пхп, wordpress, drupal, joomla" />
 <meta name="description" content="Ukrainian IT School - сделает Вас специалистом в сфере программирования PHP">
 <meta name="author" content="Ukrainian IT School">
-@@include('./include/top2.html', { "gmap": true })
+@@include('./include/top2.html', { "gmap": false })
 <canvas class="bg_canvas"></canvas>
 @@include('./include/inner_page_contact_button_container.html')
 <div class="main_menu_block container">
@@ -19,8 +19,10 @@
 			"Партнеры": {"slide": "course_partners", "number": "07"},
 			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
 		}, "mainMenuItems": {
-			"Главная": {"add_data_slide": false, "href": "/"},
-			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#"}
+			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
+			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": true }
 	)
 </div>

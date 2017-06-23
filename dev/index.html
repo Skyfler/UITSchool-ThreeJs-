@@ -10,7 +10,9 @@
 	@@include(
 		'./include/main_menu.html',
 		{ "sideMenu": false, "mainMenuItems": {
-			"главная": {"add_data_slide": false, "href": "/"}
+			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": false }
 	)
 </div>
@@ -54,5 +56,5 @@
 		</div>
 	</div>
 </section>
-@@include('./include/footer.html')
+@@include('./include/footer.html', { "leftPanel": true, "rightPanel": true })
 @@include('./include/bottom.html')

@@ -1,0 +1,11 @@
+.main_menu_block {
+	z-index: 3;
+}
+
+@media screen and (max-width: 991px) {
+
+	.page-contacts .main_menu_block .top_panel {
+		background: #000;
+	}
+
+}
