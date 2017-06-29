@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
 
 	.main_menu_contacts {
 		display: none;
@@ -12,10 +12,12 @@
 /*	width: 335px;*/
 	height: 68px;
 	width: calc(100% - 88px - 130px);
-	max-width: 630px;
+/*	max-width: 630px;*/
+	max-width: 810px;
 }
 
-.main_menu_contacts .phone {
+.main_menu_contacts .phone,
+.main_menu_contacts .mail {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
 	color: #fff;
@@ -26,7 +28,8 @@
 	margin-right: 10px;
 }
 
-.main_menu_contacts .phone span {
+.main_menu_contacts .phone span,
+.main_menu_contacts .mail span {
 	color: #fffc00;
 }
 

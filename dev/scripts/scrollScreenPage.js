@@ -1,7 +1,11 @@
 "use strict";
 
-var Helper = require('./helper');
-var Animation = require('./animation');
+try {
+	var Helper = require('./helper');
+	var Animation = require('./animation');
+} catch (err) {
+	console.warn(err);
+}
 
 function ScrollScreenPage(options) {
 	options.name = options.name || 'ScrollScreenPage';
@@ -145,7 +149,7 @@ ScrollScreenPage.prototype._resetInit = function() {
 
 ScrollScreenPage.prototype._onMouseMove = function(e) {
 	var target = e.target;
-	if (!target) return;
+	if (!target || !target.closest) return;
 
 	var noPageScrollArea = target.closest('[data-no-page-scroll-area="true"]');
 	if (noPageScrollArea && !this._preventScroll) {
@@ -403,4 +407,8 @@ ScrollScreenPage.prototype._scrollPageDraw = function(timePassed) {
 	}
 };
 
-module.exports = ScrollScreenPage;
+try {
+	module.exports = ScrollScreenPage;
+} catch (err) {
+	console.warn(err);
+}

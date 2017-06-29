@@ -46,7 +46,8 @@
 	line-height: 17px;
 	font-style: normal;
 	font-family: 'Roboto', sans-serif;
-	margin-bottom: 34px;
+/*	margin-bottom: 34px;*/
+	margin-bottom: 20px;
 	letter-spacing: 0.05em;
 }
 
@@ -58,11 +59,17 @@
 	color: #bfbfbf;
 }
 
-.page-contacts .main .phone_container {
-	margin-bottom: 34px;
+.page-contacts .main .links_container {
+/*	margin-bottom: 34px;*/
+	margin-bottom: 20px;
 }
 
-.page-contacts .main .phone_container .phone_number {
+.page-contacts .main .links_container>div+div {
+/*	margin-top: 34px;*/
+	margin-top: 20px;
+}
+
+.page-contacts .main .links_container .link {
 	font-size: 14px;
 	font-style: normal;
 	font-family: 'Roboto', sans-serif;
@@ -71,11 +78,11 @@
 	display: block;
 	letter-spacing: 0.09em;
 }
-.page-contacts .main .phone_container .phone_number+.phone_number {
+.page-contacts .main .links_container .link+.link {
 	margin-top: 7px;
 }
 
-.page-contacts .main .phone_container .phone_operators {
+.page-contacts .main .links_container span {
 	color: #fffc00;
 }
 
@@ -128,7 +135,7 @@
 		display: inline-flex;
 	}
 
-	.page-contacts .main .phone_container {
+	.page-contacts .main .links_container {
 		margin-left: 40px;
 	}
 
