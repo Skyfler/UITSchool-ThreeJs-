@@ -179,14 +179,8 @@
 	border-color: #fff;
 }
 
-.modal_contacts_tabs input::-webkit-input-placeholder  {opacity: 1;}
-.modal_contacts_tabs input::-moz-placeholder {opacity: 1;}
-.modal_contacts_tabs input:-moz-placeholder {opacity: 1;}
-.modal_contacts_tabs input:-ms-input-placeholder {opacity: 1;}
-.modal_contacts_tabs textarea::-webkit-input-placeholder {opacity: 1;}
-.modal_contacts_tabs textarea::-moz-placeholder {opacity: 1;}
-.modal_contacts_tabs textarea:-moz-placeholder {opacity: 1;}
-.modal_contacts_tabs textarea:-ms-input-placeholder {opacity: 1;}
+.modal_contacts_tabs input::placeholder {opacity: 1;}
+.modal_contacts_tabs textarea::placeholder {opacity: 1;}
 
 .modal_contacts_tabs textarea {
 	height: 120px;

@@ -23,6 +23,8 @@ function CustomSelect(options) {
 	this._onDocumentClick = this._onDocumentClick.bind(this);
 	this._onResize = this._onResize.bind(this);
 
+	this._revealPublicMethods();
+
 	this._addListener(this._elem, 'click', this._onClick);
 }
 
@@ -109,18 +111,21 @@ CustomSelect.prototype._getOptionElems = function() {
 CustomSelect.prototype.setOption = function(option) {
 	if (!option) return;
 
-	if (option.index && typeof option.index === 'number') {
+	if (option.index !== undefined && typeof option.index === 'number') {
 		this._setOptionByIndex(option.index);
 
 	} else if (option.value) {
 		this._setOptionByValue(option.value);
 	}
+
+	this._sendCustomEvent(this._titleElem, 'focus', {bubbles: true});
+	this._sendCustomEvent(this._titleElem, 'blur', {bubbles: true});
 };
 
 CustomSelect.prototype._setOptionByIndex = function(optionIndex) {
 	var optionElemArr = this._getOptionElems();
 
-	optionIndex = parseInt(optionIndex) + 1;
+	optionIndex = parseInt(optionIndex);
 
 	if (optionElemArr[optionIndex]) {
 		var option = optionElemArr[optionIndex];
@@ -149,10 +154,18 @@ CustomSelect.prototype._setOptionByValue = function(optionValue) {
 	// this.resetToDefault();
 };
 
+CustomSelect.prototype._revealPublicMethods = function() {
+	this._elem.setOption = this.setOption.bind(this);
+	this._elem.resetToDefault = this.resetToDefault.bind(this);
+};
+
 CustomSelect.prototype.resetToDefault = function() {
 	this._elem.classList.remove('option_selected');
 	this._titleElem.innerHTML = this._defaultText;
 	this._elem.dataset.value = '';
+
+	this._sendCustomEvent(this._titleElem, 'focus', {bubbles: true});
+	this._sendCustomEvent(this._titleElem, 'blur', {bubbles: true});
 };
 
 CustomSelect.prototype.hideByDependency = function() {

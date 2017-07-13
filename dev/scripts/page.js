@@ -274,6 +274,17 @@
 		});
 	}
 
+	var customPlaceholderElemArr = document.querySelectorAll('.custom_placeholder');
+	if (customPlaceholderElemArr.length > 0) {
+		var customPlaceholderArr = [];
+
+		for (var i = 0; i < customPlaceholderElemArr.length; i++) {
+			customPlaceholderArr[i] = new AnimatedPlaceholder({
+				elem: customPlaceholderElemArr[i]
+			});
+		}
+	}
+
 	var contactFormElem = document.querySelector('#contact_form');
 	if (contactFormElem) {
 		var contactForm = new ContactFormController({
@@ -308,14 +319,42 @@
 		});
 	}
 
-	var customPlaceholderElemArr = document.querySelectorAll('.custom_placeholder');
-	if (customPlaceholderElemArr.length > 0) {
-		var customPlaceholderArr = [];
+	var courseSelectDefaultValuesObj = {
+		'page-java_android': 'android',
+		'page-contextual_advertising': 'context_ads',
+		'page-web_design': 'webdesign',
+		'page-english_for_it': 'it_eng',
+		'page-front_end': 'frontend',
+		'page-hr': 'hr',
+		'page-java': 'java',
+		'page-java_advanced': 'java',
+		'page-javascript': 'js',
+		'page-php': 'php',
+		'page-pm': 'pm',
+		'page-qa_automation': 'aqa',
+		'page-qa': 'qa',
+		'page-it_sales': 'sales',
+		'page-seo': 'seo',
+		'page-smm': 'smm'
+	}
 
-		for (var i = 0; i < customPlaceholderElemArr.length; i++) {
-			customPlaceholderArr[i] = new AnimatedPlaceholder({
-				elem: customPlaceholderElemArr[i]
-			});
+	var htmlElemClassListArr = Array.prototype.slice.call(document.documentElement.classList, 0),
+		courseSelectDefaultValue = false;
+	for (var i = 0; i < htmlElemClassListArr.length; i++) {
+		if (courseSelectDefaultValuesObj[htmlElemClassListArr[i]]) {
+			courseSelectDefaultValue = courseSelectDefaultValuesObj[htmlElemClassListArr[i]];
+			i = htmlElemClassListArr.length;
+		}
+	}
+
+	if (courseSelectDefaultValue) {
+		var contactCourseSelect = document.querySelector('#contact_form-course_select');
+		if (contactCourseSelect) {
+			contactCourseSelect.setOption({value: courseSelectDefaultValue});
+		}
+		var modalContactCourseSelect = document.querySelector('#modal_contact_form-course_select');
+		if (modalContactCourseSelect) {
+			modalContactCourseSelect.setOption({value: courseSelectDefaultValue});
 		}
 	}
 

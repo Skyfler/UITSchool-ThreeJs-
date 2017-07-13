@@ -84,14 +84,8 @@
 	border-color: #fff;
 }
 
-.course_contact_form input::-webkit-input-placeholder  {opacity: 1; }
-.course_contact_form input::-moz-placeholder {opacity: 1; }
-.course_contact_form input:-moz-placeholder {opacity: 1; }
-.course_contact_form input:-ms-input-placeholder {opacity: 1; }
-.course_contact_form textarea::-webkit-input-placeholder {opacity: 1; }
-.course_contact_form textarea::-moz-placeholder {opacity: 1; }
-.course_contact_form textarea:-moz-placeholder {opacity: 1; }
-.course_contact_form textarea:-ms-input-placeholder {opacity: 1; }
+.course_contact_form input::placeholder {opacity: 1;}
+.course_contact_form textarea::placeholder {opacity: 1;}
 
 .course_contact_form textarea {
 	height: 120px;
@@ -111,7 +105,7 @@
 	background: none;
 	color: #fff;
 	position: relative;
-	padding: 16px 0;
+	padding: 16px 20px 16px 0;
 	font-size: 16px;
 	line-height: 1;
 	font-weight: 300;
@@ -186,7 +180,7 @@
 .course_contact_form .input_group.input_email {
 	order: 2;
 }
-.course_contact_form .input_group.input_direction {
+.course_contact_form .input_group.input_course {
 	order: 3;
 }
 .course_contact_form .input_group.input_how_find {
@@ -206,7 +200,7 @@
 
 	.course_contact_form .input_group.input_tel,
 	.course_contact_form .input_group.input_email,
-	.course_contact_form .input_group.input_direction,
+	.course_contact_form .input_group.input_course,
 	.course_contact_form .input_group.input_how_find {
 		width: 50%;
 	}
@@ -217,7 +211,7 @@
 
 	.course_contact_form .input_group.input_tel,
 	.course_contact_form .input_group.input_email,
-	.course_contact_form .input_group.input_direction,
+	.course_contact_form .input_group.input_course,
 	.course_contact_form .input_group.input_how_find {
 		width: 33.333333%;
 	}
