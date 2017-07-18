@@ -300,9 +300,26 @@ ScrollScreenPage.prototype._saveActiveSlide = function(oldActiveSlide, newActive
 };
 
 ScrollScreenPage.prototype._scrollPage = function() {
-	document.body.dataset.activeSlide = this._activeSlideIndex;
-
 	this._scrollInProcess = true;
+
+	this._sendCustomEvent(this._elem, 'pageSlideChanged', {
+		bubbles: true,
+		detail: {
+			activeSlideIndex: this._activeSlideIndex,
+			activeSlideID: this._pageSlidesArr[this._activeSlideIndex].id,
+			activeSlideElem: this._findParentSlideElem()
+		}
+	});
+
+	if (!this._setDelay && this._pageSlidesArr[this._lastActiveSlideIndex].matches('#course_start_date')) {
+		this._setDelay = true;
+		setTimeout(this._scrollPage.bind(this), 500);
+		return;
+	} else if (this._setDelay) {
+		delete this._setDelay;
+	}
+
+	document.body.dataset.activeSlide = this._activeSlideIndex;
 
 	this._currentSlideTopPositionArr = [];
 
@@ -338,17 +355,17 @@ ScrollScreenPage.prototype._scrollPage = function() {
 			this._pageSlidesArr[this._lastActiveSlideIndex].style.marginTop = '';
 			this._pageSlidesArr[this._lastActiveSlideIndex].style.opacity = 0;
 			this._pageSlidesArr[this._lastActiveSlideIndex].style.overflow = '';
+
+			this._sendCustomEvent(this._elem, 'pageSlideChangedAnimationEnd', {
+				bubbles: true,
+				detail: {
+					activeSlideIndex: this._activeSlideIndex,
+					activeSlideID: this._pageSlidesArr[this._activeSlideIndex].id,
+					activeSlideElem: this._findParentSlideElem()
+				}
+			});
 		}.bind(this)
 	);
-
-	this._sendCustomEvent(this._elem, 'pageSlideChanged', {
-		bubbles: true,
-		detail: {
-			activeSlideIndex: this._activeSlideIndex,
-			activeSlideID: this._pageSlidesArr[this._activeSlideIndex].id,
-			activeSlideElem: this._findParentSlideElem()
-		}
-	});
 };
 
 ScrollScreenPage.prototype._findParentSlideElem = function() {

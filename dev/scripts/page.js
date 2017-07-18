@@ -25,6 +25,7 @@
 	var CourseInfoHeight = require('./courseInfoHeight');
 	var ScrollToSlide = require('./scrollToSlide');
 	var PageSlideNumbering = require('./pageSlideNumbering');
+	var SectionStartDateBgController = require('./sectionStartDateBgController');
 
 	_polyfills.init();
 	_extendStandartPrototypes.init();
@@ -206,6 +207,13 @@
 		});
 	}
 
+	var sectionStartDateElem = document.querySelector('#course_start_date');
+	if (sectionStartDateElem) {
+		var sectionStartDateBgController = new SectionStartDateBgController({
+			elem: sectionStartDateElem
+		});
+	}
+
 	var scrollScreenPageElem = document.querySelector('#page_scroller');
 	if (scrollScreenPageElem) {
 		var scrollScreenPage = new ScrollScreenPage({
@@ -365,7 +373,7 @@
 			elem: mapElem,
 			gMapLoaded: gMapLoaded,
 			gMapOptions: {
-				zoom: 17,
+				zoom: 18,
 				center: pos,
 				streetViewControl: false,
 				mapTypeControl: false,
@@ -378,6 +386,16 @@
 				icon: 'img/icon_map_marker.png',
 				position: pos,
 				title: 'г. Харьков, ул. Сумская, 2'
+			},
+			{
+				icon: 'img/icon_subway.png',
+				position: {lat: 49.993262, lng: 36.231644},
+				title: 'Метро "Исторически музей"'
+			},
+			{
+				icon: 'img/icon_subway.png',
+				position: {lat: 49.993027, lng: 36.231606},
+				title: 'Метро "Исторически музей"'
 			}]
 		});
 	}

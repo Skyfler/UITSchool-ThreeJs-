@@ -17,17 +17,83 @@
 }
 
 .course_start_date .page_slide_inner_container {
+/*
 	background-image: url(../img/icon_timer_u.png), url(../img/icon_timer_it.png);
 	background-position: 30px 0, calc(100% - 30px) 100%;
 	background-repeat: no-repeat;
 	background-size: 32px 35px, 55px 40px;
+*/
+	position: relative;
+}
+
+.course_start_date .page_slide_inner_container:before {
+	content: "";
+	display: block;
+	position: absolute;
+	background-image: url(../img/icon_timer_u.png);
+	background-size: 100% 100%;
+	width: 32px;
+	height: 35px;
+	top: 0;
+	left: 30px;
+}
+
+.course_start_date .page_slide_inner_container:after {
+	content: "";
+	display: block;
+	position: absolute;
+	background-image: url(../img/icon_timer_it.png);
+	background-size: 100% 100%;
+	width: 55px;
+	height: 40px;
+	bottom: 0;
+	right: 30px;
 }
 
 @media screen and (min-width: 992px) {
 
 	.course_start_date .page_slide_inner_container {
+/*
 		background-position: 65px 0, calc(100% - 65px) 100%;
 		background-size: 102px 144px, 188px 141px;
+*/
+	}
+
+	.course_start_date .page_slide_inner_container:before {
+		width: 102px;
+		height: 144px;
+		top: 0;
+		left: 65px;
+	}
+
+	.course_start_date .page_slide_inner_container:after {
+		width: 188px;
+		height: 141px;
+		bottom: 0;
+		right: 65px;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.course_start_date .page_slide_inner_container {
+		overflow-y: hidden;
+	}
+
+	.course_start_date .page_slide_inner_container:before {
+		transition: transform ease 0.5s;
+		transform: translateY(-100%);
+	}
+
+	.course_start_date .page_slide_inner_container:after {
+		transition: transform ease 0.5s;
+		transform: translateY(100%);
+	}
+
+	.course_start_date.bg_elem_display .page_slide_inner_container:before,
+	.course_start_date.bg_elem_display .page_slide_inner_container:after {
+		transform: translateY(0);
 	}
 
 }
