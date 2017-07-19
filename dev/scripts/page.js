@@ -390,12 +390,12 @@
 			{
 				icon: 'img/icon_subway.png',
 				position: {lat: 49.993262, lng: 36.231644},
-				title: 'Метро "Исторически музей"'
+				title: 'Метро "Исторический музей"'
 			},
 			{
 				icon: 'img/icon_subway.png',
 				position: {lat: 49.993027, lng: 36.231606},
-				title: 'Метро "Исторически музей"'
+				title: 'Метро "Исторический музей"'
 			}]
 		});
 	}

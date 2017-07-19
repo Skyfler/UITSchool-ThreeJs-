@@ -1,0 +1,52 @@
+.preloader {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: black;
+	z-index: 1000;
+}
+
+.preloader .wavy-loader span {
+	position: relative;
+	border-radius: 50%;
+	width: 8px;
+	height: 8px;
+	margin: 2px;
+	background-color: white;
+	opacity: .5;
+	display: inline-block;
+}
+.preloader .wavy-loader span:first-child {
+	animation: wavy-loader 2.5s .1s ease-out infinite;
+}
+.preloader .wavy-loader span:nth-child(2) {
+	animation: wavy-loader 2.5s .2s ease-out infinite;
+}
+.preloader .wavy-loader span:nth-child(3) {
+	animation: wavy-loader 2.5s .3s ease-out infinite;
+}
+.preloader .wavy-loader span:nth-child(4) {
+	animation: wavy-loader 2.5s .4s ease-out infinite;
+}
+.preloader .wavy-loader span:nth-child(5) {
+	animation: wavy-loader 2.5s .5s ease-out infinite;
+}
+
+@keyframes wavy-loader {
+	0%    { top: 2px; }
+	1%    { top: 4px; }
+	2%    { top: 6px; }
+	3%    { top: 8px; }
+	4%    { top: 10px; }
+	5%    { top: 12px; opacity: 1; }
+	6%    { top: -2px; opacity: 1; }
+	7%    { top: -4px; opacity: 1; }
+	8%    { top: -6px; opacity: 1; }
+	9%    { top: -8px; opacity: 1; }
+	10%   { top: -10px; opacity: 1; }
+	11%   { top: -12px; opacity: 1; }
+	12%   { top: 0; opacity: .5; }
+	100%  { top: 0; opacity: .5; }
+}

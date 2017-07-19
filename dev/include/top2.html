@@ -47,3 +47,20 @@ carrotquest.connect('9904-3c3c88620f6e1e43fb14b3b4904');
 <!-- CarrotQuest END -->
 </head>
 <body class="flex">
+	<div class="preloader flex flex-center-h flex-center-v">
+		<div class="wavy-loader">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</div>
+	</div>
+	<script>
+		onDocReady(function(){
+			document.querySelector('.preloader').classList.add('hidden');
+		});
+		function onDocReady(f){
+			/in/.test(document.readyState) ? setTimeout(function(){onDocReady(f)},9) : f();
+		}
+	</script>
