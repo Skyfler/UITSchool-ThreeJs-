@@ -24,6 +24,10 @@ header .navbar_header_main {
 /*	padding-bottom: 25px;*/
 }
 
+header .navbar_brand {
+	display: inline-block;
+}
+
 header .navbar_header_hover_block {
 /*	display: none;*/
 	height: 0;

@@ -1,26 +1,26 @@
-footer {
+.page-contacts footer {
 	position: fixed;
 }
 
 @media screen and (max-width: 991px) {
 
-	footer {
+	.page-contacts footer {
 		position: relative;
 	}
 
-	footer>.container {
+	.page-contacts footer>.container {
 		height: 100%;
 	}
 
 }
 
-@media screen and (min-width: 767px) and (max-width: 991px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 
-	footer {
+	.page-contacts footer {
 		height: 135px;
 	}
 
-	footer .right_panel {
+	.page-contacts footer .right_panel {
 		padding-top: 100vh;
 		overflow: hidden;
 		height: 100vh;

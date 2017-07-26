@@ -24,18 +24,12 @@ html.page-course,
 	background: #cdcdcd;
 }
 .page-course [data-active-slide="6"] {
-	background: #0d0d0d;
-}
-.page-course [data-active-slide="7"] {
 	background: #fff;
 }
+.page-course [data-active-slide="7"] {
+	background: #0d0d0d;
+}
 .page-course [data-active-slide="8"] {
-	background: #0d0d0d;
-}
-.page-course [data-active-slide="9"] {
-	background: #0d0d0d;
-}
-.page-course [data-active-slide="10"] {
 	background: #0d0d0d;
 }
 
@@ -74,12 +68,6 @@ html.page-course,
 		background: #fff;
 	}
 	.page-course [data-active-slide="7"] {
-		background: #0d0d0d;
-	}
-	.page-course [data-active-slide="8"] {
-		background: #0d0d0d;
-	}
-	.page-course [data-active-slide="9"] {
 		background: #0d0d0d;
 	}
 

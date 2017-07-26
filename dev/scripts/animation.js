@@ -77,8 +77,18 @@ function Animation(draw, duration, callback) {
 Animation.prototype = Object.create(Helper.prototype);
 Animation.prototype.constructor = Animation;
 
+Animation.prototype.remove = function() {
+	this.stop();
+};
+
 Animation.prototype._stopBeforeAnimate = function() {
+	if (this._state === 'ended') {
+		console.log(this.NAME + ': animation is already ended!');
+		return;
+	}
+
 	cancelAnimationFrame(this._requestId);
+	delete this._requestId;
 	this._state = 'ended';
 
 	if (this._excuteCallback && this._callback) {

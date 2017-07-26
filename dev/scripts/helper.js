@@ -81,6 +81,10 @@ Helper.prototype.remove = function() {
 	//removing obj properties
 	for (var key in this) {
 		if (this.hasOwnProperty(key)) {
+			if (typeof this[key] === 'object' && this[key].remove && this[key].remove !== Element.prototype.remove) {
+				this[key].remove();
+			}
+
 			delete this[key];
 		}
 	}

@@ -173,11 +173,13 @@
 */
 /*.page-index .main .right_col .index_menu li a:hover:after,*/
 .page-index .main .right_col .active_menu .index_menu li.active a:after {
-	left: -20px;
+/*	left: -20px;*/
+	left: -10px;
 }
 /*.page-index .main .left_col .index_menu li a:hover:after,*/
 .page-index .main .left_col .active_menu .index_menu li.active a:after {
-	right: -20px;
+/*	right: -20px;*/
+	right: -10px;
 }
 
 .page-index .main .index_menu li a .scale_elem {
@@ -203,11 +205,11 @@
 }
 /*.page-index .main .right_col .index_menu li a:hover .scale_elem,*/
 .page-index .main .right_col .active_menu .index_menu li.active a .scale_elem {
-	right: 15px;
+/*	right: 15px;*/
 }
 /*.page-index .main .left_col .index_menu li a:hover .scale_elem,*/
 .page-index .main .left_col .active_menu .index_menu li.active a .scale_elem {
-	left: 15px;
+/*	left: 15px;*/
 }
 
 @media screen and (max-width: 767px) {

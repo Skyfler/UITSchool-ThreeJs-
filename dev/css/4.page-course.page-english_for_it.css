@@ -1,0 +1,62 @@
+.page-course.page-english_for_it [data-active-slide="0"] {
+	background: #0d0d0d;
+}
+.page-course.page-english_for_it [data-active-slide="1"] {
+	background: #fff;
+}
+.page-course.page-english_for_it [data-active-slide="2"] {
+	background: #fff;
+}
+.page-course.page-english_for_it [data-active-slide="3"] {
+	background-color: #0d0d0d;
+}
+.page-course.page-english_for_it [data-active-slide="4"] {
+	background: #fff;
+}
+.page-course.page-english_for_it [data-active-slide="5"] {
+	background: #0d0d0d;
+}
+.page-course.page-english_for_it [data-active-slide="6"] {
+	background: #fff;
+}
+.page-course.page-english_for_it [data-active-slide="7"] {
+	background: #181818;
+}
+.page-course.page-english_for_it [data-active-slide="8"] {
+	background: #0d0d0d;
+}
+.page-course.page-english_for_it [data-active-slide="9"] {
+	background: #0d0d0d;
+}
+
+@media screen and (min-width: 1200px) {
+
+	.page-course.page-english_for_it [data-active-slide="0"] {
+		background: #0d0d0d;
+	}
+	.page-course.page-english_for_it [data-active-slide="1"] {
+		background: #fff;
+	}
+	.page-course.page-english_for_it [data-active-slide="2"] {
+		background-color: #0d0d0d;
+	}
+	.page-course.page-english_for_it [data-active-slide="3"] {
+		background: #fff;
+	}
+	.page-course.page-english_for_it [data-active-slide="4"] {
+		background: #0d0d0d;
+	}
+	.page-course.page-english_for_it [data-active-slide="5"] {
+		background: #fff;
+	}
+	.page-course.page-english_for_it [data-active-slide="6"] {
+		background: #181818;
+	}
+	.page-course.page-english_for_it [data-active-slide="7"] {
+		background: #0d0d0d;
+	}
+	.page-course.page-english_for_it [data-active-slide="8"] {
+		background: #0d0d0d;
+	}
+
+}

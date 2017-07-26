@@ -4,6 +4,7 @@
 
 	var _polyfills = require('./polyfills');
 	var _extendStandartPrototypes = require('./extendStandartPrototypes');
+	var Preloader = require('./preloader');
 	var Menu = require('./menu');
 	var Dropdown = require('./dropdown');
 	var IndexMenuController = require('./indexMenuController');
@@ -24,11 +25,17 @@
 	var FooterCirclesController = require('./footerCirclesController');
 	var CourseInfoHeight = require('./courseInfoHeight');
 	var ScrollToSlide = require('./scrollToSlide');
-	var PageSlideNumbering = require('./pageSlideNumbering');
+//	var PageSlideNumbering = require('./pageSlideNumbering');
 	var SectionStartDateBgController = require('./sectionStartDateBgController');
+	var ElemPageSlideChecker = require('./elemPageSlideChecker');
+	var SideContactButtonWave = require('./sideContactButtonWave');
 
 	_polyfills.init();
 	_extendStandartPrototypes.init();
+
+	var preloader = new Preloader({
+		animationDuration: 500
+	});
 
 	var sideMenuElem = document.querySelector('.side_menu');
 	if (sideMenuElem) {
@@ -223,8 +230,21 @@
 			slidePartsBreakpoint: 1200
 		});
 
-		var pageSlideNumbering = new PageSlideNumbering({
-			elem: scrollScreenPageElem
+//		var pageSlideNumbering = new PageSlideNumbering({
+//			elem: scrollScreenPageElem
+//		});
+
+		var contactButtonElems = document.querySelectorAll('.inner_page_contact_button'),
+			contactButtons = [];
+		for (var i = 0; i < contactButtonElems.length; i++) {
+			contactButtons.push(new ElemPageSlideChecker({
+				elem: contactButtonElems[i],
+				pageScrollerElem: scrollScreenPageElem
+			}));
+		}
+
+		window.sideContactButtonWave = new SideContactButtonWave({
+			elemsArr: Array.prototype.slice.call(contactButtonElems)
 		});
 	}
 

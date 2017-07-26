@@ -1,6 +1,10 @@
 "use strict";
 
-var Helper = require('./helper');
+try {
+	var Helper = require('./helper');
+} catch (err) {
+	console.warn(err);
+}
 
 function CustomInputRange(options) {
 	options.name = options.name || 'CustomInputRange';
@@ -21,6 +25,8 @@ function CustomInputRange(options) {
 	this._onMouseDown = this._onMouseDown.bind(this);
 	this._onDocumentMouseMove = this._onDocumentMouseMove.bind(this);
 	this._onDocumentMouseUp = this._onDocumentMouseUp.bind(this);
+
+	this._revealPublicMethods();
 
 	this._addListener(this._elem, 'dragstart', function(e) {e.preventDefault();});
 	this._addListener(this._elem, 'mousedown', this._onMouseDown);
@@ -150,4 +156,12 @@ CustomInputRange.prototype.getElem = function() {
 	return this._elem;
 };
 
-module.exports = CustomInputRange;
+CustomInputRange.prototype._revealPublicMethods = function() {
+	this._elem.setValue = this.setValue.bind(this);
+};
+
+try {
+	module.exports = CustomInputRange;
+} catch (err) {
+	console.warn(err);
+}
