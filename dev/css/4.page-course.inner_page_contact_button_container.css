@@ -126,7 +126,7 @@
 		background-position-y: 0%;
 	}
 	.page-course [data-active-slide="4"] .inner_page_contact_button_container .inner_page_contact_button {
-		background-position-y: 100%;
+		background-position-y: 0%;
 	}
 	.page-course [data-active-slide="5"] .inner_page_contact_button_container .inner_page_contact_button {
 		background-position-y: 100%;
@@ -151,7 +151,7 @@
 		stroke: #000;
 	}
 	.page-course [data-active-slide="4"] .inner_page_contact_button_container svg.svg_btn_border .svg_border_circle {
-		stroke: #fff;
+		stroke: #000;
 	}
 	.page-course [data-active-slide="5"] .inner_page_contact_button_container svg.svg_btn_border .svg_border_circle {
 		stroke: #fff;

@@ -1,7 +1,7 @@
 .inner_page_contact_button_container {
 	z-index: 2;
 	position: fixed;
-	bottom: 20px;
+	bottom: 60px;
 	left: 20px;
 }
 
@@ -23,7 +23,7 @@
 	margin-top: 15px;
 }
 .inner_page_contact_button_container .inner_page_contact_button.phone {
-	background-position: 300% 0;
+	background-position: 100% 0;
 }
 .inner_page_contact_button_container .inner_page_contact_button.mail {
 	background-position: 200% 0;
@@ -32,7 +32,7 @@
 	background-position: 0 0;
 }
 .inner_page_contact_button_container .inner_page_contact_button.facebook {
-	background-position: 100% 0;
+	background-position: 300% 0;
 }
 
 /*

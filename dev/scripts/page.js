@@ -243,8 +243,9 @@
 			}));
 		}
 
-		window.sideContactButtonWave = new SideContactButtonWave({
-			elemsArr: Array.prototype.slice.call(contactButtonElems)
+		var sideContactButtonWave = new SideContactButtonWave({
+			elemsArr: Array.prototype.slice.call(contactButtonElems),
+			containerElem: document.querySelector('.inner_page_contact_button_container')
 		});
 	}
 

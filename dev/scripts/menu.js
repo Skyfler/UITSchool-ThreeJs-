@@ -26,6 +26,8 @@ Menu.prototype._init = function(options) {
 
 	var offset = this._offsetElem ? this._offsetElem.offsetWidth : 0;
 
+	this._loadImages(['img/icon_menu_closed.png', 'img/icon_menu_open.png']);
+
 	this._dropdownContainer.style.right = -1 * ((this._dropdownContainer.offsetWidth + window.innerWidth - this._elem.getBoundingClientRect().right) - offset) + 'px';
 	this._state = 'closed';
 

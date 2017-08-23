@@ -133,7 +133,6 @@ Helper.prototype._loadImages = function(imgSrcArr) {
 	for (var i = 0; i < imgSrcArr.length; i++) {
 		this._preloadedImages[i] = new Image();
 		this._preloadedImages[i].src = imgSrcArr[i];
-
 	}
 };
 

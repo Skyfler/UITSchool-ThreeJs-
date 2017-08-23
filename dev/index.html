@@ -4,9 +4,6 @@
 <meta name="description" content="Всеукраинский учебный центр IT-профессий Ukrainian IT School. Мы выпускаем квалифицированных специалистов, готовых к престижной, высокооплачиваемой и интересной работе в сфере IT.">
 <meta name="author" content="Ukrainian IT School">
 @@include('./include/top2.html', { "gmap": false })
-<script>
-carrotquest.onReady(function () { carrotquest.removeChat(); });
-</script>
 <!--<div id="test" style="position:fixed; background: white; border: 1px solid black; padding: 10px; top: 0; right: 0; z-index: 10000; color: black; font-size: 16px; max-width: 75%; word-break: break-all; overflow-y: auto; max-height: 100%; white-space: pre-wrap;"></div>-->
 <canvas class="bg_canvas"></canvas>
 <div class="main_menu_block container">
@@ -14,7 +11,7 @@ carrotquest.onReady(function () { carrotquest.removeChat(); });
 		'./include/main_menu.html',
 		{ "sideMenu": false, "mainMenuItems": {
 			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
-			"Контакты": {"add_data_slide": false, "href": "contacts.html", "customAttrStr": ""},
+			"Контакты": {"add_data_slide": false, "href": "contacts", "customAttrStr": ""},
 			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": false }
 	)
@@ -39,14 +36,14 @@ carrotquest.onReady(function () { carrotquest.removeChat(); });
 						</ul>
 -->
 						<ul class="index_menu carousel_list_item_container">
-							<li class="carousel_list_item" data-icon="qa"><a href="quality-assurance.html" class="flex"><span class="scale_elem">Тестирование(QA)</span></a></li>
-							<li class="carousel_list_item" data-icon="htmlCss"><a href="frontend.html" class="flex"><span class="scale_elem">Верстка (HTML+CSS)</span></a></li>
-							<li class="carousel_list_item" data-icon="javascript"><a href="js.html" class="flex"><span class="scale_elem">JavaScript</span></a></li>
-							<li class="carousel_list_item" data-icon="java"><a href="java.html" class="flex"><span class="scale_elem">Java programming</span></a></li>
-							<li class="carousel_list_item" data-icon="php"><a href="php-course.html" class="flex"><span class="scale_elem">PHP programming</span></a></li>
-							<li class="carousel_list_item" data-icon="quAutomation"><a href="qa-automation.html" class="flex"><span class="scale_elem">Automation QA</span></a></li>
-							<li class="carousel_list_item" data-icon="webDesign"><a href="design.html" class="flex"><span class="scale_elem">Web-design</span></a></li>
-							<li class="carousel_list_item" data-icon="hr"><a href="HR.html" class="flex"><span class="scale_elem">HR&amp;Recruitment</span></a></li>
+							<li class="carousel_list_item" data-icon="qa"><a href="quality-assurance" class="flex"><span class="scale_elem">Тестирование(QA)</span></a></li>
+							<li class="carousel_list_item" data-icon="htmlCss"><a href="frontend" class="flex"><span class="scale_elem">Верстка (HTML+CSS)</span></a></li>
+							<li class="carousel_list_item" data-icon="javascript"><a href="js" class="flex"><span class="scale_elem">JavaScript</span></a></li>
+							<li class="carousel_list_item" data-icon="java"><a href="java" class="flex"><span class="scale_elem">Java programming</span></a></li>
+							<li class="carousel_list_item" data-icon="php"><a href="php-course" class="flex"><span class="scale_elem">PHP programming</span></a></li>
+							<li class="carousel_list_item" data-icon="quAutomation"><a href="qa-automation" class="flex"><span class="scale_elem">Automation QA</span></a></li>
+							<li class="carousel_list_item" data-icon="webDesign"><a href="design" class="flex"><span class="scale_elem">Web-design</span></a></li>
+							<li class="carousel_list_item" data-icon="hr"><a href="HR" class="flex"><span class="scale_elem">HR&amp;Recruitment</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -68,13 +65,13 @@ carrotquest.onReady(function () { carrotquest.removeChat(); });
 						</ul>
 -->
 						<ul class="index_menu carousel_list_item_container">
-							<li class="carousel_list_item" data-icon="itProjectManagement"><a href="pm.html" class="flex"><span class="scale_elem">Project Management</span></a></li>
-							<li class="carousel_list_item" data-icon="android"><a href="android.html" class="flex"><span class="scale_elem">Android development</span></a></li>
-							<li class="carousel_list_item" data-icon="sales"><a href="sales.html" class="flex"><span class="scale_elem">IT Sales</span></a></li>
-							<li class="carousel_list_item" data-icon="smm"><a href="smm.html" class="flex"><span class="scale_elem">Social Media Marketing (SMM)</span></a></li>
-							<li class="carousel_list_item" data-icon="seo"><a href="SEO.html" class="flex"><span class="scale_elem">SEO оптимизация</span></a></li>
-							<li class="carousel_list_item" data-icon="advertising"><a href="contextual_advertising.html" class="flex"><span class="scale_elem">Контекстная реклама</span></a></li>
-							<li class="carousel_list_item" data-icon="english"><a href="english-for-it.html" class="flex"><span class="scale_elem">English for IT</span></a></li>
+							<li class="carousel_list_item" data-icon="itProjectManagement"><a href="pm" class="flex"><span class="scale_elem">Project Management</span></a></li>
+							<li class="carousel_list_item" data-icon="android"><a href="android" class="flex"><span class="scale_elem">Android development</span></a></li>
+							<li class="carousel_list_item" data-icon="sales"><a href="sales" class="flex"><span class="scale_elem">IT Sales</span></a></li>
+							<li class="carousel_list_item" data-icon="smm"><a href="smm" class="flex"><span class="scale_elem">Social Media Marketing (SMM)</span></a></li>
+							<li class="carousel_list_item" data-icon="seo"><a href="SEO" class="flex"><span class="scale_elem">SEO оптимизация</span></a></li>
+							<li class="carousel_list_item" data-icon="advertising"><a href="contextual_advertising" class="flex"><span class="scale_elem">Контекстная реклама</span></a></li>
+							<li class="carousel_list_item" data-icon="english"><a href="english-for-it" class="flex"><span class="scale_elem">English for IT</span></a></li>
 						</ul>
 					</div>
 				</div>

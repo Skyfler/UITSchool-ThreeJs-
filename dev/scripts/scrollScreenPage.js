@@ -302,15 +302,6 @@ ScrollScreenPage.prototype._saveActiveSlide = function(oldActiveSlide, newActive
 ScrollScreenPage.prototype._scrollPage = function() {
 	this._scrollInProcess = true;
 
-	this._sendCustomEvent(this._elem, 'pageSlideChanged', {
-		bubbles: true,
-		detail: {
-			activeSlideIndex: this._activeSlideIndex,
-			activeSlideID: this._pageSlidesArr[this._activeSlideIndex].id,
-			activeSlideElem: this._findParentSlideElem()
-		}
-	});
-
 	if (!this._setDelay && this._pageSlidesArr[this._lastActiveSlideIndex].matches('#course_start_date')) {
 		this._setDelay = true;
 		setTimeout(this._scrollPage.bind(this), 500);
@@ -318,6 +309,16 @@ ScrollScreenPage.prototype._scrollPage = function() {
 	} else if (this._setDelay) {
 		delete this._setDelay;
 	}
+
+	this._sendCustomEvent(this._elem, 'pageSlideChanged', {
+		bubbles: true,
+		detail: {
+			activeSlideIndex: this._activeSlideIndex,
+			activeSlideID: this._pageSlidesArr[this._activeSlideIndex].id,
+			activeSlideElem: this._findParentSlideElem(),
+			lastActiveSlideIndex: this._lastActiveSlideIndex
+		}
+	});
 
 	document.body.dataset.activeSlide = this._activeSlideIndex;
 

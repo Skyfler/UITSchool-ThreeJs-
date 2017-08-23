@@ -8,7 +8,8 @@
 	.course_contact_form {
 		background: #0d0d0d;
 		padding-top: 70px;
-		padding-bottom: 70px;
+/*		padding-bottom: 70px;*/
+		padding-bottom: 0;
 	}
 
 }

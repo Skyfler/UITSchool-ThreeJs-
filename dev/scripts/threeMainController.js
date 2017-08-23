@@ -153,7 +153,7 @@ ThreeMainController.prototype._generateDotTexture = function() {
 
 	context.beginPath();
 	context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-	context.fillStyle = 'rgba(255, 255, 255, 0.75)';
+	context.fillStyle = 'rgba(255, 255, 255, 1)';
 	context.fill();
 
 	return canvas;

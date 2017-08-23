@@ -126,7 +126,7 @@ Animation._progress = function(fullDuration, timePassed) {
 	if (fullDuration === 0) {
 		progress = 1;
 	} else {
-		progress = (timePassed / (fullDuration / 100)) / 100;
+		progress = timePassed / fullDuration;
 	}
 
 	return progress;
