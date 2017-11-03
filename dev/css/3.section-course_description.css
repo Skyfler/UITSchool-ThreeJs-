@@ -129,6 +129,10 @@
 
 @media screen and (min-width: 992px) {
 
+	.course_description .page_slide_content {
+		padding-left: 30px;
+	}
+
 	.course_description .block_main_title {
 /*		font-size: 48px;*/
 		font-size: 44px;

@@ -1,18 +1,22 @@
 "use strict";
 
+/**
+ * _polyfills helper
+ */
+
 var _polyfills = {
+	// Runs all polyfills functions
 	init: function() {
-		// console.log('running runAll');
 		for (var key in this) {
-			// console.log(key);
+			// if function name starts with 'polyfillFo' then run it
 			if (/\bpolyfillFor/.test(key)) {
 				this[key]();
 			}
 		}
 	},
 
+	// Polyfill for Element.prototype.matches function
 	polyfillForMatches: function() {
-		// console.log('running polyfillForMatches');
 		var e = Element.prototype;
 		e.matches || (e.matches=e.matchesSelector||function(selector) {
 				var matches = document.querySelectorAll(selector), th = this;
@@ -22,8 +26,8 @@ var _polyfills = {
 			});
 	},
 
+	// Polyfill for Element.prototype.closest function
 	polyfillForClosest: function() {
-		// console.log('running polyfillForClosest');
 		var e = Element.prototype;
 		e.closest = e.closest || function(css) {
 				var node = this;
@@ -36,8 +40,8 @@ var _polyfills = {
 			}
 	},
 
+	// Polyfill for window.CustomEvent class
 	polyfillForCustomEvent: function () {
-		// console.log('running polyfillForCustomEvent');
 		if ( typeof window.CustomEvent === "function" ) return false;
 
 		function CustomEvent ( event, params ) {
@@ -52,8 +56,8 @@ var _polyfills = {
 		window.CustomEvent = CustomEvent;
 	},
 
+	// Polyfill for HTMLElement.prototype.insertAdjacentElement, HTMLElement.prototype.insertAdjacentHTML, HTMLElement.prototype.insertAdjacentText functions
 	polyfillForInsertAdjacent: function() {
-		// console.log('running polyfillForCustomEvent');
 		if (typeof HTMLElement != "undefined" && !HTMLElement.prototype.insertAdjacentElement) {
 			HTMLElement.prototype.insertAdjacentElement = function(where, parsedNode) {
 				switch (where) {
@@ -88,6 +92,7 @@ var _polyfills = {
 		}
 	},
 
+	// Polyfill for window.requestAnimationFrame, window.cancelAnimationFrame functions
 	polyfillForRequestAnimationFrame: function() {
 		var lastTime = 0;
 		var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -114,6 +119,7 @@ var _polyfills = {
 
 	},
 
+	// Polyfill for template html element
 	polyfillForTemplate: function() {
 		if('content' in document.createElement('template')) {
 			return false;
@@ -141,6 +147,7 @@ var _polyfills = {
 	}
 };
 
+// Try exporting via webpack
 try {
 	module.exports = _polyfills;
 } catch (err) {

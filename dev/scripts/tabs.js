@@ -142,4 +142,3 @@ Tabs.prototype._showActiveBlockWithoutTransition = function(tabBlock) {
 };
 
 module.exports = Tabs;
-

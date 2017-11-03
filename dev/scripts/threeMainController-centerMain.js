@@ -2,7 +2,6 @@
 
 try {
 	var THREE = require('three');
-//	var THREE = require("three-canvas-renderer");
 
 	var ThreeMainController = require('./threeMainController');
 	var CustomLineMesh = require('./threeMainController-customLineMesh');
@@ -16,6 +15,8 @@ function CenterMain(options) {
 	this._urlsToLoad_innerShape_A = options.urlsToLoad_innerShape_A;
 	this._urlsToLoad_innerShape_B = options.urlsToLoad_innerShape_B;
 	this._urlsToLoadObj_courses = options.urlsToLoadObj_courses;
+	this._url3DModel = options.url3DModel;
+	this._allow3DModel = !!options.allow3DModel || false;
 
 	this._animationDuration_InnerPatternLines = options.animationDuration_InnerPatternLines || 1000;
 	this._animationDuration_OuterCircles = options.animationDuration_OuterCircles || 5000;
@@ -23,6 +24,7 @@ function CenterMain(options) {
 	this._animationDuration_CoursesPatternLinesRotation = options.animationDuration_CoursesPatternLinesRotation || 100000;
 
 	this._onIndexMenuItemSelected = this._onIndexMenuItemSelected.bind(this);
+	this._onDocumentMouseMove = this._onDocumentMouseMove.bind(this);
 
 	options.name = options.name || 'Three-CenterMain';
 	ThreeMainController.call(this, options);
@@ -41,10 +43,14 @@ CenterMain.prototype._init = function() {
 		self._executeOnDesktop(self._startOnLoad);
 	});
 	this._addListener(document, 'svgLoaderLoadingComplete', function waitTillLoadingComplete(e) {
-		self._executeOnDesktop(self._startOnLoad);
+		if (e.detail.initiator === self) {
+			self._executeOnDesktop(self._startOnLoad);
+		}
 	});
 
 	this._addListener(document, 'indexMenuItemSelected', this._onIndexMenuItemSelected);
+	this._addListener(document, 'mousemove', this._onDocumentMouseMove);
+	this._addListener(document, 'touchmove', this._onDocumentMouseMove);
 
 	this._circlesArr = [];
 	this._iconMeshesWithAnimationInProgress = [];
@@ -55,6 +61,12 @@ CenterMain.prototype._init = function() {
 	this._iconMeshes = [];
 	this._iconMeshPivots = [];
 
+	this._rotationY = 0;
+	this._rad = 0.0174533;
+
+	this._mouseX = 0;
+	this._mouseY = 0;
+
 	this._loaderA = this._createSvgLoader(this._urlsToLoad_innerShape_A);
 	this._loaderB = this._createSvgLoader(this._urlsToLoad_innerShape_B);
 
@@ -64,6 +76,9 @@ CenterMain.prototype._init = function() {
 	}
 
 	this._executeOnDesktop(this._startLoaders.bind(this));
+	if (this._allow3DModel) {
+		this._executeOnDesktop(this._load3DModel.bind(this));
+	}
 };
 
 CenterMain.prototype._updateMeshes = function() {
@@ -96,7 +111,8 @@ CenterMain.prototype._updateMeshes = function() {
 	for (var i = 0; i < this._customLinesArr.length; i++) {
 		this._customLinesArr[i].getParticles().scale.x = multiplier * 0.9;
 		this._customLinesArr[i].getParticles().scale.y = multiplier * 0.65;
-		this._customLinesArr[i].getParticles().position.x = this._axisOffsets.x - 35;
+//		this._customLinesArr[i].getParticles().position.x = this._axisOffsets.x - 35;
+		this._customLinesArr[i].getParticles().position.x = this._axisOffsets.x - 20;
 		this._customLinesArr[i].getParticles().position.y = this._axisOffsets.y;
 	}
 
@@ -116,14 +132,29 @@ CenterMain.prototype._updateMeshes = function() {
 };
 
 CenterMain.prototype._calculateAxisOffsets = function(topOffset, bottomOffset, rightOffset, leftOffset) {
+	var xOffset = leftOffset - rightOffset;
+	var yOffset = bottomOffset - topOffset;
+
+	var xMult = (xOffset / Math.abs(xOffset || 1)) || 1;
+	var yMult = (yOffset / Math.abs(yOffset || 1)) || 1;
+
+	var halfFullWidth = this._visibleWidthWithOffsetAtZDepth(0, this._camera, 0) / 2;
+	var halfFullHeight = this._visibleHeightWithOffsetAtZDepth(0, this._camera, 0) / 2;
+
+	var halfOffsetWidth = this._visibleWidthWithOffsetAtZDepth(0, this._camera, Math.abs(xOffset)) / 2;
+	var halfOffsetHeight = this._visibleHeightWithOffsetAtZDepth(0, this._camera, Math.abs(yOffset)) / 2;
+
+	var x = (halfFullWidth - halfOffsetWidth) * xMult;
+	var y = (halfFullHeight - halfOffsetHeight) * yMult;
+
 	return {
-		x: leftOffset - rightOffset - ( (window.innerWidth / 100) - ((window.innerWidth - (leftOffset - rightOffset)) / 100) ) * 50,
-		y: bottomOffset - topOffset - ( (window.innerHeight / 100) - ((window.innerHeight - (bottomOffset - topOffset)) / 100) ) * 50
+		x: x,
+		y: y
 	}
 };
 
 CenterMain.prototype._startOnLoad = function() {
-	if (this._indexMenuInitialisationComplete && this._loadersReady()) {
+	if (this._indexMenuInitialisationComplete && (this._allow3DModel ? this._3dModelLoaded : true) && this._loadersReady()) {
 		this._active = true;
 
 		var topOffset = document.querySelector('.top_panel').offsetHeight;
@@ -186,7 +217,8 @@ CenterMain.prototype._createInnerPatternLines = function(multiplier) {
 		this._customLinesArr.push( new CustomLineMesh({
 			verticesPositions: this._customLinesCoordsArr_A[this._geometryPointsArrIndex][i],
 			material: new THREE.PointsMaterial({
-				size: 8 - (i % 5 / 0.8),
+				size: 6 - (i % 5),
+//				size: 8 - (i % 5 / 0.8),
 				map: this._dotTexture,
 				blending: THREE.AdditiveBlending,
 				depthTest: false,
@@ -201,7 +233,8 @@ CenterMain.prototype._createInnerPatternLines = function(multiplier) {
 	for (var i = 0; i < this._customLinesArr.length; i++) {
 		this._customLinesArr[i].getParticles().scale.x = multiplier * 0.9;
 		this._customLinesArr[i].getParticles().scale.y = multiplier * 0.65;
-		this._customLinesArr[i].getParticles().translateX(this._axisOffsets.x - 35);
+		this._customLinesArr[i].getParticles().translateX(this._axisOffsets.x - 20);
+//		this._customLinesArr[i].getParticles().translateX(this._axisOffsets.x - 35);
 		this._customLinesArr[i].getParticles().translateY(this._axisOffsets.y);
 		this._scene.add(this._customLinesArr[i].getParticles());
 	}
@@ -212,11 +245,10 @@ CenterMain.prototype._createInnerPatternLines = function(multiplier) {
 CenterMain.prototype._createOuterCircles = function(multiplier) {
 	this._circlesArr.push( new CustomCircle({
 		centerPosition: {x: 0, y: 0},
-//		radius: 0.86,
 		radius: 0.70,
 		pointsCount: 200,
 		material: new THREE.PointsMaterial({
-			size: 8,
+			size: 6,
 			map: this._dotTexture,
 			blending: THREE.AdditiveBlending,
 			depthTest: false,
@@ -228,11 +260,10 @@ CenterMain.prototype._createOuterCircles = function(multiplier) {
 
 	this._circlesArr.push( new CustomCircle({
 		centerPosition: {x: 0, y: 0},
-//		radius: 0.90,
 		radius: 0.74,
 		pointsCount: 500,
 		material: new THREE.PointsMaterial({
-			size: 5,
+			size: 4.25,
 			map: this._dotTexture,
 			blending: THREE.AdditiveBlending,
 			depthTest: false,
@@ -244,11 +275,10 @@ CenterMain.prototype._createOuterCircles = function(multiplier) {
 
 	this._circlesArr.push( new CustomCircle({
 		centerPosition: {x: 0, y: 0},
-//		radius: 0.90,
 		radius: 0.82,
 		pointsCount: 64,
 		material: new THREE.PointsMaterial({
-			size: 5,
+			size: 3.5,
 			map: this._dotTexture,
 			blending: THREE.AdditiveBlending,
 			depthTest: false,
@@ -291,9 +321,6 @@ CenterMain.prototype._createCoursesPatternLines = function(multiplier) {
 		this._iconMeshes.push( new CustomLineMesh({
 			verticesPositions: this._iconsRelCoolrds[this._currentIcon][0][i],
 			material: new THREE.PointsMaterial({
-//				size: 8 - (i % 5 / 0.8),
-//				size: Math.random() * (10 - 1) + 1,
-//				size: (i % 3) * 1.5 + 6,
 				size: sizesArr[i],
 				map: this._dotTexture,
 				blending: THREE.AdditiveBlending,
@@ -327,12 +354,119 @@ CenterMain.prototype._createCoursesPatternLines = function(multiplier) {
 			name: 'iconMeshPivot_' + i
 		});
 		this._iconMeshPivots.push(pivot);
-//		this._iconMeshes[i].getParticles().translateX(-35);
 		this._scene.add(pivot._object);
 		pivot._object.add(this._iconMeshes[i].getParticles());
 	}
 
 	this._meshesArr = this._meshesArr.concat(this._iconMeshes, this._iconMeshPivots);
+};
+
+CenterMain.prototype._load3DModel = function() {
+	var manager = new THREE.LoadingManager();
+	manager.onProgress = function ( item, loaded, total ) {
+//		console.log( item, loaded, total );+
+		this._3dModelLoaded = true;
+		this._executeOnDesktop(this._startOnLoad);
+	}.bind(this);
+
+	var onProgress = function ( xhr ) {
+		if ( xhr.lengthComputable ) {
+			var percentComplete = xhr.loaded / xhr.total * 100;
+			console.log(this.NAME + ': "' + this._url3DModel + '" ' + Math.round(percentComplete, 2) + '% downloaded.' );
+		}
+	}.bind(this);
+
+	var onError = function ( xhr ) {
+		console.warn({
+			msg: this.NAME + ': failed to load model "' + this._url3DModel + '"!',
+			xhr: xhr
+		});
+
+		this._3dModelLoaded = true;
+		this._executeOnDesktop(this._startOnLoad);
+	}.bind(this);
+
+	function generateDotTexture() {
+		var canvas = document.createElement( 'canvas' );
+		canvas.width = 64;
+		canvas.height = 64;
+
+		var context = canvas.getContext('2d');
+		var centerX = canvas.width / 2;
+		var centerY = canvas.height / 2;
+		var radius = 16;
+
+		context.beginPath();
+		context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+		context.fillStyle = 'rgba(255, 255, 255, 0.1)';
+		context.fill();
+		return canvas;
+	};
+
+	var dotTexture = new THREE.Texture( generateDotTexture() );
+	dotTexture.needsUpdate = true; // important!
+	var loader = new THREE.OBJLoader( manager );
+
+	loader.load( this._url3DModel, function ( object ) {
+		var group = new THREE.Group();
+		this._3DModelGroup = new THREE.Group();
+
+		var mergedGeometry = new THREE.Geometry();
+
+		object.traverse( function ( child ) {
+
+			if ( child instanceof THREE.Mesh ) {
+				child.geometry.computeBoundingBox();
+				var max = child.geometry.boundingBox.max;
+				var min = child.geometry.boundingBox.min;
+				var y = max.y - min.y;
+				var x = max.x - min.x;
+				var z = max.z - min.z;
+				y = y > 1 ? y : 1;
+				x = x > 1 ? x : 1;
+				z = z > 1 ? z : 1;
+				var size = (x >= z && y >= z) ? x * y : (x >= z && z >= z) ? x * z : y * z;
+				var count,
+					count1,
+					count2;
+
+//				count = Math.ceil(size / 1500);
+//				count = Math.ceil(size / 10000);
+				count = Math.ceil(size / 1500);
+
+				var geometry = new THREE.Geometry();
+				geometry.vertices = THREE.GeometryUtils.randomPointsInGeometry(new THREE.Geometry().fromBufferGeometry( child.geometry ), count);
+				mergedGeometry.merge(geometry);
+			}
+		});
+
+		var particles = new THREE.Points(mergedGeometry, new THREE.PointsMaterial({
+			size: 2,
+			map: dotTexture,
+			blending: THREE.NormalBlending,
+			depthTest: false,
+			transparent : true,
+			color: 0xFFFFFF,
+			sizeAttenuation: true
+		}));
+		particles.geometry.scale(0.02, 0.02, 0.02);
+		group.add( particles );
+
+		var box = new THREE.Box3().setFromObject(group);
+		for (var i = 0; i < group.children.length; i++) {
+			group.children[i].geometry.translate( (box.max.x - box.min.x) / -4, 0, 0 );
+		}
+
+		group.rotation.set(0, -0.53, 0);
+		group.position.z = -180 - this._camera.position.z;
+		group.position.y = -40;
+
+		this._3DModelGroup.position.z = this._camera.position.z;
+		this._3DModelGroup.add( group );
+
+		this._scene.add( this._3DModelGroup );
+
+	}.bind(this), onProgress, onError );
 };
 
 CenterMain.prototype._centerIconMeshesInBasicState = function() {
@@ -369,7 +503,10 @@ CenterMain.prototype._onIndexMenuItemSelected = function(e) {
 };
 
 CenterMain.prototype._changeIcon = function(iconName) {
-	if (iconName in this._iconMeshes || this._currentIcon === iconName) return;
+	if (!iconName || !(iconName in this._iconsRelCoolrds)) {
+		iconName = 'basic';
+	}
+	if (this._currentIcon === iconName) return;
 
 	this._resetRotation();
 	for (var i = 0; i < this._iconMeshes.length; i++) {
@@ -400,9 +537,6 @@ CenterMain.prototype._resetRotation = function() {
 	var angle,
 		clockwise;
 	for (var i = 0; i < this._iconMeshes.length; i++) {
-//		angle = this._iconMeshes[i].getParticles().rotation.z % 360;
-//		clockwise = (angle >= 180) || ((angle > -180) && (angle < 0));
-
 		this._iconMeshes[i].stopRotation();
 
 		var multiplierX = this._iconMeshes[i].getParticles().scale.x,
@@ -427,8 +561,6 @@ CenterMain.prototype._resetRotation = function() {
 		this._iconMeshes[i].getParticles().position.x = tranlationX;
 		this._iconMeshes[i].getParticles().position.y = tranlationY;
 		this._iconMeshes[i].getParticles().position.z = tranlationZ;
-
-//		this._iconMeshes[i].setRotation(this._animationDuration_CoursesPatternLines, !clockwise, false, 0);
 	}
 };
 
@@ -492,6 +624,25 @@ CenterMain.prototype._onIconsVerticesUpdateComplete = function(e) {
 		}
 
 	}
+};
+
+CenterMain.prototype._redrawMeshes = function() {
+	if (this._3DModelGroup) {
+		this._rotationY = this._3DModelGroup.rotation.y + 0.05 * ((this._rad * 15 * this._mouseX / window.innerWidth) - this._3DModelGroup.rotation.y);
+		this._3DModelGroup.rotation.set(0, this._rotationY, 0);
+	}
+
+	ThreeMainController.prototype._redrawMeshes.apply(this, arguments);
+};
+
+CenterMain.prototype._onDocumentMouseMove = function(e) {
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
+	var clientX = (e.clientX === undefined) ? e.changedTouches[0].clientX : e.clientX;
+	var clientY = (e.clientY === undefined) ? e.changedTouches[0].clientY : e.clientY;
+
+	this._mouseX = ( clientX - windowHalfX ) / 2;
+	this._mouseY = ( clientY - windowHalfY ) / 2;
 };
 
 try {

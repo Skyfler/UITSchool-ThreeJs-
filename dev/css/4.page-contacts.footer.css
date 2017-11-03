@@ -12,7 +12,20 @@
 		height: 100%;
 	}
 
+	.page-contacts footer .right_panel {
+		display: none;
+	}
+
 }
+
+@media screen and (min-width: 992px) {
+
+	.page-contacts footer {
+		z-index: 0;
+	}
+
+}
+/*
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
 
@@ -28,3 +41,4 @@
 	}
 
 }
+*/

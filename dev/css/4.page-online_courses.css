@@ -1,0 +1,35 @@
+html.page-online_courses,
+.page-online_courses body {
+	height: auto;
+	overflow-x: hidden;
+	transition: background ease 1s;
+}
+
+.page-online_courses [data-active-slide="0"] {
+	background: #060606;
+}
+.page-online_courses [data-active-slide="1"] {
+	background: #0d0d0d;
+}
+
+/*@media screen and (min-width: 768px) {*/
+@media screen and (min-width: 1200px) {
+
+	html.page-online_courses,
+	.page-online_courses body {
+		height: 100%;
+		overflow-y: hidden;
+	}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.page-online_courses [data-active-slide="0"] {
+		background: #060606;
+	}
+	.page-online_courses [data-active-slide="1"] {
+		background: #0d0d0d;
+	}
+
+}

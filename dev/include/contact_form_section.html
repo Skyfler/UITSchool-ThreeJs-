@@ -4,5 +4,23 @@
 			@@include('./contact_form.html', { "title": "Обратная связь", "id": "contact_form" })
 		</div>
 	</div>
-	@@include('./footer.html', { "leftPanel": true, "rightPanel": false })
+	<footer>
+		@@include('./footer.html', { "leftPanel": true, "rightPanel": false, "fixedPanel": true })
+		@@if (breadcrumbs) {
+			<div class="breadcrumbs">
+				<span typeof="v:Breadcrumb"><a href="http://uitschool.com/" rel="v:url" property="v:title">Ukrainian IT_School</a></span> ➜ <span typeof="v:Breadcrumb"><a href="http://uitschool.com/someurl/@@breadcrumbs_url/#" rel="v:url" property="v:title">✎@@breadcrumbs_title</a></span>
+			</div>
+		}
+		@@if (reviewBlock) {
+			<div class="review-block" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+				<span itemprop="itemreviewed">uitschool.com</span>
+				<span itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">
+					<span itemprop="average">@@reviewBlock_avarage</span> out of <span itemprop="best">@@reviewBlock_best</span>
+				</span>
+				based on <span itemprop="votes">@@reviewBlock_votes</span> ratings.
+				<span itemprop="count">5</span> user reviews.
+				<a href="#">Оставить свой отзыв</a>
+			</div>
+		}
+	</footer>
 </section>

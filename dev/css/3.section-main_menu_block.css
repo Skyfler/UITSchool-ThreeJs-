@@ -79,6 +79,7 @@
 	position: static;
 	width: 100%;
 	overflow: hidden;
+	counter-reset: myCounter;
 }
 
 .main_menu_block .menu_bar li {
@@ -86,32 +87,60 @@
 	display: block;
 	text-align: right;
 	width: 100%;
+
 }
 
 .main_menu_block .menu_bar>li>a {
-	display: block;
-	font-size: 18px;
+/*	display: block;*/
+	font-size: 20px;
 	font-weight: 600;
 	color: #fff;
 	text-transform: uppercase;
 /*	padding: 10px 0 10px 25px;*/
-	transition-duration: 1s;
+/*	transition-duration: 1s;*/
 /*	overflow: hidden;*/
-	text-align: right;
+/*	text-align: right;*/
+	justify-content: flex-end;
+	line-height: 1;
+	opacity: 1;
+	transition: opacity ease 0.5s;
+}
+.main_menu_block .menu_bar>li>a:hover {
+	opacity: 0.5;
+}
+
+.main_menu_block .menu_bar>li>a:before {
+	content: "";
+	width: 64px;
+	border-bottom: 1px solid #fff;
+/*	position: absolute;*/
+	position: relative;
+/*	top: 9px;*/
+	top: 3px;
+/*	left: -72px;*/
+	display: inline-block;
+/*	vertical-align: top;*/
+	margin: 0 8px 0;
+	opacity: 0.2;
+}
+
+.main_menu_block .menu_bar>li>a:after {
+	content: "";
+	position: relative;
+	display: inline-block;
+	counter-increment: myCounter;
+	content: counter(myCounter,decimal-leading-zero);
+	order: -1;
+	font-size: 12px;
+	font-weight: 300;
+	position: relative;
+	opacity: 0.2;
+	top: 2px;
 }
 
 .main_menu_block .menu_bar>li>a span {
 	position: relative;
-}
-
-.main_menu_block .menu_bar>li>a span:before {
-	content: "";
-	width: 64px;
-	border-bottom: 1px solid #fff;
-	position: absolute;
-	top: 9px;
-	left: -72px;
-	display: block;
+	display: inline-block;
 }
 
 .main_menu_block .main_menu_bottom {

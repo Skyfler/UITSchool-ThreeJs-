@@ -41,7 +41,7 @@ var path = {
 		cssie: './dev/css/ie/*.css',
 		php: './dev/php/**/*.*',
 		fonts: './dev/fonts/*',
-		utility: ['./dev/utility_files/*', './dev/utility_files/.htaccess'],
+		utility: ['./dev/utility_files/**/*.*', './dev/utility_files/.htaccess'],
 		img: './dev/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
 		jivosite: './dev/jivosite/**/*.*'
 	},

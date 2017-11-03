@@ -1,7 +1,7 @@
 @@include('./include/top1.html', { "pageClassesStr": "page-java_advanced page-course" })
 <title>Курсы Java Харьков, курс программирования Java в Харькове, обучение в школе, цена, отзывы.</title>
 <meta name="keywords" content="Курсы Java в Харькове, Курсы программирование на Java, повысить уровень знаний Java, обучение Джава, повышение квалификации Java, курсы программирования на Java, курсы JavaScript в Харькове, курсы Джава, продвинутый уровень, обучение языку программирования Java, Ukrainian IT School, Харьков, Java специалист, it специалист, it  курсы, it сфера, работа it, it образование, обучение it, работа в it, обучение Джава в Харькове,  JavaScript в Харькове, курсы программирование на Java , изучить язык Java в Харькове для профессионалов, Украина">
-<meta name="description" content="Ukrainian IT School - сделает Вас профессионалом в сфере программирования на Java">
+<meta name="description" content="➤Самые результативные курсы Java в Харькове ✭Ukrainian IT School✭ ✔Максимум практики ✔Опытные преподаватели ✔Интересные программы ✔Доступные цены">
 <meta name="author" content="Ukrainian IT School">
 @@include('./include/top2.html', { "gmap": false })
 <canvas class="bg_canvas"></canvas>
@@ -20,13 +20,14 @@
 			"Обратная свзяь": {"slide": "course_contact_form", "number": "08"}
 		}, "mainMenuItems": {
 			"Главная": {"add_data_slide": false, "href": "/", "customAttrStr": ""},
-			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#", "customAttrStr": ""},
+			"Отзывы": {"add_data_slide": true, "slide": "course_feedback", "href": "#", "customAttrStr": "onclick=\"return false\""},
 			"Контакты": {"add_data_slide": false, "href": "contacts", "customAttrStr": ""},
 			"Обратная связь": {"add_data_slide": false, "href": "#", "customAttrStr": "data-action=\"open_modal\" data-tab-target=\"#modal_callback_form_tab\" onclick=\"return false\""}
 		}, "contacts": true }
 	)
 </div>
 @@include('./include/modal_contacts_tabs.html')
+@@include('./include/modal_before_leave.html')
 <div id="page_scroller">
 	<div class="page_slide_container">
 		<div class="course_description page_slide" id="course_description" data-geometry-index="0" data-mesh-color="ffffff">
@@ -372,54 +373,132 @@
 					<div class="right_col page_slide_part flex" id="course_info_part_2" data-geometry-index="1" data-mesh-color="9fa2a7">
 						<div class="container page_slide_part_inner_container flex flex-center-v">
 							<div class="page_slide_part_content flex">
-								<div class="shedule_block_1">
-									<h3 class="block_main_title">Вечерняя группа</h3>
-									<div class="shedule">
-										<div class="shedule_inner_block">
-											<div class="title">Расписание</div>
-											<div class="description">
-												<div>Группа1: Среда&nbsp;16:00, Воскресенье&nbsp;12:00</div>
-												<div>Группа2: Среда&nbsp;16:00, Суббота&nbsp;12:00</div>
-											</div>
+								<div class="course_info_tabs_container">
+							<!-- Расскомментировать для табов с онлайн курсами -->
+<!--
+									<div class="tabs flex flex-center-h">
+										<div class="tab active-tab flex flex-center-v flex-center-h" data-tab-target="#course_info_group_1">
+											<span>«стационар»</span>
 										</div>
-										<div class="shedule_inner_block">
-											<div class="title">Продолжительность курса</div>
-											<div class="length">
-												27&nbsp;занятий, 3&nbsp;занятия&nbsp;в неделю&nbsp;(1+2), 2,5&nbsp;часа в&nbsp;будний день, 4&nbsp;в&nbsp;выходной
-											</div>
+										<div class="tab active-tab flex flex-center-v flex-center-h" data-tab-target="#course_info_group_2">
+											<span>Онлайн курсы</span>
 										</div>
 									</div>
-								</div>
-								<div class="shedule_block_2">
-									<h3 class="block_main_title">Утренняя группа</h3>
-									<div class="shedule">
-										<div class="shedule_inner_block">
-											<div class="title">Расписание</div>
-											<div class="description">
-												<div>Вторник 9:30</div>
-												<div>Воскресенье 9:30</div>
+-->
+
+									<div class="tab_blocks">
+
+										<div class="tab_block active-tab-block fade flex" id="course_info_group_1">
+
+											<div class="shedule_block_1">
+												<h3 class="block_main_title">Группа №1</h3>
+												<div class="shedule">
+													<div class="shedule_inner_block">
+														<div class="title">Расписание</div>
+														<div class="description">
+
+														</div>
+													</div>
+													<div class="shedule_inner_block">
+														<div class="title">Продолжительность курса</div>
+														<div class="length">
+															27&nbsp;занятий, 3&nbsp;занятия&nbsp;в неделю&nbsp;(1+2), 2,5&nbsp;часа в&nbsp;будний день, 4&nbsp;в&nbsp;выходной
+														</div>
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="shedule_inner_block">
-											<div class="title">Продолжительность курса</div>
-											<div class="length">
-												27&nbsp;занятий, 2&nbsp;занятия в&nbsp;неделю, по&nbsp;2,5&nbsp;часа в&nbsp;будний день
+											<div class="shedule_block_2">
+												<h3 class="block_main_title">Группа №2</h3>
+												<div class="shedule">
+													<div class="shedule_inner_block">
+														<div class="title">Расписание</div>
+														<div class="description">
+			<!--
+															<div>Вторник 9:30</div>
+															<div>Воскресенье 9:30</div>
+			-->
+														</div>
+													</div>
+													<div class="shedule_inner_block">
+														<div class="title">Продолжительность курса</div>
+														<div class="length">
+															27&nbsp;занятий, 2&nbsp;занятия в&nbsp;неделю, по&nbsp;2,5&nbsp;часа в&nbsp;будний день
+														</div>
+													</div>
+												</div>
 											</div>
+											<div class="price_block">
+												<div class="price_block_inner flex">
+													<div class="price flex">
+														<div class="price_full">5000</div>
+														<div class="price_discount">4500</div>
+														<div class="discount_description">*при полной оплате до начала курса</div>
+													</div>
+													<div class="register_container">
+														<button class="register" data-slide="course_contact_form">Записаться</button>
+													</div>
+												</div>
+											</div>
+
 										</div>
+							<!-- Расскомментировать для табов с онлайн курсами -->
+<!--
+										<div class="tab_block flex" id="course_info_group_2">
+
+											<div class="shedule_block_1">
+												<h3 class="block_main_title">Группа №1</h3>
+												<div class="shedule">
+													<div class="shedule_inner_block">
+														<div class="title">Расписание</div>
+														<div class="description">
+
+														</div>
+													</div>
+													<div class="shedule_inner_block">
+														<div class="title">Продолжительность курса</div>
+														<div class="length">
+															27&nbsp;занятий, 3&nbsp;занятия&nbsp;в неделю&nbsp;(1+2), 2,5&nbsp;часа в&nbsp;будний день, 4&nbsp;в&nbsp;выходной
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="shedule_block_2">
+												<h3 class="block_main_title">Группа №2</h3>
+												<div class="shedule">
+													<div class="shedule_inner_block">
+														<div class="title">Расписание</div>
+														<div class="description">
+
+														</div>
+													</div>
+													<div class="shedule_inner_block">
+														<div class="title">Продолжительность курса</div>
+														<div class="length">
+															27&nbsp;занятий, 2&nbsp;занятия в&nbsp;неделю, по&nbsp;2,5&nbsp;часа в&nbsp;будний день
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="price_block">
+												<div class="price_block_inner flex">
+													<div class="price flex">
+														<div class="price_full">5000</div>
+														<div class="price_discount">4500</div>
+														<div class="discount_description">*при полной оплате до начала курса</div>
+													</div>
+													<div class="register_container">
+														<button class="register" data-slide="course_contact_form">Записаться</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+-->
+
 									</div>
+
 								</div>
-								<div class="price_block">
-									<div class="price_block_inner flex">
-										<div class="price flex">
-											<div class="price_full">4700</div>
-											<div class="price_discount">4200</div>
-											<div class="discount_description">*при полной оплате до начала курса</div>
-										</div>
-										<div class="register_container">
-											<button class="register" data-slide="course_contact_form">Записаться</button>
-										</div>
-									</div>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -431,28 +510,44 @@
 				<div class="course_start_date_content page_slide_content">
 					<div class="tabs_container">
 						<div class="tabs flex flex-center-h">
-							<div class="tab tab_1 active-tab flex flex-center-v flex-center-h" data-tab-target="#evening_group">
-								<span>вечерняя группа</span>
+							<div class="tab active-tab flex flex-center-v flex-center-h" data-tab-target="#group_1">
+								<span>Группа №1</span>
 							</div>
-							<div class="tab tab_2 flex flex-center-v flex-center-h" data-tab-target="#morning_group">
-								<span>утренняя группа</span>
+							<div class="tab flex flex-center-v flex-center-h" data-tab-target="#group_2">
+								<span>Группа №2</span>
 							</div>
+							<!-- Расскомментировать для табов с онлайн курсами -->
+<!--
+							<div class="tab flex flex-center-v flex-center-h" data-tab-target="#group_3">
+								<span>Онлайн курс</span>
+							</div>
+-->
 						</div>
 						<div class="tab_blocks">
-							<div class="tab_block tab_block_1 active-tab-block fade" id="evening_group">
+							<div class="tab_block active-tab-block fade" id="group_1">
 								<p class="line1">Старт новой группы</p>
-								<p class="line2">Дни занятий: Среда, Суббота</p>
-								<p class="start_date">15.01.2017</p>
-								<p class="notice">в летний период старт по мере комплектации</p>
+								<p class="line2">Дни занятий: </p>
+								<p class="start_date"></p>
+								<p class="notice">старт по мере комплектации</p>
 								<button class="quote" data-slide="course_contact_form">Оставить заявку</button>
 							</div>
-							<div class="tab_block tab_block_2" id="morning_group">
+							<div class="tab_block" id="group_2">
+								<p class="line1">Старт новой группы</p>
+								<p class="line2">Дни занятий: </p>
+								<p class="start_date"></p>
+								<p class="notice">старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Оставить заявку</button>
+							</div>
+							<!-- Расскомментировать для табов с онлайн курсами -->
+<!--
+							<div class="tab_block" id="group_3">
 								<p class="line1">Старт новой группы</p>
 								<p class="line2">Дни занятий: Среда, Суббота</p>
 								<p class="start_date">16.01.2017</p>
-								<p class="notice">в летний период старт по мере комплектации</p>
-								<button class="quote" data-slide="course_contact_form">Оставить заявку</button>
+								<p class="notice">старт по мере комплектации</p>
+								<button class="quote" data-slide="course_contact_form">Записаться</button>
 							</div>
+-->
 						</div>
 					</div>
 				</div>
@@ -466,7 +561,7 @@
 						<svg class="course_teacher_svg_bg"></svg>
 						<div class="teacher_img_outer_container flex flex-center-v flex-center-h">
 							<div class="teacher_img_inner_container">
-								<img src="img/teacher_img.png" alt="" class="teacher_img responsive_img" data-template-target=".temp_teacher_image">
+								<img src="img/teacher_img.png" title="" alt="" class="teacher_img responsive_img" data-template-target=".temp_teacher_image">
 								<div class="name" data-template-target=".temp_teacher_name">Firtsname Secondname</div>
 							</div>
 						</div>
@@ -481,10 +576,10 @@
 							<div class="title">Software Skills</div>
 							<ul class="skill_list" data-template-target=".temp_teacher_skills">
 								<li>
-									<img src="img/icon_ps.png" alt="" class="skill_img responsive_img">
+									<img src="img/icon_ps.png" title="" alt="" class="skill_img responsive_img">
 								</li>
 								<li>
-									<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+									<img src="img/icon_ai.png" title="" alt="" class="skill_img responsive_img">
 								</li>
 							</ul>
 						</div>
@@ -497,16 +592,16 @@
 					</div>
 					<template class="temp_teacher_data">
 						<div class="temp_teacher_name">Firtsname1 Secondname1</div>
-						<img src="img/teacher_img.png" alt="" class="temp_teacher_image" data-thumbnail>
+						<img src="img/teacher_img.png" title="" alt="" class="temp_teacher_image" data-thumbnail>
 						<div class="temp_teacher_about">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</div>
 						<ul class="temp_teacher_skills">
 							<li>
-								<img src="img/icon_ps.png" alt="" class="skill_img responsive_img">
+								<img src="img/icon_ps.png" title="" alt="" class="skill_img responsive_img">
 							</li>
 							<li>
-								<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+								<img src="img/icon_ai.png" title="" alt="" class="skill_img responsive_img">
 							</li>
 						</ul>
 						<div class="temp_teacher_expirience">
@@ -515,16 +610,16 @@
 					</template>
 					<template class="temp_teacher_data">
 						<div class="temp_teacher_name">Firtsname2 Secondname2</div>
-						<img src="img/feedback_image_1.jpg" alt="" class="temp_teacher_image" data-thumbnail>
+						<img src="img/feedback_image_1.jpg" title="" alt="" class="temp_teacher_image" data-thumbnail>
 						<div class="temp_teacher_about">
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 22222222222
 						</div>
 						<ul class="temp_teacher_skills">
 							<li>
-								<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+								<img src="img/icon_ai.png" title="" alt="" class="skill_img responsive_img">
 							</li>
 							<li>
-								<img src="img/icon_ps.png" alt="" class="skill_img responsive_img">
+								<img src="img/icon_ps.png" title="" alt="" class="skill_img responsive_img">
 							</li>
 						</ul>
 						<div class="temp_teacher_expirience">
@@ -533,13 +628,13 @@
 					</template>
 					<template class="temp_teacher_data">
 						<div class="temp_teacher_name">Firtsname3 Secondname3</div>
-						<img src="img/teacher_img.png" alt="" class="temp_teacher_image" data-thumbnail>
+						<img src="img/teacher_img.png" title="" alt="" class="temp_teacher_image" data-thumbnail>
 						<div class="temp_teacher_about">
 							Lorem ipsum dolor sit amet, dsdasdasdas ds dasds  sda Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quod, ipsa explicabo laudantium aspernatur tempore earum velit fugit id, expedita suscipit error quam eveniet nobis veritatis. Nesciunt vel, provident nobis.
 						</div>
 						<ul class="temp_teacher_skills">
 							<li>
-								<img src="img/icon_ai.png" alt="" class="skill_img responsive_img">
+								<img src="img/icon_ai.png" title="" alt="" class="skill_img responsive_img">
 							</li>
 						</ul>
 						<div class="temp_teacher_expirience">
@@ -552,7 +647,7 @@
 		<section class="course_statistic page_slide" id="course_statistic" data-geometry-index="4" data-mesh-color="ffffff">
 			<div class="container page_slide_inner_container course_statistic_inner_container flex flex-center-v">
 				<div class="course_statistic_content page_slide_content">
-					<img src="img/drag.svg" alt="" class="drag_icon responsive_img">
+					<img src="img/drag.svg" title="" alt="" class="drag_icon responsive_img">
 					<h3 class="block_main_title">Немного статистики</h3>
 					<div class="svg_graph_container">
 						<svg class="graph">
@@ -616,7 +711,7 @@
 								<div class="slider_slide slide_1" data-component="slide">
 									<div class="container flex flex-center-v flex-center-h">
 										<div class="img_container">
-											<img src="#" alt="" class="responsive_img">
+											<img src="#" title="" alt="" class="responsive_img">
 										</div>
 										<div class="text_block">
 <!--											<div class="name">Firtsname Secondname</div>-->
@@ -632,147 +727,17 @@
 				</div>
 			</div>
 		</section>
-<!--
-		<section class="course_works page_slide" id="course_works" data-geometry-index="6" data-mesh-color="9fa2a7">
-			<div class="container page_slide_inner_container course_works_inner_container flex flex-center-v">
-				<div class="course_works_content page_slide_content">
-					<h3 class="block_main_title">
-						Работы студентов
-					</h3>
-					<div class="flex works_image_container">
-						<div class="flex works_left_col">
-							<div class="image_block width_2 hidden min-width-1200">
-								<img src="img/img_works_5.jpg" alt="" class="responsive_img">
-								<div class="bottom_block">
-									<div class="name">Name of Student</div>
-								</div>
-							</div>
-							<div class="image_block width_1">
-								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
-								<div class="bottom_block">
-									<div class="name">Name of Student</div>
-								</div>
-							</div>
-							<div class="image_block width_1">
-								<img src="img/img_works_2.jpg" alt="" class="responsive_img">
-								<div class="bottom_block">
-									<div class="name">Name of Student</div>
-								</div>
-							</div>
-							<div class="image_block width_2">
-								<img src="img/img_works_4.jpg" alt="" class="responsive_img">
-								<div class="bottom_block">
-									<div class="name">Name of Student</div>
-								</div>
-							</div>
-						</div>
-						<div class="flex works_right_col">
-							<div class="image_block width_full">
-								<img src="img/img_works_1.jpg" alt="" class="responsive_img width_full">
-								<div class="bottom_block">
-									<div class="name">Name of Student</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
--->
 		@@include('./include/partners_light.html')
-<!--
-		<section class="course_partners page_slide" id="course_partners" data-geometry-index="7" data-mesh-color="9fa2a7">
-			<div class="container page_slide_inner_container course_partners_inner_container flex flex-center-v">
-				<div class="course_partners_content page_slide_content">
-					<h3 class="block_main_title">
-						Наши Партнеры
-					</h3>
-					<div class="partners_container">
-						<div class="first_row flex">
-							<div class="image_container flex-nowrap flex-center-v flex-center-h">
-								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
-							</div>
-							<div class="image_container flex-nowrap flex-center-v flex-center-h">
-								<img src="img/partners/image_globallogic.png" alt="" class="responsive_img">
-							</div>
-							<div class="image_container flex-nowrap flex-center-v flex-center-h">
-								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
-							</div>
-							<div class="image_container flex-nowrap flex-center-v flex-center-h">
-								<img src="img/partners/image_ideabank.png" alt="" class="responsive_img">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
--->
-		@@include('./include/contact_form_section.html')
-<!--
-		<div class="course_map_block page_slide" id="course_map_block" data-geometry-index="9" data-mesh-color="9fa2a7">
-			<div class="page_slide_inner_container course_map_inner_container flex flex-center-v">
-				<section class="course_map_content page_slide_content flex">
-					<div class="map"></div>
-					<div class="dropdown_group">
-						<div class="closed droppownGroupItem">
-							<h4 class="navbar_header">
-								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок</span>
-							</h4>
-							<div class="dropdown_container">
-								<div class="dropdown_bar">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-								</div>
-							</div>
-						</div>
-						<div class="closed droppownGroupItem">
-							<h4 class="navbar_header">
-								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 2</span>
-							</h4>
-							<div class="dropdown_container">
-								<div class="dropdown_bar">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-								</div>
-							</div>
-						</div>
-						<div class="closed droppownGroupItem">
-							<h4 class="navbar_header">
-								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 3</span>
-							</h4>
-							<div class="dropdown_container">
-								<div class="dropdown_bar">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-								</div>
-							</div>
-						</div>
-						<div class="closed droppownGroupItem">
-							<h4 class="navbar_header">
-								<span data-component="dropdown_toggle">Здесь напишем какой-нибудь подзаголовок 4</span>
-							</h4>
-							<div class="dropdown_container">
-								<div class="dropdown_bar">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum esse reiciendis amet quo nobis maxime asperiores quam eligendi doloremque, delectus eum, doloribus placeat sapiente ratione iusto adipisci magnam architecto cum.
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				include('./include/footer.html')
-			</div>
-		</div>
--->
+		@@include('./include/contact_form_section.html',
+		{
+			"breadcrumbs": true,
+			"breadcrumbs_url": "java-advanced",
+			"breadcrumbs_title": "Курс Java (продвуинутый уровень)",
+			"reviewBlock": true,
+			"reviewBlock_avarage": "9.3",
+			"reviewBlock_best": "10",
+			"reviewBlock_votes": "21"
+		})
 	</div>
 </div>
 @@include('./include/bottom.html')

@@ -2,7 +2,8 @@
 
 try {
 	var THREE = require('three');
-//	var THREE = require("three-canvas-renderer");
+	require("./../../node_modules/three/examples/js/utils/GeometryUtils.js")(THREE);
+	require("./../../node_modules/three/examples/js/loaders/OBJLoader.js")(THREE);
 //	window.THREE = THREE;
 
 	var Helper = require('./helper');
@@ -20,9 +21,6 @@ function ThreeMainController(options) {
 		console.warn(this.NAME + ': WebGL is not supported!');
 		new ModalWindow({
 			modalClass: 'error_notification',
-//			modalInnerHTML: '<p>WebGL detection failed!</p>' +
-//			'<p>It seems that your browser doesn\'t support WebGL.</p>' +
-//			'<p>You can check your browser WebGL support <a href="https://get.webgl.org/" target="_blank">here</a>.</p>'
 			modalInnerHTML: '<p>Не удалось обнаружить WebGL!</p>' +
 			'<p>Похоже, что ваш браузер не поддерживает WebGL.</p>' +
 			'<p>Вы можете проверить браузер на поддержку WebGL <a href="https://get.webgl.org/" target="_blank">здесь</a>.</p>'
@@ -62,10 +60,19 @@ ThreeMainController.prototype._webglAvailable = function() {
 };
 
 ThreeMainController.prototype._init = function() {
-	var width = parseInt(window.innerWidth),
-		height = parseInt(window.innerHeight);
+	var width, height;
 
-	this._svgLodaersArr = [];
+	this._parentElem = this._rendererElem.parentElement;
+
+	if (this._parentElem === document.body) {
+		width = parseInt(window.innerWidth),
+		height = parseInt(window.innerHeight);
+	} else {
+		width = parseInt(this._parentElem.clientWidth),
+		height = parseInt(this._parentElem.clientHeight);
+	}
+
+	this._svgLoadersArr = [];
 	this._meshesArr = [];
 	this._customLinesArr = [];
 	this._meshesWithAnimationInProgress = [];
@@ -73,8 +80,9 @@ ThreeMainController.prototype._init = function() {
 	this._geometryPointsArrIndex = 0;
 	this._cameraOffset = 0;
 
-	this._camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 2000);
+	this._camera = new THREE.PerspectiveCamera( 45, width/height, 0.1, 10000 );
 	this._camera.position.z = 400;
+//	window.camera = this._camera;
 	this._scene = new THREE.Scene();
 	this._scene.name = 'scene';
 //	window.scene = this._scene;
@@ -82,42 +90,37 @@ ThreeMainController.prototype._init = function() {
 	this._dotTexture = new THREE.Texture( this._generateDotTexture() );
 	this._dotTexture.needsUpdate = true; // important!
 
-//	this._renderer = this._webglAvailable() ? new THREE.WebGLRenderer({
-//		canvas: this._rendererElem,
-//		alpha: true
-//	}) : new THREE.CanvasRenderer({
-//		canvas: this._rendererElem,
-//		alpha: true
-//	});
 	this._renderer = new THREE.WebGLRenderer({
 		canvas: this._rendererElem,
 		alpha: true
 	});
+//	window.renderer = this._renderer;
 	this._renderer.setClearColor(0xffffff, 0);
-
+	this._renderer.setPixelRatio( window.devicePixelRatio );
 	this._renderer.setSize(width, height);
 };
 
 ThreeMainController.prototype._createSvgLoader = function(urlsToLoadArr, startLoading) {
 	var loader = new SvgLoader({
 		urlsToLoadArr: urlsToLoadArr,
-		startLoading: !!startLoading
+		startLoading: !!startLoading,
+		initiator: this
 	});
 
-	this._svgLodaersArr.push(loader);
+	this._svgLoadersArr.push(loader);
 
 	return loader;
 };
 
 ThreeMainController.prototype._startLoaders = function() {
-	for (var i = 0; i < this._svgLodaersArr.length; i++) {
-		this._svgLodaersArr[i].loadingStart();
+	for (var i = 0; i < this._svgLoadersArr.length; i++) {
+		this._svgLoadersArr[i].loadingStart();
 	}
 };
 
 ThreeMainController.prototype._loadersReady = function() {
-	for (var i = 0; i < this._svgLodaersArr.length; i++) {
-		if (!this._svgLodaersArr[i].loadingComplete) {
+	for (var i = 0; i < this._svgLoadersArr.length; i++) {
+		if (!this._svgLoadersArr[i].loadingComplete) {
 			return false;
 		}
 	}
@@ -125,7 +128,7 @@ ThreeMainController.prototype._loadersReady = function() {
 	return true;
 };
 
-ThreeMainController.prototype._executeOnDesktop = function(callback, test) {
+ThreeMainController.prototype._executeOnDesktop = function(callback) {
 	var widthMode = this._checkScreenWidth();
 	if (this._widthActiveModesArr.indexOf(widthMode) !== -1) {
 		callback();
@@ -248,11 +251,17 @@ ThreeMainController.prototype._startOnLoad = function(){
 };
 
 ThreeMainController.prototype._updateMeshes = function() {
-//	if (this._checkScreenWidth() === 'xs' || this._checkScreenWidth() === 'sm' || this._checkScreenWidth() === 'md') return;
 	if (this._widthCancelModesArr.indexOf(this._checkScreenWidth()) !== -1) return;
 
-	var width = parseInt(window.innerWidth),
+	var width, height;
+
+	if (this._parentElem === document.body) {
+		width = parseInt(window.innerWidth),
 		height = parseInt(window.innerHeight);
+	} else {
+		width = parseInt(this._parentElem.clientWidth),
+		height = parseInt(this._parentElem.clientHeight);
+	}
 
 	this._renderer.setSize(width, height);
 
@@ -293,7 +302,7 @@ ThreeMainController.prototype._onCustomMeshVerticesUpdateStarted = function(e) {
 	var customLineMesh = e.detail.self;
 
 	if (this._customLinesArr.indexOf(customLineMesh) === -1) {
-		console.warn(this.NAME + ': Custom Mesh is not found in Custom Lines Array!');
+//		console.warn(this.NAME + ': Custom Mesh is not found in Custom Lines Array!');
 
 	} else {
 		if (this._meshesWithAnimationInProgress.indexOf(customLineMesh) !== -1) {
@@ -311,11 +320,11 @@ ThreeMainController.prototype._onCustomMeshVerticesUpdateComplete = function(e) 
 	var customLineMesh = e.detail.self;
 
 	if (this._customLinesArr.indexOf(customLineMesh) === -1) {
-		console.warn(this.NAME + ': Custom Mesh is not found in Custom Lines Array!');
+//		console.warn(this.NAME + ': Custom Mesh is not found in Custom Lines Array!');
 
 	} else {
 		if (this._meshesWithAnimationInProgress.indexOf(customLineMesh) === -1) {
-			console.warn(this.NAME + ': Custom Mesh is not found in Animation in Progress Array!');
+//			console.warn(this.NAME + ': Custom Mesh is not found in Animation in Progress Array!');
 
 		} else {
 			var index = this._meshesWithAnimationInProgress.indexOf(customLineMesh);
@@ -330,6 +339,8 @@ ThreeMainController.prototype._onCustomMeshVerticesUpdateComplete = function(e) 
 ThreeMainController.prototype._idleAnimation = function() {
 	if (this._meshesWithAnimationInProgress.length === 0) {
 
+		var coordsCExist = this._customLinesCoordsArr_C && this._customLinesCoordsArr_C[this._geometryPointsArrIndex] ? true : false;
+
 		for (var i = 0; i < this._customLinesArr.length; i++) {
 			this._customLinesArr[i].setAnimationDuration(this._idleAnimationDuration);
 
@@ -337,6 +348,14 @@ ThreeMainController.prototype._idleAnimation = function() {
 				this._customLinesArr[i].setVerteciesPositions(this._customLinesCoordsArr_B[this._geometryPointsArrIndex][i]);
 
 			} else if (this._customLinesArr[i].getVerteciesPositions() === this._customLinesCoordsArr_B[this._geometryPointsArrIndex][i]) {
+				if (coordsCExist) {
+					this._customLinesArr[i].setVerteciesPositions(this._customLinesCoordsArr_C[this._geometryPointsArrIndex][i]);
+				} else {
+					this._customLinesArr[i].setVerteciesPositions(this._customLinesCoordsArr_A[this._geometryPointsArrIndex][i]);
+				}
+
+			} else if (coordsCExist
+					   && this._customLinesArr[i].getVerteciesPositions() === this._customLinesCoordsArr_C[this._geometryPointsArrIndex][i]) {
 				this._customLinesArr[i].setVerteciesPositions(this._customLinesCoordsArr_A[this._geometryPointsArrIndex][i]);
 
 			} else {
@@ -350,7 +369,6 @@ ThreeMainController.prototype._idleAnimation = function() {
 ThreeMainController.prototype._cancelOnMobile = function() {
 	var widthMode = this._checkScreenWidth();
 
-//	if (widthMode === 'xs' || widthMode === 'sm' || widthMode === 'md') {
 	if (this._widthCancelModesArr.indexOf(widthMode) !== -1) {
 		if (this._renderRAFId) {
 			cancelAnimationFrame(this._renderRAFId);

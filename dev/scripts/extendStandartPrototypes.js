@@ -1,24 +1,30 @@
 "use strict";
 
+/**
+ * _extendStandartPrototypes helper
+ */
+
 var _extendStandartPrototypes = {
+	// Runs all prototype extension functions
 	init: function() {
-		// console.log('running runAll');
 		for (var key in this) {
-			// console.log(key);
+			// if function name starts with 'expandFor' then run it
 			if (/\bexpandFor/.test(key)) {
 				this[key]();
 			}
 		}
 	},
 
+	// String prototype extension
+	// Function capitalize: makes all words lowercased with first letter uppercased
 	expandForStringCapitalize: function() {
-		// console.log('running polyfillForMatches');
 		String.prototype.capitalize = function(lower) {
 			return (lower ? this.toLowerCase() : this).replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 		};
 	},
 };
 
+// Try exporting via webpack
 try {
 	module.exports = _extendStandartPrototypes;
 } catch (err) {

@@ -1,7 +1,11 @@
 "use strict";
 
-var Helper = require('./helper');
-var Animation = require('./animation');
+try {
+	var Helper = require('./helper');
+	var Animation = require('./animation');
+} catch (e) {
+	console.log(e);
+}
 
 function TeacherBlockController(options) {
 	options.name = options.name || 'TeacherBlockController';
@@ -39,9 +43,6 @@ TeacherBlockController.prototype._init = function() {
 	if (!this._svgElem) return;
 
 	this._handleTemplates();
-	this._getThumbnails();
-
-	this._setInitState();
 
 	this._addListener(this._elem, 'click', this._onClick);
 	this._addListener(window, 'resize', this._onResize);
@@ -67,9 +68,71 @@ TeacherBlockController.prototype._handleTemplates = function() {
 	this._setActiveTemplate(this._templates[0]);
 };
 
-TeacherBlockController.prototype._setActiveTemplate = function(template) {
-	this._insertTemplData(template);
-	this._createThumbnails(template);
+TeacherBlockController.prototype._setActiveTemplate = function(template, animated) {
+	if (!animated) {
+		this._insertTemplData(template);
+		this._createThumbnails(template);
+		this._getThumbnails();
+		this._setInitState();
+		this._animateThumbnails();
+
+	} else if (!this._switchAnimation) {
+		var duration = 500;
+		this._switchAnimation = new Animation(
+			function(timePassed) {
+				var timeMultiplier = Animation.linear(duration, timePassed),
+					animationProgress = 1 - 1 * timeMultiplier;
+
+				this._circleBlock.elem.style.opacity = animationProgress;
+				this._firstBlock.elem.style.opacity = animationProgress;
+				this._secondBlock.elem.style.opacity = animationProgress;
+				this._thirdBlock.elem.style.opacity = animationProgress;
+				this._svgElem.style.opacity = animationProgress;
+				for (var i = 0; i < this._thumbnailsArr.length; i++) {
+					this._thumbnailsArr[i].style.opacity = animationProgress;
+				}
+			}.bind(this),
+			duration,
+			function() {
+				delete this._switchAnimation;
+
+				if (this._currentThumbAnimation) {
+					this._currentThumbAnimation.stop();
+					delete this._currentThumbAnimation;
+				}
+
+				this._insertTemplData(template);
+				this._createThumbnails(template);
+				this._getThumbnails();
+				for (var i = 0; i < this._thumbnailsArr.length; i++) {
+					this._thumbnailsArr[i].style.opacity = 0;
+				}
+				this._setInitState();
+
+				this._switchAnimation = new Animation(
+					function(timePassed) {
+						var timeMultiplier = Animation.linear(duration, timePassed),
+							animationProgress = 1 * timeMultiplier;
+
+						this._circleBlock.elem.style.opacity = animationProgress;
+						this._firstBlock.elem.style.opacity = animationProgress;
+						this._secondBlock.elem.style.opacity = animationProgress;
+						this._thirdBlock.elem.style.opacity = animationProgress;
+						this._svgElem.style.opacity = animationProgress;
+						for (var i = 0; i < this._thumbnailsArr.length; i++) {
+							this._thumbnailsArr[i].style.opacity = animationProgress;
+						}
+					}.bind(this),
+					duration,
+					function() {
+						delete this._switchAnimation;
+						this._animateThumbnails();
+					}.bind(this)
+				);
+			}.bind(this)
+		);
+
+	}
 };
 
 TeacherBlockController.prototype._insertTemplData = function(templateElem) {
@@ -148,10 +211,7 @@ TeacherBlockController.prototype._onThumbnailClick = function(target) {
 
 	if (!targetTemplate) return;
 
-	this._setActiveTemplate(targetTemplate);
-	this._getThumbnails();
-
-	this._setInitState();
+	this._setActiveTemplate(targetTemplate, true);
 }
 
 TeacherBlockController.prototype._checkMode = function() {
@@ -181,8 +241,6 @@ TeacherBlockController.prototype._setSvgElemHeight = function() {
 		height = this._circleBlock.elem.offsetWidth + this._firstBlock.elem.offsetHeight + 30;
 
 	} else if (this._mode === 'xs-screen' && this._checkScreenWidth(350)) {
-//		height = this._circleBlock.elem.offsetWidth + this._firstBlock.elem.offsetHeight + 30 + 10 +
-//			(this._secondBlock.elem.offsetHeight > this._thirdBlock.elem.offsetHeight ? this._secondBlock.elem.offsetHeight : this._thirdBlock.elem.offsetHeight);
 		height = this._circleBlock.elem.offsetWidth;
 
 	} else if (this._checkScreenWidth(0, 349)) {
@@ -213,12 +271,6 @@ TeacherBlockController.prototype._draw = function() {
 	svgHtml += this._createLinkLines();
 
 	var pointCoords;
-//	for (var i = 0; i <= 360; i += 10) {
-//		pointCoords = this._calculatePointOnCircleCoordinates(this._circleBlock.left + this._circleBlock.radius, this._circleBlock.top + this._circleBlock.radius, this._circleBlock.radius, i);
-//		svgHtml += '<circle class="test_circle" stroke="red" fill="transparent" data-angle="' + i + '"' +
-//		' cx="' + pointCoords.x + '" cy="' + pointCoords.y + '" r="' + 5 + '"' +
-//		'></circle>';
-//	}
 
 	this._svgElem.innerHTML = svgHtml;
 };
@@ -246,9 +298,6 @@ TeacherBlockController.prototype._createLinkLines = function() {
 	var html = '';
 
 	if (this._mode === 'xs-screen' && this._checkScreenWidth(350)) {
-//		html += this._createLinkLine(this._firstBlock, 'top-right', 320);
-//		html += this._createLinkLine(this._secondBlock, 'bottom-right', 190);
-//		html += this._createLinkLine(this._thirdBlock, 'bottom-left', 170);
 
 	} else if (this._mode === 'sm-screen' || this._mode === 'md-screen') {
 		html += this._createLinkLine(this._firstBlock, 'top-right', 320);
@@ -317,7 +366,6 @@ TeacherBlockController.prototype._calculateStylesForCircleElem = function() {
 		this._circleBlock.top = 0;
 
 	} else if (this._mode === 'xs-screen') {
-//		this._circleBlock.top = this._secondBlock.elem.offsetHeight > this._thirdBlock.elem.offsetHeight ? this._secondBlock.elem.offsetHeight : this._thirdBlock.elem.offsetHeight + 10;
 		this._circleBlock.top = 0;
 
 	} else if (this._mode === 'sm-screen') {
@@ -398,7 +446,6 @@ TeacherBlockController.prototype._calculateStylesForThirdBlockElem = function() 
 
 	} else if (this._mode === 'xs-screen') {
 		this._thirdBlock.top = 0;
-//		this._thirdBlock.left = this._elem.offsetWidth - this._thirdBlock.elem.offsetWidth;
 		this._thirdBlock.left = 0;
 
 	} else if (this._mode === 'sm-screen' || this._mode === 'md-screen') {
@@ -480,22 +527,20 @@ TeacherBlockController.prototype._setStylesForThumbnails = function() {
 		this._thumbnailsArr[i].style.top = imgCenterCoords.y - 30 + 'px';
 		this._thumbnailsArr[i].style.left = imgCenterCoords.x - 30 + 'px';
 	}
-
-	this._animatingThumbnails();
 };
 
-TeacherBlockController.prototype._animatingThumbnails = function() {
-	if (this._currentAnimation) {
-		this._currentAnimation.stop();
-		delete this._currentAnimation;
+TeacherBlockController.prototype._animateThumbnails = function() {
+	if (this._currentThumbAnimation) {
+		this._currentThumbAnimation.stop();
+		delete this._currentThumbAnimation;
 	}
 	var self = this;
 	var startAngle = this._thumbnailStartAngle;
 	var endAngle = this._thumbnailEndAngle;
 
-	function animatingThumbnails() {
-		self._currentAnimation = new Animation(
-			function(timePassed){
+	function animateThumbnails() {
+		self._currentThumbAnimation = new Animation(
+			function(timePassed) {
 				var timeMultiplier = Animation.quadEaseInOut(self._thumbnailAnimationDuration, timePassed);
 				var curAngle = startAngle + ((endAngle - startAngle) * (timeMultiplier));
 				var imgCenetrCoords = [];
@@ -511,7 +556,7 @@ TeacherBlockController.prototype._animatingThumbnails = function() {
 			},
 			self._thumbnailAnimationDuration,
 			function() {
-				delete self._currentAnimation;
+				delete self._currentThumbAnimation;
 
 				var temp = startAngle;
 				startAngle = endAngle;
@@ -523,9 +568,8 @@ TeacherBlockController.prototype._animatingThumbnails = function() {
 
 				self._animationTimer = setTimeout(function() {
 					delete self._animationTimer;
-					animatingThumbnails();
+					animateThumbnails();
 				}, self._thumbnailAnimationDelay);
-//				animatingThumbnails();
 			}
 		);
 	}
@@ -536,9 +580,8 @@ TeacherBlockController.prototype._animatingThumbnails = function() {
 
 	this._animationTimer = setTimeout(function() {
 		delete self._animationTimer;
-		animatingThumbnails();
+		animateThumbnails();
 	}, this._thumbnailAnimationDelay);
-//	animatingThumbnails();
 };
 
 TeacherBlockController.prototype._onClick = function(e) {
@@ -551,6 +594,11 @@ TeacherBlockController.prototype._onResize = function() {
 	if (!this._svgElem) return;
 
 	this._setInitState();
+	this._animateThumbnails();
 };
 
-module.exports = TeacherBlockController;
+try {
+	module.exports = TeacherBlockController;
+} catch (e) {
+	console.log(e);
+}

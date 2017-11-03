@@ -102,6 +102,42 @@
 	display: block;
 }
 
+.course_info .tabs {
+	margin-bottom: 15px;
+}
+
+.course_info .tab {
+	height: 50px;
+	width: 200px;
+	text-transform: uppercase;
+	color: #000;
+	font-family: 'Open Sans',sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+.course_info .tab.active-tab {
+	border: 1px solid #000;
+}
+
+.course_info .tab_blocks {
+
+}
+
+.course_info .tab_block {
+	opacity: 0;
+	transition: opacity linear .15s;
+	position: relative;
+}
+.course_info .tab_block:not(.active-tab-block) {
+	display: none;
+}
+.course_info .tab_block.fade {
+	opacity: 1;
+}
+
 .course_info .shedule_block_1,
 .course_info .shedule_block_2,
 .course_info .price_block {

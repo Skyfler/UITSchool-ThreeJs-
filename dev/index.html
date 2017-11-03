@@ -17,24 +17,13 @@
 	)
 </div>
 @@include('./include/modal_contacts_tabs.html')
+@@include('./include/modal_before_leave.html')
 <section class="main">
 	<div class="container flex main_inner" id="index_menu">
 		<div class="left_col">
 			<div id="carousel_menu_left">
 				<div class="carousel_list_overflow_container">
 					<div class="carousel_list_container">
-<!--
-						<ul class="index_menu carousel_list_item_container">
-							<li class="carousel_list_item" data-icon="qa"><a href="quality-assurance.html" class="flex"><span class="scale_elem">КУРС ТЕСТИРОВАНИЯ ПО (QA)</span></a></li>
-							<li class="carousel_list_item" data-icon="htmlCss"><a href="frontend.html" class="flex"><span class="scale_elem">КУРС ВЕРСТКИ (HTML+CSS)</span></a></li>
-							<li class="carousel_list_item" data-icon="javascript"><a href="js.html" class="flex"><span class="scale_elem">КУРС JAVASCRIPT</span></a></li>
-							<li class="carousel_list_item" data-icon="java"><a href="java.html" class="flex"><span class="scale_elem">КУРС JAVA</span></a></li>
-							<li class="carousel_list_item" data-icon="php"><a href="php-course.html" class="flex"><span class="scale_elem">КУРС PHP</span></a></li>
-							<li class="carousel_list_item" data-icon="quAutomation"><a href="qa-automation.html" class="flex"><span class="scale_elem">КУРС АВТОМАТИЗАЦИИ ТЕСТИРОВАНИЯ ПО (AQA)</span></a></li>
-							<li class="carousel_list_item" data-icon="webDesign"><a href="design.html" class="flex"><span class="scale_elem">КУРС ВЕБ-ДИЗАЙН</span></a></li>
-							<li class="carousel_list_item" data-icon="hr"><a href="HR.html" class="flex"><span class="scale_elem">КУРС HR (МЕНЕДЖЕР ПО ПЕРСОНАЛУ)</span></a></li>
-						</ul>
--->
 						<ul class="index_menu carousel_list_item_container">
 							<li class="carousel_list_item" data-icon="qa"><a href="quality-assurance" class="flex"><span class="scale_elem">Тестирование(QA)</span></a></li>
 							<li class="carousel_list_item" data-icon="htmlCss"><a href="frontend" class="flex"><span class="scale_elem">Верстка (HTML+CSS)</span></a></li>
@@ -53,17 +42,6 @@
 			<div id="carousel_menu_right">
 				<div class="carousel_list_overflow_container">
 					<div class="carousel_list_container">
-<!--
-						<ul class="index_menu carousel_list_item_container">
-							<li class="carousel_list_item" data-icon="itProjectManagement"><a href="pm.html" class="flex"><span class="scale_elem">КУРСЫ PM (МЕНЕДЖЕР ПРОЕКТОВ)</span></a></li>
-							<li class="carousel_list_item" data-icon="android"><a href="android.html" class="flex"><span class="scale_elem">КУРС JAVA ANDROID</span></a></li>
-							<li class="carousel_list_item" data-icon="sales"><a href="sales.html" class="flex"><span class="scale_elem">КУРС IT SALES (ПРОДАЖИ В IT)</span></a></li>
-							<li class="carousel_list_item" data-icon="smm"><a href="smm.html" class="flex"><span class="scale_elem">КУРС SMM (ПРОДВИЖЕНИЕ В СОЦИАЛЬНЫХ СЕТЯХ)</span></a></li>
-							<li class="carousel_list_item" data-icon="seo"><a href="SEO.html" class="flex"><span class="scale_elem">КУРС SEO ОПТИМИЗАЦИИ (ПРОДВИЖЕНИЕ САЙТА)</span></a></li>
-							<li class="carousel_list_item" data-icon="advertising"><a href="contextual_advertising.html" class="flex"><span class="scale_elem">КУРС КОНТЕКСТНОЙ РЕКЛАМЫ</span></a></li>
-							<li class="carousel_list_item" data-icon="english"><a href="english-for-it.html" class="flex"><span class="scale_elem">КУРС АНГЛИЙСКОГО ДЛЯ IT</span></a></li>
-						</ul>
--->
 						<ul class="index_menu carousel_list_item_container">
 							<li class="carousel_list_item" data-icon="itProjectManagement"><a href="pm" class="flex"><span class="scale_elem">Project Management</span></a></li>
 							<li class="carousel_list_item" data-icon="android"><a href="android" class="flex"><span class="scale_elem">Android development</span></a></li>
@@ -72,6 +50,7 @@
 							<li class="carousel_list_item" data-icon="seo"><a href="SEO" class="flex"><span class="scale_elem">SEO оптимизация</span></a></li>
 							<li class="carousel_list_item" data-icon="advertising"><a href="contextual_advertising" class="flex"><span class="scale_elem">Контекстная реклама</span></a></li>
 							<li class="carousel_list_item" data-icon="english"><a href="english-for-it" class="flex"><span class="scale_elem">English for IT</span></a></li>
+							<li class="carousel_list_item" data-icon="copyright"><a href="copyright" class="flex"><span class="scale_elem">Копирайтинг</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -79,5 +58,7 @@
 		</div>
 	</div>
 </section>
-@@include('./include/footer.html', { "leftPanel": true, "rightPanel": true })
+<footer>
+	@@include('./include/footer.html', { "leftPanel": true, "rightPanel": true, "fixedPanel": false })
+</footer>
 @@include('./include/bottom.html')

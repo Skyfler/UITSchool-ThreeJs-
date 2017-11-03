@@ -2,7 +2,6 @@
 
 try {
 	var THREE = require('three');
-//	var THREE = require("three-canvas-renderer");
 
 	var ThreeMainController = require('./threeMainController');
 	var CustomLineMesh = require('./threeMainController-customLineMesh');
@@ -16,6 +15,10 @@ function InnerPageBG(options) {
 	this._switchAnimationDuration = options.switchAnimationDuration;
 	this._initalGeometryIndex = options.initalGeometryIndex || 0;
 	this._initalMeshColor = options.initalMeshColor || 'ffffff';
+	this._scaleMultiplier = {
+		x: 1.1,
+		y: 1.1
+	}
 
 	this._onPageSlideChanged = this._onPageSlideChanged.bind(this);
 
@@ -32,7 +35,9 @@ InnerPageBG.prototype._init = function() {
 
 	var self = this;
 	this._addListener(document, 'svgLoaderLoadingComplete', function waitTillLoadingComplete(e) {
-		self._executeOnDesktop(self._startOnLoad);
+		if (e.detail.initiator === self) {
+			self._executeOnDesktop(self._startOnLoad);
+		}
 	});
 	this._addListener(document, 'pageSlideChanged', this._onPageSlideChanged);
 	this._addListener(document, 'mousemove', function(e){
@@ -58,34 +63,24 @@ InnerPageBG.prototype._updateMeshes = function() {
 	var vec = new THREE.Vector3();
 
 	for (var i = 0; i < this._customLinesArr.length; i++) {
-//		vec.setFromMatrixPosition( this._customLinesArr[i].getParticles().matrix );
-
 		this._customLinesArr[i]._geometry.computeBoundingBox();
-
-//		this._customLinesArr[i].getParticles().translateX(-vec.x);
-//		this._customLinesArr[i].getParticles().translateY(-vec.y);
-//		this._customLinesArr[i].getParticles().translateZ(-vec.z);
 
 		multheight = this._visibleHeightWithOffsetAtZDepth(this._customLinesArr[i]._geometry.boundingBox.min.z, this._camera, 68);
 		multwidth = this._visibleWidthWithOffsetAtZDepth(this._customLinesArr[i]._geometry.boundingBox.min.z, this._camera, 0);
 
-		this._customLinesArr[i].getParticles().scale.x = multheight * 1.1;
-		this._customLinesArr[i].getParticles().scale.y = multheight * 1.1;
+		this._customLinesArr[i].getParticles().scale.x = multwidth * this._scaleMultiplier.x;
+		this._customLinesArr[i].getParticles().scale.y = multheight * this._scaleMultiplier.y;
 	}
-
-//	for (var i = 0; i < this._meshesArr.length; i++) {
-//		this._meshesArr[i].updateMesh({vertices: true});
-//	}
 };
 
 InnerPageBG.prototype._startOnLoad = function(){
 	if (this._loadersReady()) {
 
-		var pointCoordsArr_A = this._svgLodaersArr[0].getResultCoords();
-		var pointCoordsArr_B = this._svgLodaersArr[1].getResultCoords();
+		var pointCoordsArr_A = this._svgLoadersArr[0].getResultCoords();
+		var pointCoordsArr_B = this._svgLoadersArr[1].getResultCoords();
 
-		var pointCoordsArr_svgSizes_A = this._svgLodaersArr[0].getResultSizes();
-		var pointCoordsArr_svgSizes_B = this._svgLodaersArr[1].getResultSizes();
+		var pointCoordsArr_svgSizes_A = this._svgLoadersArr[0].getResultSizes();
+		var pointCoordsArr_svgSizes_B = this._svgLoadersArr[1].getResultSizes();
 
 		this._customLinesCoordsArr_A = this._translateToRelativeCoords(
 			pointCoordsArr_A,
@@ -103,7 +98,7 @@ InnerPageBG.prototype._startOnLoad = function(){
 			this._customLinesArr.push( new CustomLineMesh({
 				verticesPositions: this._customLinesCoordsArr_A[this._geometryPointsArrIndex][i],
 				material: new THREE.PointsMaterial({
-					size: (i % 10 < 5) ? 10 - (i % 5 / 1.2) : 10 - ((5 - (i % 5) - 1) / 1.2),
+					size: (i % 10 < 5) ? 7 - (i % 5) : (i % 5) + 2,
 					map: this._dotTexture,
 					blending: THREE.AdditiveBlending,
 					depthTest: false,
@@ -117,8 +112,8 @@ InnerPageBG.prototype._startOnLoad = function(){
 			multheight = this._visibleHeightWithOffsetAtZDepth(z, this._camera, 68);
 			multwidth = this._visibleWidthWithOffsetAtZDepth(z, this._camera, 0);
 
-			this._customLinesArr[i].getParticles().scale.x = multheight * 1.1;
-			this._customLinesArr[i].getParticles().scale.y = multheight * 1.1;
+			this._customLinesArr[i].getParticles().scale.x = multwidth * this._scaleMultiplier.x;
+			this._customLinesArr[i].getParticles().scale.y = multheight * this._scaleMultiplier.y;
 			this._customLinesArr[i].getParticles().translateY(-34);
 		}
 

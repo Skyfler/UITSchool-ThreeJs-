@@ -1,0 +1,13 @@
+.page-online_courses .course_contact_form,
+.page-online_courses .course_contact_form.page_slide.slide_init {
+	padding-right: 0;
+}
+
+
+@media screen and (min-width: 1200px) {
+
+	.page-online_courses .course_contact_form .contact_form {
+		padding-bottom: 75px;
+	}
+
+}

@@ -1,8 +1,8 @@
 @@include('./include/top1.html', { "pageClassesStr": "page-contacts" })
 <title>Контакты</title>
 <meta name="author" content="Ukrainian IT School">
+<meta name="description" content="Наши контакты ☏ (093)968-10-66, (067)123-777-6 ✭Ukrainian IT School✭ ✔Максимум практики ✔Опытные преподаватели ✔Интересные программы ✔Доступные цены">
 @@include('./include/top2.html', { "gmap": true })
-<!--<div id="test" style="position:fixed; background: white; border: 1px solid black; padding: 10px; top: 0; right: 0; z-index: 10000; color: black; font-size: 16px; max-width: 75%; word-break: break-all; overflow-y: auto; max-height: 100%; white-space: pre-wrap;"></div>-->
 <canvas class="bg_canvas"></canvas>
 <div class="main_menu_block container">
 	@@include(
@@ -15,6 +15,7 @@
 	)
 </div>
 @@include('./include/modal_contacts_tabs.html')
+@@include('./include/modal_before_leave.html')
 <section class="main" data-geometry-index="0" data-mesh-color="ffffff">
 	<div class="container flex main_inner flex-center-v">
 		<div class="col">
@@ -53,5 +54,7 @@
 		</div>
 	</div>
 </section>
-@@include('./include/footer.html', { "leftPanel": false, "rightPanel": true })
+<footer>
+	@@include('./include/footer.html', { "leftPanel": false, "rightPanel": true, "fixedPanel": true })
+</footer>
 @@include('./include/bottom.html')

@@ -1,0 +1,25 @@
+@media screen and (min-width: 1200px) {
+
+	.page-course.page-copyright .course_description .block_main_title {
+		font-size: 35px;
+		margin-bottom: 10px;
+	}
+
+	.page-course.page-copyright .course_description .text_block p + p,
+	.page-course.page-copyright .course_description .text_block ul + p {
+		margin-top: 6px;
+	}
+
+	.page-course.page-copyright .course_description .text_block p.title {
+		font-size: 16px;
+	}
+
+	.page-course.page-copyright .course_description .text_block ul li+li {
+		margin-top: 0;
+	}
+
+	.page-course.page-copyright .course_description .details_btn {
+		margin-top: 25px;
+	}
+
+}

@@ -1,0 +1,35 @@
+<div class="modal_before_leave" data-no-page-scroll-area="true">
+	<div class="overflow">
+		<div class="close_container flex flex-center-v">
+			<button class="close" data-action="close_modal"></button>
+		</div>
+		<div class="canvas_container">
+			<canvas id="modal_animation"></canvas>
+		</div>
+		<form action="php/send.php" class="contact_form clr content_inner flex" id="modal_bewfore_leave_callback_form">
+			<input type="hidden" value="info@uitschool.com" name="admin-email" id="admin-email" data-component="form-input">
+			<input type="hidden" value="Ukrainian IT_School" name="admin-name" id="admin-name" data-component="form-input">
+			<div class="waiting_block"></div>
+			<div class="block_main_title">
+				<div class="animated_item">не уходите :)</div>
+				<div class="animated_item">мы Вам поможем!</div>
+			</div>
+			<div class="subtitle">Оставьте данные и я отвечу на Ваш вопрос!</div>
+			<div class="input_group input_tel custom_placeholder">
+				<div class="placeholder_elem">Номер телефона *</div>
+				<input type="text" placeholder="" class="required placeholder_target" name="Tel" data-component="form-input">
+			</div>
+			<div class="input_group input_name custom_placeholder">
+				<div class="placeholder_elem">Имя *</div>
+				<input type="text" placeholder="" class="required placeholder_target" name="Name" data-component="form-input">
+			</div>
+			<div class="input_group info_text">
+				<div>Мы отправим ваш номер нашему менеджеру.</div>
+				<div>Конфиденциально. Без спама.</div>
+			</div>
+			<div class="input_group input_submit">
+				<button type="submit" class="submit">Жду звонка!</button>
+			</div>
+		</form>
+	</div>
+</div>

@@ -12,8 +12,8 @@
 			</div>
 		</div>
 		<div class="main_menu_container_inner clr">
-			<nav class="dropdown_container flex flex-center-v">
-				<ul class="menu_bar flex">
+			<nav class="dropdown_container flex">
+				<ol class="menu_bar flex">
 <!--
 					<li>
 						<a href="/" data-target="main"><span>главная</span></a>
@@ -44,20 +44,20 @@
 						@@foreach (mainMenuItems) {
 							@@if (@@add_data_slide) {
 								<li>
-									<a href="@@href" data-slide="@@slide" @@customAttrStr><span>@@index</span></a>
+									<a href="@@href" class="flex-nowrap" data-slide="@@slide" @@customAttrStr data-component="dropdown_toggle"><span>@@index</span></a>
 								</li>
 							}
 							@@if (!@@add_data_slide) {
 								<li>
-									<a href="@@href" @@customAttrStr><span>@@index</span></a>
+									<a href="@@href" class="flex-nowrap" @@customAttrStr><span>@@index</span></a>
 								</li>
 							}
 						}
 					}
-				</ul>
+				</ol>
 				<div class="main_menu_bottom">
 <!--					<button class="choose_city">Выбрать город</button>-->
-					<p class="choose_city">Сайт в разработке.</p>
+<!--					<p class="choose_city">Сайт в разработке.</p>-->
 				</div>
 				@@if (sideMenu) {
 					<div class="side_menu flex flex-center-v">

@@ -8,6 +8,7 @@
 	z-index: 1000;
 }
 
+/*
 .preloader .wavy-loader span {
 	position: relative;
 	border-radius: 50%;
@@ -53,4 +54,28 @@
 	11%   { top: -12px; opacity: 1; }
 	12%   { top: 0; opacity: .5; }
 	100%  { top: 0; opacity: .5; }
+}
+*/
+
+.preloader img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto auto;
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+	height: auto;
+	animation-name: pulsing-loader;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes pulsing-loader {
+	0%    { opacity: 1 }
+	100%  { opacity: 0.2; }
 }

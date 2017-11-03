@@ -92,10 +92,8 @@
 
 .page-index .main .index_menu li a {
 	font-family: 'Raleway', sans-serif;
-	font-weight: 600;
+/*	font-weight: 600;*/
 	color: #fff;
-	font-size: 24px;
-	line-height: 24px;
 	align-items: center;
 	position: relative;
 	text-transform: uppercase;
@@ -103,6 +101,10 @@
 		color ease 0.5s;
 	padding: 0 10px;
 	height: 100%;
+	font-weight: 200;
+	font-size: 22px;
+	line-height: 24px;
+	letter-spacing: 2px;
 }
 .page-index .main .right_col .index_menu li a {
 	justify-content: flex-start;

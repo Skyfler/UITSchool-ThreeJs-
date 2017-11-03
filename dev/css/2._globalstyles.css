@@ -23,7 +23,7 @@ html, body {
 /*	overflow: hidden;*/
 }
 
-ul {
+ul, ol {
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -59,3 +59,11 @@ h1, h2, h3, h4, h5, h6, p {
 *::-webkit-scrollbar-thumb        { /* 5 */ }
 *::-webkit-scrollbar-corner       { /* 6 */ }
 *::-webkit-resizer                { /* 7 */ }
+
+@media screen and (max-width: 991px) {
+
+	body {
+		padding-bottom: 50px;
+	}
+
+}

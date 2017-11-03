@@ -3,6 +3,7 @@
 	position: fixed;
 	bottom: 60px;
 	left: 20px;
+	display: none;
 }
 
 .inner_page_contact_button_container .inner_page_contact_button {
@@ -84,4 +85,12 @@
 .inner_page_contact_button_container .inner_page_contact_button:hover svg.svg_btn_border .svg_border_circle,
 .inner_page_contact_button_container .inner_page_contact_button.active svg.svg_btn_border .svg_border_circle {
 	transform: scale(1.4);
+}
+
+@media screen and (min-width: 992px) {
+
+	.inner_page_contact_button_container {
+		display: block;
+	}
+
 }

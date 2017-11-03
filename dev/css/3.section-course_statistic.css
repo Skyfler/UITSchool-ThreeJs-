@@ -63,14 +63,6 @@
 	min-width: 650px;
 }
 
-@media screen and (min-width: 1200px) {
-
-	.course_statistic .graph {
-		min-height: auto;
-	}
-
-}
-
 .course_statistic path.senior {
 	fill: #151515;
 }
@@ -140,6 +132,11 @@
 	fill: url(#linear-gradient);
 }
 
+.course_statistic .vertical_label_line {
+	stroke-width: 2px;
+	stroke: rgba(255, 255, 255, 0.17);
+}
+
 .course_statistic .drag_icon {
 	height: 30px;
 	position: absolute;
@@ -183,9 +180,18 @@
 
 }
 
-.course_statistic .vertical_label_line {
-	stroke-width: 2px;
-	stroke: rgba(255, 255, 255, 0.17);
+@media screen and (min-width: 992px) {
+
+	.course_statistic .svg_graph_container {
+		padding-left: 30px;
+	}
+
 }
 
+@media screen and (min-width: 1200px) {
 
+	.course_statistic .graph {
+		min-height: auto;
+	}
+
+}

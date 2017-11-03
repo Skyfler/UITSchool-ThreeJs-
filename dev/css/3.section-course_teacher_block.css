@@ -231,19 +231,12 @@
 @media screen and (min-width: 992px) {
 
 	.course_teacher_block .main_title {
-/*
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		text-align: center;
-*/
-/*		padding: 15vh 0 30px;*/
 		padding: 5vh 0 15px;
 	}
 
 	.course_teacher_block .course_teacher_block_content {
 		height: 100%;
+		padding-left: 40px !important;
 	}
 
 	.course_teacher_block .teacher_about  {

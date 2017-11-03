@@ -1,15 +1,15 @@
 "use strict";
 
 /**
- Smoothly scroll element to the given target (element.scrollTop)
- for the given duration
-
- Returns a promise that's fulfilled when done, or rejected if
- interrupted
+ * _smoothScroll helper
  */
 
 var _smoothScroll = {
-
+	// Scrolls element y position to target position
+	// Arguments:
+	// 	1. element (required) - element to scroll
+	// 	2. target (required) - target y position to scroll element
+	// 	3. duration (required) - duration (miliseconds) of scroll
 	scrollTo: function(element, target, duration) {
 		target = Math.round(target);
 		duration = Math.round(duration);
@@ -21,9 +21,11 @@ var _smoothScroll = {
 			return Promise.resolve();
 		}
 
+		// calculate ening time
 		var start_time = Date.now();
 		var end_time = start_time + duration;
 
+		// calculate distnace to scroll
 		var start_top = element.scrollTop;
 		var distance = target - start_top;
 
@@ -43,8 +45,6 @@ var _smoothScroll = {
 			// This is like a think function from a game loop
 			var scroll_frame = function() {
 
-//                console.log('previous_top');
-//                console.log(previous_top);
 				if(element.scrollTop != previous_top) {
 					reject("interrupted");
 					return;
@@ -54,12 +54,7 @@ var _smoothScroll = {
 				var now = Date.now();
 				var point = smooth_step(start_time, end_time, now);
 				var frameTop = Math.round(start_top + (distance * point));
-//                var frameTop = start_top + (distance * point);
-//                console.log('frameTop');
-//                console.log(frameTop);
 				element.scrollTop = frameTop;
-//                console.log('element.scrollTop');
-//                console.log(element.scrollTop);
 
 				// check if we're done!
 				if(now >= end_time) {
@@ -72,7 +67,6 @@ var _smoothScroll = {
 				// interrupted.
 				if(element.scrollTop === previous_top
 					&& element.scrollTop !== frameTop) {
-//                    console.log('resolve');
 //                    resolve();
 //                    return;
 				}
@@ -87,6 +81,7 @@ var _smoothScroll = {
 		});
 	},
 
+	// Returns element that represents scroll of the page in current browser (in chrome it's body, in ff and ie - documentElement)
 	getPageScrollElem: function() {
 		var bodyScroll = document.body.scrollTop;
 		document.body.scrollTop++;
@@ -95,6 +90,9 @@ var _smoothScroll = {
 		return pageScrollElem;
 	},
 
+	// Returns page coordinates of element
+	// Arguments:
+	// 	1. elem (required) - element to find coordinates
 	getCoords: function(elem) {
 		// (1)
 		var box = elem.getBoundingClientRect();
@@ -119,9 +117,9 @@ var _smoothScroll = {
 			left: left
 		}
 	}
-
 };
 
+// Try exporting via webpack
 try {
 	module.exports = _smoothScroll;
 } catch (err) {

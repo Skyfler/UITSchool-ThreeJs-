@@ -10,6 +10,8 @@ function SvgLoader(options) {
 	options.name = options.name || 'SvgLoader';
 	Helper.call(this, options);
 
+	this.initiator = options.initiator;
+
 	this._urlsToLoadArr = options.urlsToLoadArr;
 
 	if (options.startLoading) {
@@ -153,7 +155,7 @@ SvgLoader.prototype._checkLoadingComplete = function() {
 
 	this.loadingComplete = true;
 
-	this._sendCustomEvent(document, 'svgLoaderLoadingComplete', {bubbles: true});
+	this._sendCustomEvent(document, 'svgLoaderLoadingComplete', {bubbles: true, detail: {initiator: this.initiator}});
 };
 
 SvgLoader.prototype.getResultCoords = function() {

@@ -1,0 +1,229 @@
+.online_courses,
+.online_courses.page_slide.slide_init {
+	padding-right: 0;
+}
+
+.online_courses .container {
+	max-width: 1280px;
+}
+
+.online_courses .block_main_title {
+	font-size: 28px;
+	color: #fffc00;
+	font-family: Raleway, sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.02em;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.online_courses .table {
+	color: #fff;
+}
+
+.online_courses .table .row {
+	justify-content: flex-start;
+	align-items: stretch;
+	padding: 15px 0;
+}
+.online_courses .table .row:not(.row_header) {
+	border-bottom: 1px solid #515151;
+	transition:
+		border-color ease 0.5s;
+}
+.online_courses .table .row.row_header:after {
+	content: "";
+	min-width: 260px;
+}
+
+.online_courses .table .cell {
+	justify-content: flex-start;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: left;
+	font-size: 14px;
+	line-height: 16px;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	width: 100%;
+}
+.online_courses .table .cell.cell_price {
+	font-size: 20px;
+}
+.online_courses .table .cell + .cell {
+	margin-top: 8px;
+}
+
+.online_courses .table .cell:before {
+	content: attr(data-title);
+	display: block;
+	width: 100px;
+	color: #727272;
+	font-size: 14px;
+	font-weight: 300;
+	text-transform: none;
+	font-family: 'Open Sans', sans-serif;
+}
+.online_courses .table .cell.cell_details:before {
+	display: none;
+}
+
+.online_courses .table .cell .content {
+	max-width: calc(100% - 100px);
+}
+
+.online_courses .table .cell button {
+	background: none;
+	border: 2px solid #fffc00;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fffc00;
+	padding: 10px 0;
+	width: calc(50% - 5px);
+	min-width: 120px;
+	max-width: 180px;
+	text-transform: uppercase;
+	transition:
+		border-color ease 0.5s;
+}
+.online_courses .table .cell button + button {
+	margin-left: 10px;
+}
+.online_courses .table .cell button:hover {
+	border-color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+
+	.online_courses .table .row.row_header {
+		display: none;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.online_courses .block_main_title {
+		font-size: 38px;
+	}
+
+	.online_courses .table {
+		max-height: calc(100vh - 235px);
+		overflow: auto;
+		padding-right: 20px;
+	}
+	.online_courses .table::-webkit-scrollbar-track {
+/*
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		border-radius: 10px;
+		background-color: #F5F5F5;
+*/
+	}
+
+	.online_courses .table::-webkit-scrollbar {
+		width: 4px;
+		background: linear-gradient(to left, transparent 35%, #515151 35%, #515151 65%, transparent 65%);
+	}
+
+	.online_courses .table::-webkit-scrollbar-thumb {
+		background-color: #fffc00;
+	}
+
+	.online_courses .table .row {
+		flex-wrap: nowrap;
+		padding: 0;
+	}
+	.online_courses .table .row:not(.row_header):hover {
+		border-color: #fffc00;
+	}
+
+	.online_courses .table .cell {
+		justify-content: flex-start;
+		padding-top: 15px;
+		padding-bottom: 10px;
+		text-align: left;
+		font-size: 20px;
+		line-height: 21px;
+	}
+	.online_courses .table .cell.cell_name {
+		width: 30%;
+	}
+	.online_courses .table .row:not(.row_header):hover .cell.cell_name {
+		color: #fffc00;
+	}
+	.online_courses .table .cell.cell_start_date {
+		width: 20%;
+	}
+	.online_courses .table .cell.cell_price {
+		width: 20%;
+	}
+	.online_courses .table .cell.cell_details {
+		width: 30%;
+		min-width: 260px;
+		justify-content: flex-end;
+		min-height: 70px;
+	}
+	.online_courses .table .cell + .cell {
+		padding-left: 10px;
+		margin-top: 0;
+	}
+	.online_courses .table .row.row_header .cell {
+		color: #727272;
+		font-size: 14px;
+		font-weight: 300;
+		text-transform: none;
+		font-family: 'Open Sans', sans-serif;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.online_courses .table .cell:before {
+		display: none;
+	}
+
+	.online_courses .table .cell .content {
+		max-width: none;
+	}
+
+	.online_courses .table .cell .scale {
+		transform-origin: center left;
+		transform: scale(0.7);
+		transition:
+			transform ease 0.5s,
+			color ease 0.5s;
+	}
+	.online_courses .table .row:not(.row_header):hover .cell .scale {
+		transform: scale(1);
+	}
+
+	.online_courses .table .cell button {
+		animation-name: appear-opacity;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+		animation-fill-mode: forwards;
+		display: none;
+		opacity: 0;
+	}
+	.online_courses .table .row:not(.row_header):hover .cell button {
+		display: block;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	.online_courses .block_main_title {
+		font-size: 48px;
+	}
+
+}
+
+@media screen and (max-width: 1199px) {
+
+	.online_courses {
+		background: #060606;
+		padding-top: 83px;
+		padding-bottom: 70px;
+	}
+
+}
