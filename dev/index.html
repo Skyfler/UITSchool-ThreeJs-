@@ -19,7 +19,7 @@
 @@include('./include/modal_contacts_tabs.html')
 @@include('./include/modal_before_leave.html')
 <section class="main">
-	<div class="container flex main_inner" id="index_menu">
+	<div class="container flex-nowrap main_inner" id="index_menu">
 		<div class="left_col">
 			<div id="carousel_menu_left">
 				<div class="carousel_list_overflow_container">
@@ -58,6 +58,17 @@
 		</div>
 	</div>
 </section>
+<!--
+<a href="online_courses" class="online_courses_btn">
+	<svg class="svg_btn_border">
+		<circle cx="50%" cy="50%" r="46%" class="svg_border_circle"/>
+	</svg>
+	<span class="text flex flex-center-v">
+		<span class="line">Онлайн</span>
+		<span class="line">курсы</span>
+	</span>
+</a>
+-->
 <footer>
 	@@include('./include/footer.html', { "leftPanel": true, "rightPanel": true, "fixedPanel": false })
 </footer>

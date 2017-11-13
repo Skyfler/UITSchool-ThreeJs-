@@ -31,6 +31,7 @@
  * 	sectionStartDateBgController.js
  * 	elemPageSlideChecker.js
  * 	sideContactButtonWave.js
+ * 	OnlineBtnController.js
  */
 
 (function ready() {
@@ -62,6 +63,7 @@
 	var SectionStartDateBgController = require('./sectionStartDateBgController');
 	var ElemPageSlideChecker = require('./elemPageSlideChecker');
 	var SideContactButtonWave = require('./sideContactButtonWave');
+	var OnlineBtnController = require('./onlineBtnController');
 
 	// initialise all polyfills
 	_polyfills.init();
@@ -526,6 +528,14 @@
 	if (rightPanel)  {
 		var footerCirclesController = new FooterCirclesController({
 			elem: rightPanel
+		});
+	}
+
+	// initialise online courses button
+	var onlineCoursesBtnElem = document.querySelector('.page-index .online_courses_btn');
+	if (onlineCoursesBtnElem)  {
+		var onlineCoursesBtn = new OnlineBtnController({
+			elem: onlineCoursesBtnElem,
 		});
 	}
 

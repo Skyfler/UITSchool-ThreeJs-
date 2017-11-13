@@ -84,6 +84,7 @@ Preloader.prototype._prepareIndexPage = function() {
 		leftMenu: document.querySelector('#index_menu .left_col'),
 		rightMenu: document.querySelector('#index_menu .right_col'),
 		bgCanvas: document.querySelector('.bg_canvas'),
+		onlineCoursesBtn: document.querySelector('.page-index .online_courses_btn'),
 		footerLeftPanel: document.querySelector('footer .left_panel'),
 		footerRightPanel: document.querySelector('footer .right_panel')
 	};
@@ -114,7 +115,7 @@ Preloader.prototype._onDocumentReadyIndexPage = function() {
 						function() {
 							// animate opacity of backoround canvas
 							this._revealOpacity(
-								this._preloadElems.bgCanvas,
+								[this._preloadElems.bgCanvas, this._preloadElems.onlineCoursesBtn],
 								function() {
 									// animate opacity of footer left panel
 									this._revealOpacity(
@@ -141,21 +142,33 @@ Preloader.prototype._onDocumentReadyIndexPage = function() {
 
 // Animates opacity of passed element
 // Arguments:
-// 	1. animateItem (required) - element to animate opacity from 0 to 1
+// 	1. animateItem (required) - element (or array of elements) to animate opacity from 0 to 1
 // 	2. callback (optional) - function that wil be called after animation is over
 Preloader.prototype._revealOpacity = function(animateItem, callback) {
 	// create new animation
+	if (!(animateItem instanceof Array)) {
+		animateItem = [animateItem];
+	}
+
 	this._animation = new Animation(
 		function(timePassed) {
 			// get value of timing function for current moment of animation
 			var timeMultiplier = Animation.linear(this._animationDuration, timePassed);
 
 			// set opacity
-			animateItem.style.opacity = timeMultiplier;
+			for (var i = 0; i < animateItem.length; i++) {
+				if (animateItem[i]) {
+					animateItem[i].style.opacity = timeMultiplier;
+				}
+			}
 		}.bind(this),
 		this._animationDuration,
 		function() {
-			animateItem.style.opacity = '';
+			for (var i = 0; i < animateItem.length; i++) {
+				if (animateItem[i]) {
+					animateItem[i].style.opacity = '';
+				}
+			}
 
 			if (callback) {
 				callback();
