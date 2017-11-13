@@ -91,7 +91,9 @@ Preloader.prototype._prepareIndexPage = function() {
 
 	// hide them with opacity
 	for (var key in this._preloadElems) {
-		this._preloadElems[key].style.opacity = 0;
+		if (this._preloadElems[key]) {
+			this._preloadElems[key].style.opacity = 0;
+		}
 	}
 
 	// for menu elements also move thembehind the screen sides
